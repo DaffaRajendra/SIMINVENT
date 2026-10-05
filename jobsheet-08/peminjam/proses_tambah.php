@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../includes/helpers.php';
-require __DIR__ . '/../includes/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('tambah.php');
@@ -13,12 +12,15 @@ $prodi = trim($_POST['prodi'] ?? '');
 $noHp = trim($_POST['no_hp'] ?? '');
 $email = trim($_POST['email'] ?? '');
 
+// Validasi server-side: tetap berjalan walau JavaScript dimatikan atau request dikirim manual.
 $errors = [];
 
 if ($nim === '') {
     $errors[] = 'NIM / NIP wajib diisi.';
 } elseif (!preg_match('/^[0-9]{8,20}$/', $nim)) {
     $errors[] = 'NIM / NIP hanya boleh berisi angka (8-20 digit).';
+} elseif (in_array($nim, array_column($_SESSION['peminjam'] ?? [], 'nim'), true)) {
+    $errors[] = 'NIM / NIP sudah terdaftar.';
 }
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
@@ -42,30 +44,15 @@ if (!empty($errors)) {
     redirect('tambah.php');
 }
 
-try {
-    $stmt = $pdo->prepare(
-        'INSERT INTO peminjam (nim, nama, status, prodi, no_hp, email)
-         VALUES (:nim, :nama, :status, :prodi, :no_hp, :email)'
-    );
-    $stmt->execute([
-        'nim'    => $nim,
-        'nama'   => $nama,
-        'status' => $status,
-        'prodi'  => $prodi,
-        'no_hp'  => $noHp,
-        'email'  => $email,
-    ]);
-} catch (PDOException $e) {
-    $_SESSION['old'] = $_POST;
-
-    if ($e->getCode() === '23505') {            // pelanggaran UNIQUE (nim)
-        setFlash('error', 'NIM / NIP sudah dipakai, gunakan nomor lain.');
-    } else {
-        error_log($e->getMessage());            // detail hanya masuk log server
-        setFlash('error', 'Terjadi kesalahan pada database. Coba lagi nanti.');
-    }
-    redirect('tambah.php');
-}
+$_SESSION['peminjam'][] = [
+    'nim' => $nim,
+    'nama' => $nama,
+    'status' => $status,
+    'prodi' => $prodi,
+    'no_hp' => $noHp,
+    'email' => $email,
+    'tanggal_bergabung' => time(),
+];
 
 setFlash('success', 'Peminjam "' . $nama . '" berhasil ditambahkan.');
 redirect('list.php');

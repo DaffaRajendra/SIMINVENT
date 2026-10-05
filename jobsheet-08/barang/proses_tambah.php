@@ -1,6 +1,5 @@
 <?php
 require __DIR__ . '/../includes/helpers.php';
-require __DIR__ . '/../includes/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('tambah.php');
@@ -14,6 +13,7 @@ $stok = trim($_POST['stok'] ?? '');
 $tahunPengadaan = trim($_POST['tahun_pengadaan'] ?? '');
 $kondisi = trim($_POST['kondisi'] ?? '');
 
+// Validasi server-side: tetap berjalan walau JavaScript dimatikan atau request dikirim manual.
 $tahunSekarang = (int) date('Y');
 $errors = [];
 
@@ -47,31 +47,15 @@ if (!empty($errors)) {
     redirect('tambah.php');
 }
 
-try {
-    $stmt = $pdo->prepare(
-        'INSERT INTO barang (kode_barang, nama_barang, kategori, lokasi, stok, tahun_pengadaan, kondisi)
-         VALUES (:kode_barang, :nama_barang, :kategori, :lokasi, :stok, :tahun_pengadaan, :kondisi)'
-    );
-    $stmt->execute([
-        'kode_barang'     => $kodeBarang,
-        'nama_barang'     => $namaBarang,
-        'kategori'        => $kategori,
-        'lokasi'          => $lokasi,
-        'stok'            => (int) $stok,
-        'tahun_pengadaan' => (int) $tahunPengadaan,
-        'kondisi'         => $kondisi,
-    ]);
-} catch (PDOException $e) {
-    $_SESSION['old'] = $_POST;
-
-    if ($e->getCode() === '23505') {            // pelanggaran UNIQUE (kode_barang)
-        setFlash('error', 'Kode barang sudah dipakai, gunakan kode lain.');
-    } else {
-        error_log($e->getMessage());
-        setFlash('error', 'Terjadi kesalahan pada database. Coba lagi nanti.');
-    }
-    redirect('tambah.php');
-}
+$_SESSION['barang'][] = [
+    'kode_barang' => $kodeBarang,
+    'nama_barang' => $namaBarang,
+    'kategori' => $kategori,
+    'lokasi' => $lokasi,
+    'stok' => (int) $stok,
+    'tahun_pengadaan' => (int) $tahunPengadaan,
+    'kondisi' => $kondisi,
+];
 
 setFlash('success', 'Barang "' . $namaBarang . '" berhasil ditambahkan.');
 redirect('list.php');

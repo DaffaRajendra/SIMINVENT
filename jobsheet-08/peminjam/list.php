@@ -2,9 +2,8 @@
 $page_title = "Daftar Peminjam";
 $active = "peminjam-list";
 include __DIR__ . '/../includes/header.php';
-require __DIR__ . '/../includes/koneksi.php';
 
-$daftarPeminjam = $pdo->query('SELECT * FROM peminjam ORDER BY nama')->fetchAll(PDO::FETCH_ASSOC);
+$daftarPeminjam = $_SESSION['peminjam'] ?? [];
 $labelStatus = ['mahasiswa' => 'Mahasiswa', 'dosen' => 'Dosen', 'petugas' => 'Petugas'];
 ?>
         <?php tampilkanFlash(); ?>
@@ -32,7 +31,7 @@ $labelStatus = ['mahasiswa' => 'Mahasiswa', 'dosen' => 'Dosen', 'petugas' => 'Pe
                     <td colspan="7" class="text-center text-muted">Belum ada data peminjam. Silakan tambah lewat menu "Tambah Peminjam".</td>
                 </tr>
                 <?php else: ?>
-                    <?php foreach ($daftarPeminjam as $peminjam): ?>
+                    <?php foreach ($daftarPeminjam as $i => $peminjam): ?>
                 <tr>
                     <td><?= e($peminjam['nim']) ?></td>
                     <td><?= e($peminjam['nama']) ?></td>
@@ -41,8 +40,8 @@ $labelStatus = ['mahasiswa' => 'Mahasiswa', 'dosen' => 'Dosen', 'petugas' => 'Pe
                     <td><?= e($peminjam['no_hp']) ?></td>
                     <td><?= e($peminjam['email']) ?></td>
                     <td>
-                        <a href="edit.php?id=<?= (int) $peminjam['id'] ?>" class="btn-edit">Edit</a>
-                        <button type="button" class="btn-hapus" data-id="<?= (int) $peminjam['id'] ?>">Hapus</button>
+                        <a href="edit.php?id=<?= $i ?>" class="btn-edit">Edit</a>
+                        <button type="button" class="btn-hapus" data-id="<?= $i ?>">Hapus</button>
                     </td>
                 </tr>
                     <?php endforeach; ?>
