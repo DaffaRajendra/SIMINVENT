@@ -48,7 +48,6 @@
             gap: 6rem;
         }
 
-        /* Bagian judul: tetap terlihat saat daftar di-scroll */
         .intro {
             position: sticky;
             top: 6rem;
@@ -83,7 +82,6 @@
             font-size: 1.02rem;
         }
 
-        /* Daftar jobsheet */
         .list { border-top: 1px solid var(--line); }
 
         .item {
@@ -182,7 +180,7 @@
 
     <main class="page">
         <header class="intro">
-            <p>Daffa Rajendra Maulana      <em>TI-2D</em></p>
+            <p>Daffa Rajendra Maulana <em>TI-2D</em></p>
             <p>254107020181</p><br>
             <h1>Desain <em>Pemrograman Web</em></h1>
             <div class="rule"></div>
@@ -190,7 +188,7 @@
         </header>
 
         <nav class="list" aria-label="Daftar jobsheet">
-            <a class="item" href="jobsheet-01/">
+            <a class="item" href="jobsheet-01/index.html">
                 <span class="num">01</span>
                 <div>
                     <h2>Jobsheet 01</h2>
@@ -199,7 +197,7 @@
                 <span class="tag">Modul 1</span>
             </a>
 
-            <a class="item" href="jobsheet-02/">
+            <a class="item" href="jobsheet-02/index.html">
                 <span class="num">02</span>
                 <div>
                     <h2>Jobsheet 02</h2>
@@ -208,7 +206,7 @@
                 <span class="tag">Modul 2</span>
             </a>
 
-            <a class="item" href="jobsheet-03/">
+            <a class="item" href="jobsheet-03/index.html">
                 <span class="num">03</span>
                 <div>
                     <h2>Jobsheet 03</h2>
@@ -217,7 +215,7 @@
                 <span class="tag">Modul 3</span>
             </a>
 
-            <a class="item" href="jobsheet-03_bootstrap/">
+            <a class="item" href="jobsheet-03_bootstrap/index.html">
                 <span class="num">03b</span>
                 <div>
                     <h2>Jobsheet 03 (Bootstrap)</h2>
@@ -226,7 +224,7 @@
                 <span class="tag">Framework</span>
             </a>
 
-            <a class="item" href="jobsheet-04/">
+            <a class="item" href="jobsheet-04/index.html">
                 <span class="num">04</span>
                 <div>
                     <h2>Jobsheet 04</h2>
@@ -235,7 +233,7 @@
                 <span class="tag">Modul 4</span>
             </a>
 
-            <a class="item" href="jobsheet-05/">
+            <a class="item" href="jobsheet-05/index.html">
                 <span class="num">05</span>
                 <div>
                     <h2>Jobsheet 05</h2>
@@ -244,7 +242,7 @@
                 <span class="tag">Modul 5</span>
             </a>
 
-            <a class="item" href="jobsheet-06/">
+            <a class="item" href="jobsheet-06/index.html">
                 <span class="num">06</span>
                 <div>
                     <h2>Jobsheet 06</h2>
@@ -274,8 +272,11 @@
     </main>
 
     <footer>
-        <p>&copy; <?php echo date('Y'); ?> Praktikum Desain Pemrograman Web. All rights reserved.</p>
+        <p>&copy; <span id="year">2026</span> Praktikum Desain Pemrograman Web. All rights reserved.</p>
     </footer>
 
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
 </html>

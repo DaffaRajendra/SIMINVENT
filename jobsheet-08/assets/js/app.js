@@ -1,4 +1,3 @@
-// ===== Hamburger menu (JS-driven, menggantikan checkbox hack) =====
 function initNavToggle() {
     const toggleBtn = document.getElementById("nav-toggle-btn");
     const nav = document.getElementById("navMenu");
@@ -10,7 +9,6 @@ function initNavToggle() {
     });
 }
 
-// ===== Helper tabel (Latihan 3: pencarian hanya di kolom Nama Barang/Nama) =====
 function ambilTabel() {
     return document.querySelector(".table-responsive table");
 }
@@ -25,7 +23,6 @@ function indeksKolomCari(table) {
     return idx === -1 ? 0 : idx;
 }
 
-// ===== Filter + counter (Latihan 3 dan 4) =====
 function perbaruiTabel() {
     const table = ambilTabel();
     if (!table) return;
@@ -68,7 +65,6 @@ function initTableFilter() {
     perbaruiTabel();
 }
 
-// ===== Konfirmasi hapus (data di session ikut terhapus lewat proses_hapus.php) =====
 function initHapusConfirm() {
     document.addEventListener("click", function (e) {
         const btn = e.target.closest(".btn-hapus");
@@ -83,7 +79,6 @@ function initHapusConfirm() {
         }
         const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
         if (yakin && btn.dataset.id !== undefined) {
-            // Kirim id ke proses_hapus.php (POST) agar data di session ikut terhapus
             const form = document.createElement("form");
             form.method = "post";
             form.action = "proses_hapus.php";
@@ -100,7 +95,6 @@ function initHapusConfirm() {
     });
 }
 
-// ===== Validasi form (Latihan 1 dan 5: aturan field disimpan di array) =====
 function tampilkanError(input, pesan) {
     hapusError(input);
     const span = document.createElement("span");
@@ -121,7 +115,6 @@ const ATURAN = [
     { name: "nama_barang",     label: "Nama Barang",     wajib: true },
     { name: "lokasi",          label: "Lokasi",          wajib: true },
     { name: "stok",            label: "Stok",            wajib: true, bulat: true, min: 0 },
-    { name: "tahun_pengadaan", label: "Tahun Pengadaan", wajib: true, bulat: true, min: 1900, max: new Date().getFullYear() },
     { name: "nim",             label: "NIM / NIP",       wajib: true, pola: /^[0-9]{8,20}$/, pesanPola: "NIM / NIP hanya boleh berisi angka (8-20 digit)." },
     { name: "nama",            label: "Nama",            wajib: true },
     { name: "prodi",           label: "Prodi / Unit",    wajib: true },

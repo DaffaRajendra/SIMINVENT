@@ -8,7 +8,6 @@ CREATE TABLE IF NOT EXISTS barang (
     kategori         VARCHAR(20) NOT NULL CHECK (kategori IN ('perabotan', 'elektronik')),
     lokasi           VARCHAR(100) NOT NULL,
     stok             INTEGER NOT NULL CHECK (stok >= 0),
-    tahun_pengadaan  INTEGER NOT NULL,
     kondisi          VARCHAR(20) NOT NULL CHECK (kondisi IN ('baik', 'rusak')),
     dibuat_pada      TIMESTAMP NOT NULL DEFAULT NOW()
 );

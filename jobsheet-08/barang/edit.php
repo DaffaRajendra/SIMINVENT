@@ -2,9 +2,15 @@
 $page_title = "Edit Barang";
 $active = "barang-list";
 require_once __DIR__ . '/../includes/helpers.php';
+require_once __DIR__ . '/../includes/koneksi.php';
 
 $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
-$barang = ($id !== false && $id !== null) ? ($_SESSION['barang'][$id] ?? null) : null;
+$barang = null;
+if ($id !== false && $id !== null) {
+    $stmt = $pdo->prepare('SELECT * FROM barang WHERE id = :id');
+    $stmt->execute(['id' => $id]);
+    $barang = $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+}
 
 if ($barang === null) {
     setFlash('error', 'Data barang tidak ditemukan.');
@@ -48,10 +54,6 @@ $daftarKondisi = ['baik' => 'Baik', 'rusak' => 'Rusak'];
             <div class="mb-3">
                 <label for="stok" class="form-label fw-semibold">Stok</label>
                 <input type="number" class="form-control" id="stok" name="stok" min="0" value="<?= e(old('stok', $barang['stok'])) ?>" required>
-            </div>
-            <div class="mb-3">
-                <label for="tahun_pengadaan" class="form-label fw-semibold">Tahun Pengadaan</label>
-                <input type="number" class="form-control" id="tahun_pengadaan" name="tahun_pengadaan" min="1900" max="<?= date('Y') ?>" value="<?= e(old('tahun_pengadaan', $barang['tahun_pengadaan'])) ?>" required>
             </div>
             <div class="mb-3">
                 <label for="kondisi" class="form-label fw-semibold">Kondisi</label>

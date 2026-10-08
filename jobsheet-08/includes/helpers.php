@@ -3,6 +3,10 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
+// Cegah halaman di-cache browser / CDN supaya data selalu terbaru
+header('Cache-Control: no-store, no-cache, must-revalidate, max-age=0');
+header('Pragma: no-cache');
+
 // Membungkus output data yang berasal dari input pengguna sebelum
 // dicetak ke HTML, untuk mencegah XSS (Cross-Site Scripting).
 function e($value)

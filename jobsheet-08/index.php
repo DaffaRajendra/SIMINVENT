@@ -3,10 +3,13 @@ $page_title = "Beranda";
 $active = "beranda";
 include __DIR__ . '/includes/header.php';
 
-$totalBarang = count($_SESSION['barang'] ?? []);
-$totalPeminjam = count($_SESSION['peminjam'] ?? []);
+require __DIR__ . '/includes/koneksi.php';
+
+$totalBarang   = (int) $pdo->query('SELECT COUNT(*) FROM barang')->fetchColumn();
+$totalPeminjam = (int) $pdo->query('SELECT COUNT(*) FROM peminjam')->fetchColumn();
+$totalStok     = (int) $pdo->query('SELECT COALESCE(SUM(stok), 0) FROM barang')->fetchColumn();
+$barangRusak   = (int) $pdo->query("SELECT COUNT(*) FROM barang WHERE kondisi = 'rusak'")->fetchColumn();
 ?>
-<!-- Hero Section -->
 <div class="hero">
     <div class="hero-inner">
         <h1>Sistem Inventaris Kampus Mini</h1>
@@ -19,42 +22,35 @@ $totalPeminjam = count($_SESSION['peminjam'] ?? []);
 </div>
 
 <main>
-    <!-- Panel Ringkasan Statistik -->
     <section class="panel mb-4">
         <h2>Ringkasan Statistik</h2>
-        <!-- Menggunakan auto-fit agar otomatis menyesuaikan agar tidak turun ke bawah -->
         <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 1rem;">            
-            <!-- Total Barang -->
             <a href="barang/list.php" class="stat-card stat-biru">
                 <div class="stat-ikon">📦</div>
-                <div class="stat-angka">1</div>
+                <div class="stat-angka"><?= $totalBarang ?></div>
                 <div class="stat-label">Total Barang</div>
             </a>
 
-            <!-- Total Peminjam -->
             <a href="peminjam/list.php" class="stat-card stat-teal">
                 <div class="stat-ikon">👥</div>
-                <div class="stat-angka">1</div>
+                <div class="stat-angka"><?= $totalPeminjam ?></div>
                 <div class="stat-label">Total Peminjam</div>
             </a>
 
-            <!-- Sedang Dipinjam -->
-            <div class="stat-card stat-amber">
-                <div class="stat-ikon">⏳</div>
-                <div class="stat-angka">4</div>
-                <div class="stat-label">Sedang Dipinjam</div>
-            </div>
+            <a href="barang/list.php" class="stat-card stat-amber">
+                <div class="stat-ikon">🗃️</div>
+                <div class="stat-angka"><?= $totalStok ?></div>
+                <div class="stat-label">Total Stok</div>
+            </a>
 
-            <!-- Barang Terlambat -->
-            <div class="stat-card stat-merah">
+            <a href="barang/list.php" class="stat-card stat-merah">
                 <div class="stat-ikon">⚠️</div>
-                <div class="stat-angka">1</div>
-                <div class="stat-label">Barang Terlambat</div>
-            </div>
+                <div class="stat-angka"><?= $barangRusak ?></div>
+                <div class="stat-label">Barang Rusak</div>
+            </a>
         </div>
     </section>
 
-    <!-- Panel Aksi Cepat -->
     <section class="panel">
         <h2>Aksi Cepat</h2>
         <div class="aksi-grid">

@@ -1,12 +1,13 @@
 <?php
 require __DIR__ . '/../includes/helpers.php';
+require __DIR__ . '/../includes/koneksi.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('list.php');
 }
 
 $id = filter_var($_POST['id'] ?? null, FILTER_VALIDATE_INT);
-if ($id === false || $id === null || !isset($_SESSION['peminjam'][$id])) {
+if ($id === false || $id === null) {
     setFlash('error', 'Data peminjam tidak ditemukan.');
     redirect('list.php');
 }
@@ -21,20 +22,10 @@ $email = trim($_POST['email'] ?? '');
 // Validasi server-side (aturan sama dengan proses_tambah.php)
 $errors = [];
 
-// NIM tidak boleh sama dengan peminjam lain (data yang sedang diedit dikecualikan)
-$nimLain = [];
-foreach ($_SESSION['peminjam'] as $indeks => $data) {
-    if ($indeks !== $id) {
-        $nimLain[] = $data['nim'];
-    }
-}
-
 if ($nim === '') {
     $errors[] = 'NIM / NIP wajib diisi.';
 } elseif (!preg_match('/^[0-9]{8,20}$/', $nim)) {
     $errors[] = 'NIM / NIP hanya boleh berisi angka (8-20 digit).';
-} elseif (in_array($nim, $nimLain, true)) {
-    $errors[] = 'NIM / NIP sudah terdaftar.';
 }
 if ($nama === '') {
     $errors[] = 'Nama wajib diisi.';
@@ -58,15 +49,32 @@ if (!empty($errors)) {
     redirect('edit.php?id=' . $id);
 }
 
-$_SESSION['peminjam'][$id] = [
-    'nim' => $nim,
-    'nama' => $nama,
-    'status' => $status,
-    'prodi' => $prodi,
-    'no_hp' => $noHp,
-    'email' => $email,
-    'tanggal_bergabung' => $_SESSION['peminjam'][$id]['tanggal_bergabung'] ?? time(),
-];
+try {
+    $stmt = $pdo->prepare(
+        'UPDATE peminjam
+         SET nim = :nim, nama = :nama, status = :status, prodi = :prodi, no_hp = :no_hp, email = :email
+         WHERE id = :id'
+    );
+    $stmt->execute([
+        'nim'    => $nim,
+        'nama'   => $nama,
+        'status' => $status,
+        'prodi'  => $prodi,
+        'no_hp'  => $noHp,
+        'email'  => $email,
+        'id'     => $id,
+    ]);
+} catch (PDOException $e) {
+    $_SESSION['old'] = $_POST;
+
+    if ($e->getCode() === '23505') {            // pelanggaran UNIQUE (nim)
+        setFlash('error', 'NIM / NIP sudah dipakai, gunakan nomor lain.');
+    } else {
+        error_log($e->getMessage());
+        setFlash('error', 'Terjadi kesalahan pada database. Coba lagi nanti.');
+    }
+    redirect('edit.php?id=' . $id);
+}
 
 setFlash('success', 'Peminjam "' . $nama . '" berhasil diperbarui.');
 redirect('list.php');

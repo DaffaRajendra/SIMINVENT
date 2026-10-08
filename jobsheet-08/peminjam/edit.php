@@ -2,9 +2,15 @@
 $page_title = "Edit Peminjam";
 $active = "peminjam-list";
 require_once __DIR__ . '/../includes/helpers.php';
+require_once __DIR__ . '/../includes/koneksi.php';
 
 $id = filter_var($_GET['id'] ?? null, FILTER_VALIDATE_INT);
-$peminjam = ($id !== false && $id !== null) ? ($_SESSION['peminjam'][$id] ?? null) : null;
+$peminjam = null;
+if ($id !== false && $id !== null) {
+    $stmt = $pdo->prepare('SELECT * FROM peminjam WHERE id = :id');
+    $stmt->execute(['id' => $id]);
+    $peminjam = $stmt->fetch(PDO::FETCH_ASSOC) ?: null;
+}
 
 if ($peminjam === null) {
     setFlash('error', 'Data peminjam tidak ditemukan.');
