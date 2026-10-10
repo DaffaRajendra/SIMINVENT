@@ -1,14 +1,3 @@
-function initNavToggle() {
-    const toggleBtn = document.getElementById("nav-toggle-btn");
-    const nav = document.getElementById("navMenu");
-    if (!toggleBtn || !nav) return;
-
-    toggleBtn.addEventListener("click", function () {
-        const terbuka = nav.classList.toggle("show");
-        toggleBtn.setAttribute("aria-expanded", terbuka);
-    });
-}
-
 function ambilTabel() {
     return document.querySelector(".table-responsive table");
 }
@@ -52,7 +41,7 @@ function perbaruiTabel() {
 function initTableFilter() {
     const input = document.getElementById("search-input");
     const table = ambilTabel();
-    if (!table) return;
+    if (!table || !input) return;
 
     const info = document.createElement("p");
     info.id = "info-jumlah";
@@ -181,7 +170,6 @@ function initValidasiForm() {
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-    initNavToggle();
     initHapusConfirm();
     initTableFilter();
     initValidasiForm();
