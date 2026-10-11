@@ -264,9 +264,17 @@
                 <span class="num">08</span>
                 <div>
                     <h2>Jobsheet 08</h2>
-                    <p>Koneksi database (PostgreSQL/MySQL) dan operasi CRUD (Create, Read, Update, Delete) menggunakan PHP.</p>
+                    <p>Koneksi database menggunakan PostgreSQL dan mengubah isi konten.</p>
                 </div>
                 <span class="tag">Modul 8</span>
+            </a>
+            <a class="item" href="jobsheet-09/">
+                <span class="num">09</span>
+                <div>
+                    <h2>Jobsheet 09</h2>
+                    <p>CRUD lanjutan: edit dan hapus data, konfirmasi hapus dengan JavaScript, serta pagination dan pencarian sisi server.</p>
+                </div>
+                <span class="tag">Modul 9</span>
             </a>
         </nav>
     </main>

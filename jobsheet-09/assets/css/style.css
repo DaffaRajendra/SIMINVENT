@@ -1,0 +1,153 @@
+/* warna indigo */
+:root {
+    --bs-primary: #4f46e5;
+    --bs-primary-rgb: 79, 70, 229;
+    --bs-primary-bg-subtle: #e8e7fc;
+    --bs-primary-text-emphasis: #3730a3;
+    --bs-link-color: #4f46e5;
+    --bs-link-color-rgb: 79, 70, 229;
+    --bs-link-hover-color: #4338ca;
+    --bs-link-hover-color-rgb: 67, 56, 202;
+    --bs-body-color: #1b1e3d;
+    --bs-body-color-rgb: 27, 30, 61;
+    --bs-secondary-rgb: 102, 107, 143;
+    --bs-border-color: #e4e6f4;
+}
+
+/* tombol indigo */
+.btn-primary {
+    --bs-btn-bg: #4f46e5;
+    --bs-btn-border-color: #4f46e5;
+    --bs-btn-hover-bg: #4338ca;
+    --bs-btn-hover-border-color: #4338ca;
+    --bs-btn-active-bg: #3730a3;
+    --bs-btn-active-border-color: #3730a3;
+}
+
+.btn-outline-primary {
+    --bs-btn-color: #4f46e5;
+    --bs-btn-border-color: #4f46e5;
+    --bs-btn-hover-bg: #4f46e5;
+    --bs-btn-hover-border-color: #4f46e5;
+    --bs-btn-active-bg: #4338ca;
+    --bs-btn-active-border-color: #4338ca;
+}
+
+/* halaman */
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    background-color: #f5f6fc;
+}
+
+/* navbar */
+.navbar {
+    --bs-navbar-color: #666b8f;
+    --bs-navbar-hover-color: #1b1e3d;
+    --bs-navbar-active-color: #4f46e5;
+    --bs-navbar-nav-link-padding-x: 1rem;
+}
+
+.navbar .nav-link {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    font-weight: 500;
+}
+
+.navbar .nav-link.active {
+    background-color: var(--bs-primary-bg-subtle);
+    border-radius: 0.5rem;
+}
+
+@media (min-width: 1200px) {
+    .navbar-nav {
+        --bs-nav-link-padding-y: 1.9rem;
+    }
+
+    .navbar > .container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    .navbar-expand-xl .navbar-collapse {
+        display: contents !important;
+    }
+
+    .aksi-navbar {
+        justify-self: end;
+    }
+
+    .navbar .nav-link {
+        border-bottom: 3px solid transparent;
+    }
+
+    .navbar .nav-link.active {
+        background-color: transparent;
+        border-radius: 0;
+        border-bottom-color: var(--bs-primary);
+    }
+}
+
+/* judul halaman */
+.breadcrumb-item.active {
+    color: var(--bs-primary);
+    font-weight: 600;
+}
+
+/* card */
+.card {
+    --bs-card-border-color: #e4e6f4;
+    --bs-card-border-radius: 1rem;
+}
+
+a.card {
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+
+a.card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 0.5rem 1rem rgba(27, 30, 61, 0.1) !important;
+}
+
+/* kartu statistik */
+.ikon-kotak {
+    width: 40px;
+    height: 40px;
+}
+
+/* font angka */
+@font-face {
+    font-family: "Poppins";
+    font-weight: 600;
+    src: url("../fonts/poppins-600.woff2") format("woff2");
+}
+
+/* angka statistik */
+.angka {
+    font-family: "Poppins", sans-serif;
+    font-weight: 600;
+}
+
+/* tabel */
+.table > :not(caption) > * > * {
+    padding: 0.9rem 0.75rem;
+}
+
+.table thead th {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: #666b8f;
+    white-space: nowrap;
+}
+
+
+/* paginasi */
+.pagination {
+    --bs-pagination-color: #4f46e5;
+    --bs-pagination-hover-color: #4338ca;
+    --bs-pagination-focus-color: #4338ca;
+    --bs-pagination-active-bg: #4f46e5;
+    --bs-pagination-active-border-color: #4f46e5;
+    --bs-pagination-border-color: #e4e6f4;
+}
