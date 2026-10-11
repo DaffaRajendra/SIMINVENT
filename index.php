@@ -276,6 +276,14 @@
                 </div>
                 <span class="tag">Modul 9</span>
             </a>
+            <a class="item" href="jobsheet-10/">
+                <span class="num">10</span>
+                <div>
+                    <h2>Jobsheet 10</h2>
+                    <p>Autentikasi dan manajemen sesi: registrasi, login, logout, dan penguncian halaman dengan PHP.</p>
+                </div>
+                <span class="tag">Modul 10</span>
+            </a>
         </nav>
     </main>
 
