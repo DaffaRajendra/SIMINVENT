@@ -58,13 +58,23 @@ body {
     border-radius: 0.5rem;
 }
 
-@media (min-width: 992px) {
+@media (min-width: 1200px) {
     .navbar-nav {
         --bs-nav-link-padding-y: 1.9rem;
     }
 
-    .sisi-navbar {
-        width: 250px;
+    .navbar > .container {
+        display: grid;
+        grid-template-columns: 1fr auto 1fr;
+        align-items: center;
+    }
+
+    .navbar-expand-xl .navbar-collapse {
+        display: contents !important;
+    }
+
+    .aksi-navbar {
+        justify-self: end;
     }
 
     .navbar .nav-link {
@@ -107,14 +117,14 @@ a.card:hover {
 
 /* font angka */
 @font-face {
-    font-family: "Lexend";
+    font-family: "Poppins";
     font-weight: 600;
-    src: url("../fonts/lexend-600.woff2") format("woff2");
+    src: url("../fonts/poppins-600.woff2") format("woff2");
 }
 
 /* angka statistik */
 .angka {
-    font-family: "Lexend", sans-serif;
+    font-family: "Poppins", sans-serif;
     font-weight: 600;
 }
 

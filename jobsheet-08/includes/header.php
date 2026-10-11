@@ -24,9 +24,9 @@ function navActive($menu, $active)
     <link rel="stylesheet" href="<?= $base ?>assets/css/style.css">
 </head>
 <body class="d-flex flex-column min-vh-100">
-    <nav class="navbar navbar-expand-lg bg-white border-bottom sticky-top py-0">
+    <nav class="navbar navbar-expand-xl bg-white border-bottom sticky-top py-0">
         <div class="container">
-            <a class="navbar-brand sisi-navbar d-flex align-items-center fw-bold me-0 py-3" href="<?= $base ?>index.php">
+            <a class="navbar-brand d-flex align-items-center fw-bold me-0 py-3" href="<?= $base ?>index.php">
                 <img src="<?= $base ?>assets/img/logo.png" alt="Logo SIMINVENT" height="40" class="me-2">
                 SIMINVENT<span class="text-primary fw-normal">-Mini</span>
             </a>
@@ -45,8 +45,9 @@ function navActive($menu, $active)
                         <a class="nav-link<?= navActive('peminjam', $active) ?>" href="<?= $base ?>peminjam/list.php"><i class="bi bi-people me-1"></i>Peminjam</a>
                     </li>
                 </ul>
-                <div class="sisi-navbar text-lg-end d-grid d-lg-block pb-3 pb-lg-0">
-                    <a class="btn btn-outline-primary rounded-pill" href="<?= $base ?>barang/tambah.php"><i class="bi bi-plus-lg"></i> Tambah Barang</a>
+                <div class="aksi-navbar d-grid d-xl-flex gap-2 pb-3 pb-xl-0">
+                    <a class="btn btn-outline-primary rounded-pill text-nowrap" href="<?= $base ?>barang/tambah.php"><i class="bi bi-plus-lg"></i> Tambah Barang</a>
+                    <a class="btn btn-primary rounded-pill text-nowrap" href="<?= $base ?>peminjam/tambah.php"><i class="bi bi-person-plus"></i> Tambah Peminjam</a>
                 </div>
             </div>
         </div>

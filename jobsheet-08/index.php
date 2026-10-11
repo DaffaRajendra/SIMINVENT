@@ -17,14 +17,9 @@ $warnaKondisi = ['baik' => 'success', 'rusak' => 'danger'];
 ?>
 <div class="bg-white border-bottom py-4">
     <div class="container py-5">
-        <div class="d-flex flex-wrap justify-content-between align-items-center gap-3">
-            <div>
-                <span class="badge rounded-pill bg-primary-subtle text-primary mb-3"><i class="bi bi-stars"></i> Inventaris Kampus</span>
-                <h1 class="fw-bold fs-2">Kelola inventaris kampus <span class="text-primary">lebih rapi</span> dan cepat</h1>
-                <p class="text-secondary mb-0">Catat barang, pantau stok, dan atur data peminjam dalam satu tempat yang sederhana.</p>
-            </div>
-            <a href="peminjam/tambah.php" class="btn btn-primary"><i class="bi bi-person-plus"></i> Tambah Peminjam</a>
-        </div>
+        <span class="badge rounded-pill bg-primary-subtle text-primary mb-3"><i class="bi bi-stars"></i> Inventaris Kampus</span>
+        <h1 class="fw-bold fs-2">Kelola inventaris kampus <span class="text-primary">lebih rapi</span> dan cepat</h1>
+        <p class="text-secondary mb-0">Catat barang, pantau stok, dan atur data peminjam dalam satu tempat yang sederhana.</p>
     </div>
 </div>
 
