@@ -1,16 +1,14 @@
-// ===== Hamburger menu (JS-driven, menggantikan checkbox hack) =====
 function initNavToggle() {
-    const toggleBtn = document.getElementById("nav-toggle-btn");
-    const nav = document.getElementById("navMenu");
-    if (!toggleBtn || !nav) return;
+    const tombol = document.getElementById("nav-toggle-btn");
+    const menu = document.getElementById("navMenu");
+    if (!tombol || !menu) return;
 
-    toggleBtn.addEventListener("click", function () {
-        const terbuka = nav.classList.toggle("show");
-        toggleBtn.setAttribute("aria-expanded", terbuka);
+    tombol.addEventListener("click", function () {
+        const terbuka = menu.classList.toggle("show");
+        tombol.setAttribute("aria-expanded", terbuka);
     });
 }
 
-// ===== Helper tabel (Latihan 3: pencarian hanya di kolom Judul/Nama) =====
 function ambilTabel() {
     return document.querySelector(".table-responsive table");
 }
@@ -20,12 +18,11 @@ function indeksKolomCari(table) {
         return th.textContent.trim();
     });
     const idx = judulKolom.findIndex(function (teks) {
-        return teks === "Judul" || teks === "Nama";
+        return teks === "Nama Barang" || teks === "Nama";
     });
     return idx === -1 ? 0 : idx;
 }
 
-// ===== Filter + counter (Latihan 3 dan 4) =====
 function perbaruiTabel() {
     const table = ambilTabel();
     if (!table) return;
@@ -33,7 +30,7 @@ function perbaruiTabel() {
     const input = document.getElementById("search-input");
     const keyword = input ? input.value.trim().toLowerCase() : "";
     const idx = indeksKolomCari(table);
-    const rows = table.querySelectorAll("tbody tr");
+    const rows = table.querySelectorAll("tbody tr:not(.baris-pesan)");
     let tampil = 0;
 
     rows.forEach(function (row) {
@@ -47,7 +44,7 @@ function perbaruiTabel() {
     const info = document.getElementById("info-jumlah");
     if (info) {
         const namaKolom = table.querySelectorAll("thead th")[idx].textContent.trim();
-        const satuan = namaKolom === "Judul" ? "buku" : "anggota";
+        const satuan = namaKolom === "Nama Barang" ? "barang" : "peminjam";
         info.textContent = "Menampilkan " + tampil + " dari " + rows.length + " " + satuan;
     }
 }
@@ -55,20 +52,17 @@ function perbaruiTabel() {
 function initTableFilter() {
     const input = document.getElementById("search-input");
     const table = ambilTabel();
-    if (!table) return;
+    if (!table || !input) return;
 
     const info = document.createElement("p");
     info.id = "info-jumlah";
-    info.className = "text-muted small mb-2";
+    info.className = "text-secondary small mb-2";
     table.closest(".table-responsive").insertAdjacentElement("beforebegin", info);
 
-    if (input) {
-        input.addEventListener("keyup", perbaruiTabel);
-    }
+    input.addEventListener("keyup", perbaruiTabel);
     perbaruiTabel();
 }
 
-// ===== Konfirmasi hapus (front-end only, belum ke server) =====
 function initHapusConfirm() {
     document.querySelectorAll(".btn-hapus").forEach(function (btn) {
         btn.addEventListener("click", function () {
@@ -88,7 +82,6 @@ function initHapusConfirm() {
     });
 }
 
-// ===== Validasi form (Latihan 1 dan 5: aturan field disimpan di array) =====
 function tampilkanError(input, pesan) {
     hapusError(input);
     const span = document.createElement("span");
@@ -105,16 +98,15 @@ function hapusError(input) {
 }
 
 const ATURAN = [
-    { name: "judul",      label: "Judul",        wajib: true },
-    { name: "pengarang",  label: "Pengarang",    wajib: true },
-    { name: "tahun",      label: "Tahun terbit", wajib: true, bulat: true, min: 1900, max: new Date().getFullYear() },
-    { name: "isbn",       label: "ISBN",         wajib: true, pola: /^[0-9-]+$/, pesanPola: "ISBN hanya boleh berisi angka dan tanda hubung (-)." },
-    { name: "stok",       label: "Stok",         wajib: true, bulat: true, min: 0 },
-    { name: "nama",       label: "Nama",         wajib: true },
-    { name: "no_anggota", label: "No. Anggota",  wajib: true },
-    { name: "alamat",     label: "Alamat",       wajib: true },
-    { name: "no_hp",      label: "No. HP",       wajib: true, pola: /^[0-9+\-\s]{8,15}$/, pesanPola: "No. HP harus 8-15 karakter (angka, +, -)." },
-    { name: "email",      label: "Email",        wajib: true, pola: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, pesanPola: "Format email tidak valid." }
+    { name: "kode_barang", label: "Kode Barang", wajib: true, pola: /^[A-Za-z0-9-]+$/, pesanPola: "Kode Barang hanya boleh berisi huruf, angka, dan tanda hubung (-)." },
+    { name: "nama_barang", label: "Nama Barang", wajib: true },
+    { name: "lokasi",      label: "Lokasi",      wajib: true },
+    { name: "stok",        label: "Stok",        wajib: true, bulat: true, min: 0 },
+    { name: "nim",         label: "NIM / NIP",   wajib: true, pola: /^[0-9]{8,20}$/, pesanPola: "NIM / NIP hanya boleh berisi angka (8-20 digit)." },
+    { name: "nama",        label: "Nama",        wajib: true },
+    { name: "prodi",       label: "Prodi / Unit", wajib: true },
+    { name: "no_hp",       label: "No. HP",      wajib: true, pola: /^[0-9+\-\s]{8,15}$/, pesanPola: "No. HP harus 8-15 karakter (angka, +, -)." },
+    { name: "email",       label: "Email",       wajib: true, pola: /^[^\s@]+@[^\s@]+\.[^\s@]+$/, pesanPola: "Format email tidak valid." }
 ];
 
 function cekNilai(aturan, nilai) {
@@ -129,12 +121,7 @@ function cekNilai(aturan, nilai) {
         if (!Number.isInteger(angka)) {
             return aturan.label + " harus berupa bilangan bulat.";
         }
-        const adaMin = aturan.min !== undefined;
-        const adaMax = aturan.max !== undefined;
-        if ((adaMin && angka < aturan.min) || (adaMax && angka > aturan.max)) {
-            if (adaMin && adaMax) {
-                return aturan.label + " harus antara " + aturan.min + " dan " + aturan.max + ".";
-            }
+        if (aturan.min !== undefined && angka < aturan.min) {
             return aturan.label + " tidak boleh kurang dari " + aturan.min + ".";
         }
     }

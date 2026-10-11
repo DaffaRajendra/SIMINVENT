@@ -1,0 +1,66 @@
+[
+    {
+        "kode": "BRG-001",
+        "nama": "Laptop Asus Vivobook",
+        "kategori": "elektronik",
+        "lokasi": "Lab Komputer 1",
+        "stok": 12,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-002",
+        "nama": "Kursi Lipat",
+        "kategori": "perabotan",
+        "lokasi": "Gudang Utama",
+        "stok": 40,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-003",
+        "nama": "Proyektor Epson",
+        "kategori": "elektronik",
+        "lokasi": "Ruang Multimedia",
+        "stok": 6,
+        "kondisi": "rusak"
+    },
+    {
+        "kode": "BRG-004",
+        "nama": "Meja Kuliah",
+        "kategori": "perabotan",
+        "lokasi": "Gedung B Lantai 2",
+        "stok": 30,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-005",
+        "nama": "Router TP-Link",
+        "kategori": "elektronik",
+        "lokasi": "Ruang Server",
+        "stok": 5,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-006",
+        "nama": "Papan Tulis Putih",
+        "kategori": "perabotan",
+        "lokasi": "Ruang Kelas 3.1",
+        "stok": 8,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-007",
+        "nama": "Kabel HDMI",
+        "kategori": "elektronik",
+        "lokasi": "Ruang Multimedia",
+        "stok": 15,
+        "kondisi": "baik"
+    },
+    {
+        "kode": "BRG-008",
+        "nama": "Lemari Arsip",
+        "kategori": "perabotan",
+        "lokasi": "Ruang Tata Usaha",
+        "stok": 4,
+        "kondisi": "rusak"
+    }
+]

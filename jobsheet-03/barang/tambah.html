@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMINVENT-Mini | Tambah Barang</title>
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="../index.html">
+                <img src="../assets/img/logo.png" alt="Logo SIMINVENT" height="40">
+                <span>SIMINVENT<em>-Mini</em></span>
+            </a>
+            <input type="checkbox" id="nav-toggle" class="nav-toggle">
+            <label for="nav-toggle" class="nav-toggle-label">&#9776;</label>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="../barang/list.html" class="active">Barang</a></li>
+                    <li><a href="../peminjam/list.html">Peminjam</a></li>
+                </ul>
+            </nav>
+            <div class="aksi">
+                <a class="btn btn-outline" href="../barang/tambah.html">+ Tambah Barang</a>
+                <a class="btn btn-solid" href="../peminjam/tambah.html">+ Tambah Peminjam</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="judul-halaman">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="list.html">Barang</a></li>
+                <li class="aktif">Tambah</li>
+            </ol>
+            <div class="judul-baris">
+                <h1>Tambah Barang</h1>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="kartu">
+                <form>
+                    <div class="form-grid">
+                        <div>
+                            <label for="kode_barang">Kode Barang</label>
+                            <input type="text" id="kode_barang" name="kode_barang" required>
+                        </div>
+                        <div>
+                            <label for="nama_barang">Nama Barang</label>
+                            <input type="text" id="nama_barang" name="nama_barang" required>
+                        </div>
+                        <div>
+                            <label for="kategori">Kategori</label>
+                            <select id="kategori" name="kategori">
+                                <option value="perabotan">Perabotan</option>
+                                <option value="elektronik">Elektronik</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="lokasi">Lokasi</label>
+                            <input type="text" id="lokasi" name="lokasi" required>
+                        </div>
+                        <div>
+                            <label for="stok">Stok</label>
+                            <input type="number" id="stok" name="stok" min="0" required>
+                        </div>
+                        <div>
+                            <label for="kondisi">Kondisi</label>
+                            <select id="kondisi" name="kondisi">
+                                <option value="baik">Baik</option>
+                                <option value="rusak">Rusak</option>
+                            </select>
+                        </div>
+                        <div class="form-aksi">
+                            <button type="submit" class="btn btn-solid">Simpan</button>
+                            <a href="list.html" class="btn btn-outline">Batal</a>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 3</p>
+    </footer>
+</body>
+</html>

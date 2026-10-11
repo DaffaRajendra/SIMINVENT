@@ -3,52 +3,115 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SIMPUS-Mini | Beranda</title>
+    <title>SIMINVENT-Mini | Beranda</title>
+    <link rel="icon" href="assets/img/favicon.ico">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header>
-        <h1>SIMPUS-Mini</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Beranda</a></li>
-                <li><a href="buku/list.html">Daftar Buku</a></li>
-                <li><a href="buku/tambah.html">Tambah Buku</a></li>
-                <li><a href="anggota/list.html">Daftar Anggota</a></li>
-                <li><a href="anggota/tambah.html">Tambah Anggota</a></li>
-            </ul>
-        </nav>
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="index.html">
+                <img src="assets/img/logo.png" alt="Logo SIMINVENT" height="40">
+                <span>SIMINVENT<em>-Mini</em></span>
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="index.html" class="active">Beranda</a></li>
+                    <li><a href="barang/list.html">Barang</a></li>
+                    <li><a href="peminjam/list.html">Peminjam</a></li>
+                </ul>
+            </nav>
+            <div class="aksi">
+                <a class="btn btn-outline" href="barang/tambah.html">+ Tambah Barang</a>
+                <a class="btn btn-solid" href="peminjam/tambah.html">+ Tambah Peminjam</a>
+            </div>
+        </div>
     </header>
 
-    <main>
-        <section>
-            <h2>Selamat Datang di Sistem Perpustakaan Mini</h2>
-            <p>Aplikasi sederhana untuk mengelola data buku dan anggota perpustakaan.</p>
-        </section>
+    <section class="hero">
+        <div class="container">
+            <span class="label">Inventaris Kampus</span>
+            <h1>Kelola inventaris kampus <span>lebih rapi</span> dan cepat</h1>
+            <p>Catat barang, pantau stok, dan atur data peminjam dalam satu tempat yang sederhana.</p>
+        </div>
+    </section>
 
-        <section>
-            <h2>Ringkasan</h2>
-            <article>
-                <h3>Total Buku</h3>
-                <p>12</p>
-            </article>
-            <article>
-                <h3>Total Anggota</h3>
-                <p>8</p>
-            </article>
-            <article>
-                <h3>Sedang Dipinjam</h3>
-                <p>3</p>
-            </article>
-            <article>
-                <h3>Buku Terlambat</h3>
-                <p>5</p>
-            </article>
-        </section>
+    <main>
+        <div class="container">
+            <section class="statistik">
+                <a class="stat" href="barang/list.html">
+                    <span class="ikon ikon-primary">&#9635;</span>
+                    <span class="angka">8</span>
+                    <span class="nama-stat">Total Barang</span>
+                </a>
+                <a class="stat" href="peminjam/list.html">
+                    <span class="ikon ikon-success">&#9786;</span>
+                    <span class="angka">5</span>
+                    <span class="nama-stat">Total Peminjam</span>
+                </a>
+                <a class="stat" href="barang/list.html">
+                    <span class="ikon ikon-warning">&#8803;</span>
+                    <span class="angka">120</span>
+                    <span class="nama-stat">Total Stok</span>
+                </a>
+                <a class="stat" href="barang/list.html">
+                    <span class="ikon ikon-danger">&#9888;</span>
+                    <span class="angka">2</span>
+                    <span class="nama-stat">Barang Rusak</span>
+                </a>
+            </section>
+
+            <div class="dua-kolom">
+                <section class="kartu">
+                    <div class="kartu-judul">
+                        <h2>Barang terbaru</h2>
+                        <a href="barang/list.html">Lihat semua &rarr;</a>
+                    </div>
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Kode</th>
+                                    <th>Nama</th>
+                                    <th>Kondisi</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>BRG-008</td>
+                                    <td>Lemari Arsip</td>
+                                    <td><span class="badge badge-danger">Rusak</span></td>
+                                </tr>
+                                <tr>
+                                    <td>BRG-007</td>
+                                    <td>Kabel HDMI</td>
+                                    <td><span class="badge badge-success">Baik</span></td>
+                                </tr>
+                                <tr>
+                                    <td>BRG-006</td>
+                                    <td>Papan Tulis Putih</td>
+                                    <td><span class="badge badge-success">Baik</span></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <section class="kartu">
+                    <h2>Aksi cepat</h2>
+                    <ul class="aksi-cepat">
+                            <li><a href="barang/tambah.html">Tambah Barang</a></li>
+                            <li><a href="peminjam/tambah.html">Tambah Peminjam</a></li>
+                            <li><a href="barang/list.html">Daftar Barang</a></li>
+                            <li><a href="peminjam/list.html">Daftar Peminjam</a></li>
+                    </ul>
+                </section>
+            </div>
+        </div>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 1</p>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 2</p>
     </footer>
 </body>
 </html>

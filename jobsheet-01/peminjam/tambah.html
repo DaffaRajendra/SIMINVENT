@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMINVENT-Mini | Tambah Peminjam</title>
+</head>
+<body>
+    <header>
+        <h1>SIMINVENT-Mini</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="../barang/list.html">Daftar Barang</a></li>
+                <li><a href="../barang/tambah.html">Tambah Barang</a></li>
+                <li><a href="../peminjam/list.html">Daftar Peminjam</a></li>
+                <li><a href="../peminjam/tambah.html">Tambah Peminjam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Peminjam</h2>
+            <form>
+            <p>
+                <label for="nim">NIM / NIP</label><br>
+                <input type="text" id="nim" name="nim" required>
+            </p>
+            <p>
+                <label for="nama">Nama</label><br>
+                <input type="text" id="nama" name="nama" required>
+            </p>
+            <p>
+                <label for="status">Status</label><br>
+                <select id="status" name="status">
+                        <option value="mahasiswa">Mahasiswa</option>
+                        <option value="dosen">Dosen</option>
+                        <option value="petugas">Petugas</option>
+                    </select>
+            </p>
+            <p>
+                <label for="prodi">Prodi / Unit</label><br>
+                <input type="text" id="prodi" name="prodi" required>
+            </p>
+            <p>
+                <label for="no_hp">No. HP</label><br>
+                <input type="tel" id="no_hp" name="no_hp" required>
+            </p>
+            <p>
+                <label for="email">Email</label><br>
+                <input type="email" id="email" name="email" required>
+            </p>
+            <p>
+                <button type="submit">Simpan</button>
+            </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 1</p>
+    </footer>
+</body>
+</html>

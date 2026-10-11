@@ -1,8 +1,8 @@
 # Desain-Pemrograman-Web
 
-# Jobsheet 01 
+# Jobsheet 01
 
-Jobsheet ini berisi implementasi awal sistem pengelolaan data buku dan anggota perpustakaan.
+Jobsheet ini berisi implementasi awal sistem pengelolaan inventaris kampus (SIMINVENT-Mini) yang mencatat data barang dan peminjam. Halaman dibuat dengan HTML saja, tanpa CSS.
 
 ## Identitas
 
@@ -13,23 +13,58 @@ Jobsheet ini berisi implementasi awal sistem pengelolaan data buku dan anggota p
 | Mata Kuliah | Desain Pemograman Web |
 | Kelas | TI - 2D |
 
-
 ## Struktur Folder
 
 ```
 jobsheet-01/
 ├── index.html          → halaman beranda
-├── buku/
-│   ├── list.html        → tabel daftar buku
-│   └── tambah.html      → form tambah buku (belum diproses)
-├── anggota/
-│   ├── list.html        → tabel daftar anggota
-│   └── tambah.html      → form tambah anggota (belum diproses)
+├── barang/
+│   ├── list.html        → tabel daftar barang
+│   └── tambah.html      → form tambah barang (belum diproses)
+├── peminjam/
+│   ├── list.html        → tabel daftar peminjam
+│   └── tambah.html      → form tambah peminjam (belum diproses)
 ├── README.md
 └── dokumentasi/         → dokumentasi pendukung jobsheet
-``` 
+```
+
+## Isi Halaman
+
+| Halaman | Isi |
+|---|---|
+| Beranda | Sambutan, ringkasan (total barang, total peminjam, total stok, barang rusak), tabel Barang terbaru, dan daftar Aksi cepat |
+| Daftar Barang | Tabel kode, nama barang, kategori, lokasi, stok, kondisi, dan tombol Edit dan Hapus |
+| Tambah Barang | Form kode barang, nama barang, kategori, lokasi, stok, dan kondisi |
+| Daftar Peminjam | Tabel NIM atau NIP, nama, status, prodi atau unit, nomor HP, email, dan tombol Edit dan Hapus |
+| Tambah Peminjam | Form NIM atau NIP, nama, status, prodi atau unit, nomor HP, dan email |
+
+## Tata Letak
+
+Karena jobsheet ini belum memakai CSS, tata letak ditentukan oleh struktur HTML:
+
+- `<header>` berisi nama aplikasi dan `<nav>` dengan lima tautan.
+- `<main>` dibagi menjadi beberapa `<section>`: sambutan, ringkasan, Barang terbaru, dan Aksi cepat.
+- Setiap angka ringkasan berada dalam satu `<article>`.
+- Data ditampilkan dengan `<table>`, sedangkan input memakai `<form>` dengan `<label>`, `<input>`, dan `<select>`.
+- `<footer>` menutup halaman.
 
 ## Cara Menjalankan
 
 Buka file `index.html` melalui browser.
 
+## Dokumentasi
+
+### Beranda
+![Beranda](dokumentasi/beranda.png)
+
+### Daftar Barang
+![Daftar Barang](dokumentasi/daftarbarang.png)
+
+### Tambah Barang
+![Tambah Barang](dokumentasi/tambahbarang.png)
+
+### Daftar Peminjam
+![Daftar Peminjam](dokumentasi/daftarpeminjam.png)
+
+### Tambah Peminjam
+![Tambah Peminjam](dokumentasi/tambahpeminjam.png)

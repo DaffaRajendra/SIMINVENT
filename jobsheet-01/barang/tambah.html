@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>SIMINVENT-Mini | Tambah Barang</title>
+</head>
+<body>
+    <header>
+        <h1>SIMINVENT-Mini</h1>
+        <nav>
+            <ul>
+                <li><a href="../index.html">Beranda</a></li>
+                <li><a href="../barang/list.html">Daftar Barang</a></li>
+                <li><a href="../barang/tambah.html">Tambah Barang</a></li>
+                <li><a href="../peminjam/list.html">Daftar Peminjam</a></li>
+                <li><a href="../peminjam/tambah.html">Tambah Peminjam</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section>
+            <h2>Tambah Barang</h2>
+            <form>
+            <p>
+                <label for="kode_barang">Kode Barang</label><br>
+                <input type="text" id="kode_barang" name="kode_barang" required>
+            </p>
+            <p>
+                <label for="nama_barang">Nama Barang</label><br>
+                <input type="text" id="nama_barang" name="nama_barang" required>
+            </p>
+            <p>
+                <label for="kategori">Kategori</label><br>
+                <select id="kategori" name="kategori">
+                        <option value="perabotan">Perabotan</option>
+                        <option value="elektronik">Elektronik</option>
+                    </select>
+            </p>
+            <p>
+                <label for="lokasi">Lokasi</label><br>
+                <input type="text" id="lokasi" name="lokasi" required>
+            </p>
+            <p>
+                <label for="stok">Stok</label><br>
+                <input type="number" id="stok" name="stok" min="0" required>
+            </p>
+            <p>
+                <label for="kondisi">Kondisi</label><br>
+                <select id="kondisi" name="kondisi">
+                        <option value="baik">Baik</option>
+                        <option value="rusak">Rusak</option>
+                    </select>
+            </p>
+            <p>
+                <button type="submit">Simpan</button>
+            </p>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 1</p>
+    </footer>
+</body>
+</html>

@@ -2,47 +2,92 @@
 <html lang="id">
 <head>
     <meta charset="UTF-8">
-    <title>SIMPUS-Mini | Beranda</title>
+    <title>SIMINVENT-Mini | Beranda</title>
 </head>
 <body>
     <header>
-        <h1>SIMPUS-Mini</h1>
+        <h1>SIMINVENT-Mini</h1>
         <nav>
             <ul>
                 <li><a href="index.html">Beranda</a></li>
-                <li><a href="buku/list.html">Daftar Buku</a></li>
-                <li><a href="buku/tambah.html">Tambah Buku</a></li>
-                <li><a href="anggota/list.html">Daftar Anggota</a></li>
-                <li><a href="anggota/tambah.html">Tambah Anggota</a></li>
+                <li><a href="barang/list.html">Daftar Barang</a></li>
+                <li><a href="barang/tambah.html">Tambah Barang</a></li>
+                <li><a href="peminjam/list.html">Daftar Peminjam</a></li>
+                <li><a href="peminjam/tambah.html">Tambah Peminjam</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
         <section>
-            <h2>Selamat Datang di Sistem Perpustakaan Mini</h2>
-            <p>Aplikasi sederhana untuk mengelola data buku dan anggota perpustakaan.</p>
+            <h2>Kelola inventaris kampus lebih rapi dan cepat</h2>
+            <p>Catat barang, pantau stok, dan atur data peminjam dalam satu tempat yang sederhana.</p>
         </section>
 
         <section>
             <h2>Ringkasan</h2>
             <article>
-                <h3>Total Buku</h3>
-                <p>12</p>
-            </article>
-            <article>
-                <h3>Total Anggota</h3>
+                <h3>Total Barang</h3>
                 <p>8</p>
             </article>
             <article>
-                <h3>Sedang Dipinjam</h3>
-                <p>3</p>
+                <h3>Total Peminjam</h3>
+                <p>5</p>
             </article>
+            <article>
+                <h3>Total Stok</h3>
+                <p>120</p>
+            </article>
+            <article>
+                <h3>Barang Rusak</h3>
+                <p>2</p>
+            </article>
+        </section>
+
+        <section>
+            <h2>Barang terbaru</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Kode</th>
+                        <th>Nama</th>
+                        <th>Kondisi</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>BRG-008</td>
+                        <td>Lemari Arsip</td>
+                        <td>Rusak</td>
+                    </tr>
+                    <tr>
+                        <td>BRG-007</td>
+                        <td>Kabel HDMI</td>
+                        <td>Baik</td>
+                    </tr>
+                    <tr>
+                        <td>BRG-006</td>
+                        <td>Papan Tulis Putih</td>
+                        <td>Baik</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p><a href="barang/list.html">Lihat semua</a></p>
+        </section>
+
+        <section>
+            <h2>Aksi cepat</h2>
+            <ul>
+                <li><a href="barang/tambah.html">Tambah Barang</a></li>
+                <li><a href="peminjam/tambah.html">Tambah Peminjam</a></li>
+                <li><a href="barang/list.html">Daftar Barang</a></li>
+                <li><a href="peminjam/list.html">Daftar Peminjam</a></li>
+            </ul>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 SIMPUS-Mini &mdash; Jobsheet 1</p>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 1</p>
     </footer>
 </body>
 </html>

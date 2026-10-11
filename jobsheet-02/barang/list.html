@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMINVENT-Mini | Daftar Barang</title>
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="../index.html">
+                <img src="../assets/img/logo.png" alt="Logo SIMINVENT" height="40">
+                <span>SIMINVENT<em>-Mini</em></span>
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="../barang/list.html" class="active">Barang</a></li>
+                    <li><a href="../peminjam/list.html">Peminjam</a></li>
+                </ul>
+            </nav>
+            <div class="aksi">
+                <a class="btn btn-outline" href="../barang/tambah.html">+ Tambah Barang</a>
+                <a class="btn btn-solid" href="../peminjam/tambah.html">+ Tambah Peminjam</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="judul-halaman">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="aktif">Barang</li>
+            </ol>
+            <div class="judul-baris">
+                <h1>Daftar Barang</h1>
+                <a class="btn btn-solid" href="tambah.html">+ Tambah Barang</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="kartu">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Kode</th>
+                                <th>Nama Barang</th>
+                                <th>Kategori</th>
+                                <th>Lokasi</th>
+                                <th>Stok</th>
+                                <th>Kondisi</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr>
+                            <td>BRG-001</td>
+                            <td>Laptop Asus Vivobook</td>
+                            <td><span class="badge badge-primary">Elektronik</span></td>
+                            <td>Lab Komputer 1</td>
+                            <td>12</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-002</td>
+                            <td>Kursi Lipat</td>
+                            <td><span class="badge badge-secondary">Perabotan</span></td>
+                            <td>Gudang Utama</td>
+                            <td>40</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-003</td>
+                            <td>Proyektor Epson</td>
+                            <td><span class="badge badge-primary">Elektronik</span></td>
+                            <td>Ruang Multimedia</td>
+                            <td>6</td>
+                            <td><span class="badge badge-danger">Rusak</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-004</td>
+                            <td>Meja Kuliah</td>
+                            <td><span class="badge badge-secondary">Perabotan</span></td>
+                            <td>Gedung B Lantai 2</td>
+                            <td>30</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-005</td>
+                            <td>Router TP-Link</td>
+                            <td><span class="badge badge-primary">Elektronik</span></td>
+                            <td>Ruang Server</td>
+                            <td>5</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-006</td>
+                            <td>Papan Tulis Putih</td>
+                            <td><span class="badge badge-secondary">Perabotan</span></td>
+                            <td>Ruang Kelas 3.1</td>
+                            <td>8</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-007</td>
+                            <td>Kabel HDMI</td>
+                            <td><span class="badge badge-primary">Elektronik</span></td>
+                            <td>Ruang Multimedia</td>
+                            <td>15</td>
+                            <td><span class="badge badge-success">Baik</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>BRG-008</td>
+                            <td>Lemari Arsip</td>
+                            <td><span class="badge badge-secondary">Perabotan</span></td>
+                            <td>Ruang Tata Usaha</td>
+                            <td>4</td>
+                            <td><span class="badge badge-danger">Rusak</span></td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 2</p>
+    </footer>
+</body>
+</html>

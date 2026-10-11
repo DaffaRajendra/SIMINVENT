@@ -1,0 +1,42 @@
+[
+    {
+        "nim": "254107020101",
+        "nama": "Aulia Rahma",
+        "status": "mahasiswa",
+        "prodi": "Teknik Informatika",
+        "no_hp": "081234567801",
+        "email": "aulia.rahma@kampus.ac.id"
+    },
+    {
+        "nim": "254107020102",
+        "nama": "Bagas Prasetyo",
+        "status": "mahasiswa",
+        "prodi": "Sistem Informasi Bisnis",
+        "no_hp": "081234567802",
+        "email": "bagas.prasetyo@kampus.ac.id"
+    },
+    {
+        "nim": "198507122010011002",
+        "nama": "Hendra Wijaya",
+        "status": "dosen",
+        "prodi": "Teknik Informatika",
+        "no_hp": "081234567803",
+        "email": "hendra.wijaya@kampus.ac.id"
+    },
+    {
+        "nim": "198811052015042001",
+        "nama": "Ratna Sari",
+        "status": "petugas",
+        "prodi": "Unit Sarana Prasarana",
+        "no_hp": "081234567804",
+        "email": "ratna.sari@kampus.ac.id"
+    },
+    {
+        "nim": "254107020105",
+        "nama": "Dimas Anggara",
+        "status": "mahasiswa",
+        "prodi": "Teknik Elektro",
+        "no_hp": "081234567805",
+        "email": "dimas.anggara@kampus.ac.id"
+    }
+]

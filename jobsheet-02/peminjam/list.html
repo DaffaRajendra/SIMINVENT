@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>SIMINVENT-Mini | Daftar Peminjam</title>
+    <link rel="icon" href="../assets/img/favicon.ico">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <header class="navbar">
+        <div class="container">
+            <a class="brand" href="../index.html">
+                <img src="../assets/img/logo.png" alt="Logo SIMINVENT" height="40">
+                <span>SIMINVENT<em>-Mini</em></span>
+            </a>
+            <nav class="menu">
+                <ul>
+                    <li><a href="../index.html">Beranda</a></li>
+                    <li><a href="../barang/list.html">Barang</a></li>
+                    <li><a href="../peminjam/list.html" class="active">Peminjam</a></li>
+                </ul>
+            </nav>
+            <div class="aksi">
+                <a class="btn btn-outline" href="../barang/tambah.html">+ Tambah Barang</a>
+                <a class="btn btn-solid" href="../peminjam/tambah.html">+ Tambah Peminjam</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="judul-halaman">
+        <div class="container">
+            <ol class="breadcrumb">
+                <li><a href="../index.html">Home</a></li>
+                <li class="aktif">Peminjam</li>
+            </ol>
+            <div class="judul-baris">
+                <h1>Daftar Peminjam</h1>
+                <a class="btn btn-solid" href="tambah.html">+ Tambah Peminjam</a>
+            </div>
+        </div>
+    </section>
+
+    <main>
+        <div class="container">
+            <section class="kartu">
+                <div class="table-responsive">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>NIM / NIP</th>
+                                <th>Nama</th>
+                                <th>Status</th>
+                                <th>Prodi / Unit</th>
+                                <th>No. HP</th>
+                                <th>Email</th>
+                                <th>Aksi</th>
+                            </tr>
+                        </thead>
+                    <tbody>
+                        <tr>
+                            <td>254107020101</td>
+                            <td>Aulia Rahma</td>
+                            <td><span class="badge badge-primary">Mahasiswa</span></td>
+                            <td>Teknik Informatika</td>
+                            <td>081234567801</td>
+                            <td>aulia.rahma@kampus.ac.id</td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>254107020102</td>
+                            <td>Bagas Prasetyo</td>
+                            <td><span class="badge badge-primary">Mahasiswa</span></td>
+                            <td>Sistem Informasi Bisnis</td>
+                            <td>081234567802</td>
+                            <td>bagas.prasetyo@kampus.ac.id</td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>198507122010011002</td>
+                            <td>Hendra Wijaya</td>
+                            <td><span class="badge badge-success">Dosen</span></td>
+                            <td>Teknik Informatika</td>
+                            <td>081234567803</td>
+                            <td>hendra.wijaya@kampus.ac.id</td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>198811052015042001</td>
+                            <td>Ratna Sari</td>
+                            <td><span class="badge badge-secondary">Petugas</span></td>
+                            <td>Unit Sarana Prasarana</td>
+                            <td>081234567804</td>
+                            <td>ratna.sari@kampus.ac.id</td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>254107020105</td>
+                            <td>Dimas Anggara</td>
+                            <td><span class="badge badge-primary">Mahasiswa</span></td>
+                            <td>Teknik Elektro</td>
+                            <td>081234567805</td>
+                            <td>dimas.anggara@kampus.ac.id</td>
+                            <td>
+                                <button type="button" class="btn btn-kecil btn-edit">Edit</button>
+                                <button type="button" class="btn btn-kecil btn-hapus">Hapus</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                    </table>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2026 SIMINVENT-Mini &mdash; Jobsheet 2</p>
+    </footer>
+</body>
+</html>

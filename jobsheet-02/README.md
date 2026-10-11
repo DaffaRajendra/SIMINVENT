@@ -2,7 +2,7 @@
 
 # Jobsheet 02
 
-Jobsheet ini berisi penerapan CSS (layout, warna, grid, dan responsivitas) pada sistem pengelolaan data buku dan anggota perpustakaan.
+Jobsheet ini berisi penerapan CSS (layout, warna, grid, dan komponen) pada sistem pengelolaan inventaris kampus (SIMINVENT-Mini).
 
 ## Identitas
 
@@ -13,31 +13,63 @@ Jobsheet ini berisi penerapan CSS (layout, warna, grid, dan responsivitas) pada 
 | Mata Kuliah | Desain Pemograman Web |
 | Kelas | TI - 2D |
 
-
 ## Struktur Folder
 
 ```
 jobsheet-02/
 ├── index.html          → halaman beranda
-├── style.css            → file utama styling
-├── buku/
-│   ├── list.html        → tabel daftar buku
-│   └── tambah.html      → form tambah buku 
-├── anggota/
-│   ├── list.html        → tabel daftar anggota
-│   └── tambah.html      → form tambah anggota 
+├── assets/
+│   ├── css/style.css    → file utama styling
+│   ├── fonts/           → font Poppins untuk angka statistik
+│   └── img/             → logo dan favicon
+├── barang/
+│   ├── list.html        → tabel daftar barang
+│   └── tambah.html      → form tambah barang
+├── peminjam/
+│   ├── list.html        → tabel daftar peminjam
+│   └── tambah.html      → form tambah peminjam
 ├── README.md
 └── dokumentasi/         → dokumentasi pendukung jobsheet
 ```
 
+## Tata Letak dan Desain
+
+| Elemen | Rancangan |
+|---|---|
+| Navbar | Putih, logo di kiri, menu Beranda, Barang, dan Peminjam di tengah, dua tombol aksi di kanan |
+| Beranda | Header sambutan, empat kartu statistik, kartu Barang terbaru (3 data), dan kartu Aksi cepat |
+| Halaman lain | Breadcrumb dan judul halaman di atas, isi di dalam kartu |
+| Footer | Putih dengan garis di bagian atas |
+| Warna utama | Indigo `#4f46e5` |
+| Latar halaman | `#f5f6fc` |
+
 ## Status Pengerjaan
 
-Styling dasar (reset, layout header, main, footer) sudah diterapkan menggunakan style.css
-Navbar menggunakan Flexbox dan sudah responsif (menu otomatis turun ke baris baru saat layar sempit)
-Kartu statistik menggunakan CSS Grid
-Tabel data (buku & anggota) sudah diberi styling termasuk hover dan warna baris selang-seling
-Tombol aksi pada tabel (Edit, Detail, Hapus) menggunakan pewarnaan berbasis class
+- Styling dasar (reset, variabel warna, layout header, main, dan footer) diterapkan lewat `style.css`.
+- Navbar memakai Flexbox: logo di kiri, menu di tengah, tombol aksi di kanan. Saat layar sempit, bagian navbar turun ke baris baru karena `flex-wrap`.
+- Kartu statistik di Beranda memakai CSS Grid empat kolom, dan kartu Barang terbaru bersama Aksi cepat memakai Grid dua kolom (`2fr 1fr`).
+- Tabel data diberi gaya hover baris dan badge berwarna untuk kategori, kondisi, dan status.
+- Tombol Edit dan Hapus pada tabel diberi warna berdasarkan class (`btn-edit` dan `btn-hapus`), bukan berdasarkan posisi.
+- Form tambah memakai Grid dua kolom.
+- Warna disimpan sebagai variabel CSS (`--indigo`, `--teks`, dan seterusnya) di `:root`, sehingga mengubah warna tema cukup dilakukan di satu tempat.
 
 ## Cara Menjalankan
 
 Buka file `index.html` melalui browser.
+
+## Dokumentasi
+
+### Beranda
+![Beranda](dokumentasi/beranda.png)
+
+### Daftar Barang
+![Daftar Barang](dokumentasi/daftarbarang.png)
+
+### Tambah Barang
+![Tambah Barang](dokumentasi/tambahbarang.png)
+
+### Daftar Peminjam
+![Daftar Peminjam](dokumentasi/daftarpeminjam.png)
+
+### Tambah Peminjam
+![Tambah Peminjam](dokumentasi/tambahpeminjam.png)
