@@ -1,321 +1,78 @@
+<?php
+$jobsheet = [
+    ['01', 'Jobsheet 01', 'Pengenalan struktur dasar dokumen HTML, pengelolaan direktori kerja, serta elemen teks dasar web.', 'Modul 1', 'jobsheet-01/index.html'],
+    ['02', 'Jobsheet 02', 'Implementasi CSS (Cascading Style Sheets), styling elemen komponen, selektor, dan layout visual.', 'Modul 2', 'jobsheet-02/index.html'],
+    ['03', 'Jobsheet 03', 'Pengembangan tata letak tingkat lanjut menggunakan teknik modern dan struktur dokumen kompleks.', 'Modul 3', 'jobsheet-03/index.html'],
+    ['03b', 'Jobsheet 03 (Bootstrap)', 'Eksplorasi framework CSS Bootstrap untuk mempercepat pembuatan antarmuka responsif.', 'Framework', 'jobsheet-03_bootstrap/index.html'],
+    ['04', 'Jobsheet 04', 'Penerapan form interaktif, validasi input, serta elemen kontrol form HTML lanjutan.', 'Modul 4', 'jobsheet-04/index.html'],
+    ['05', 'Jobsheet 05', 'Pengenalan logika pemrograman web sisi klien dan interaksi dinamis menggunakan JavaScript.', 'Modul 5', 'jobsheet-05/index.html'],
+    ['06', 'Jobsheet 06', 'Manipulasi DOM (Document Object Model) dan penanganan event handling tingkat lanjut.', 'Modul 6', 'jobsheet-06/index.html'],
+    ['07', 'Jobsheet 07', 'Pengantar pemrograman web sisi server menggunakan PHP, struktur kontrol, dan penanganan variabel.', 'Modul 7', 'jobsheet-07/'],
+    ['08', 'Jobsheet 08', 'Koneksi database menggunakan PostgreSQL dan mengubah isi konten.', 'Modul 8', 'jobsheet-08/'],
+    ['09', 'Jobsheet 09', 'CRUD lanjutan: edit dan hapus data, konfirmasi hapus dengan JavaScript, serta pagination dan pencarian sisi server.', 'Modul 9', 'jobsheet-09/'],
+    ['10', 'Jobsheet 10', 'Autentikasi dan manajemen sesi: registrasi, login, logout, dan penguncian halaman dengan PHP.', 'Modul 10', 'jobsheet-10/'],
+];
+?>
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-bs-theme="dark">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Portofolio Desain Pemrograman Web - Jobsheet 01 s/d 10</title>
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1310'/%3E%3Crect x='2' y='2' width='60' height='60' rx='12' fill='none' stroke='%23c2a468' stroke-opacity='.45' stroke-width='1.5'/%3E%3Cg transform='translate(14 14) scale(1.5)' fill='none' stroke='%23c2a468' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 16 4-4-4-4'/%3E%3Cpath d='m6 8-4 4 4 4'/%3E%3Cpath d='m14.5 4-5 16'/%3E%3C/g%3E%3C/svg%3E">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <style>
-        :root {
-            --bg: #0b1310;
-            --bg-soft: #101b16;
-            --ivory: #efe8d8;
-            --muted: #9aa39a;
-            --gold: #c2a468;
-            --gold-soft: rgba(194, 164, 104, 0.35);
-            --line: rgba(239, 232, 216, 0.12);
-        }
-
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        html { scroll-behavior: smooth; }
-
         body {
-            background:
-                radial-gradient(ellipse at 15% 0%, rgba(194, 164, 104, 0.10), transparent 55%),
-                var(--bg);
-            background-attachment: fixed;
-            color: var(--ivory);
-            font-family: 'Jost', 'Helvetica Neue', Arial, sans-serif;
-            font-weight: 300;
-            line-height: 1.7;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            background-color: #0b1310;
         }
 
-        .page {
-            flex: 1;
-            width: 100%;
-            max-width: 1180px;
-            margin: 0 auto;
-            padding: 6rem 2rem 4rem;
-            display: grid;
-            grid-template-columns: minmax(280px, 5fr) 7fr;
-            gap: 6rem;
+        .emas {
+            color: #c2a468;
         }
 
-        .intro {
-            position: sticky;
-            top: 6rem;
-            align-self: start;
-            animation: reveal 1.2s ease both;
+        .nomor {
+            width: 3.5rem;
+            flex-shrink: 0;
         }
 
-        .intro h1 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-weight: 300;
-            font-size: clamp(3rem, 6vw, 5.2rem);
-            line-height: 1.02;
-            letter-spacing: -0.01em;
-        }
-
-        .intro h1 em {
-            display: block;
-            font-style: italic;
-            color: var(--gold);
-        }
-
-        .rule {
-            width: 64px;
-            height: 1px;
-            background: var(--gold);
-            margin: 2.2rem 0;
-        }
-
-        .intro p {
-            color: var(--muted);
-            max-width: 32ch;
-            font-size: 1.02rem;
-        }
-
-        .list { border-top: 1px solid var(--line); }
-
-        .item {
-            display: grid;
-            grid-template-columns: 4.5rem 1fr auto;
-            align-items: baseline;
-            gap: 1rem;
-            padding: 2rem 0.5rem;
-            border-bottom: 1px solid var(--line);
-            color: inherit;
-            text-decoration: none;
-            position: relative;
-            transition: padding 0.4s ease, background 0.4s ease;
-        }
-
-        .item::before {
-            content: '';
-            position: absolute;
-            left: 0; top: -1px;
-            height: 1px; width: 0;
-            background: var(--gold);
-            transition: width 0.5s ease;
-        }
-
-        .item:hover, .item:focus-visible {
-            background: linear-gradient(90deg, rgba(194, 164, 104, 0.07), transparent 80%);
-            padding-left: 1.25rem;
-            outline: none;
-        }
-
-        .item:hover::before, .item:focus-visible::before { width: 100%; }
-
-        .num {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-style: italic;
-            font-size: 2.1rem;
-            color: var(--gold);
-            line-height: 1;
-        }
-
-        .item h2 {
-            font-family: 'Cormorant Garamond', Georgia, serif;
-            font-weight: 500;
-            font-size: 1.7rem;
-            line-height: 1.2;
-            margin-bottom: 0.4rem;
-        }
-
-        .item p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            max-width: 56ch;
-        }
-
-        .tag {
-            font-size: 0.82rem;
-            letter-spacing: 0.04em;
-            color: var(--gold);
-            border: 1px solid var(--gold-soft);
-            padding: 0.2rem 0.8rem;
-            border-radius: 999px;
-            white-space: nowrap;
-        }
-
-        .hb-link {
-            display: inline-block;
-            margin-top: 1.6rem;
-            color: var(--gold);
-            border: 1px solid var(--gold-soft);
-            padding: 0.55rem 1.4rem;
-            border-radius: 999px;
-            text-decoration: none;
-            font-size: 0.95rem;
-            transition: background 0.3s ease;
-        }
-        .hb-link:hover, .hb-link:focus-visible { background: rgba(194, 164, 104, 0.12); outline: none; }
-
-        footer {
-            border-top: 1px solid var(--line);
-            text-align: center;
-            color: var(--muted);
-            font-size: 0.85rem;
-            padding: 2rem 1.5rem;
-        }
-
-        @keyframes reveal {
-            from { opacity: 0; transform: translateY(14px); }
-            to   { opacity: 1; transform: none; }
-        }
-
-        @media (max-width: 900px) {
-            .page { grid-template-columns: 1fr; gap: 3.5rem; padding: 4rem 1.5rem 3rem; }
-            .intro { position: static; }
-        }
-
-        @media (max-width: 560px) {
-            .item { grid-template-columns: 3rem 1fr; }
-            .tag { grid-column: 2; justify-self: start; }
-            .item h2 { font-size: 1.45rem; }
-        }
-
-        @media (prefers-reduced-motion: reduce) {
-            .intro { animation: none; }
-            .item, .item::before { transition: none; }
+        .list-group {
+            --bs-list-group-bg: transparent;
+            --bs-list-group-action-hover-bg: rgba(194, 164, 104, 0.1);
         }
     </style>
 </head>
-<body>
+<body class="d-flex flex-column min-vh-100">
 
-    <main class="page">
-        <header class="intro">
-            <p>Daffa Rajendra Maulana <em>TI-2D</em></p>
-            <p>254107020181</p><br>
-            <h1>Desain <em>Pemrograman Web</em></h1>
-            <div class="rule"></div>
-            <p>Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 10.</p>
-            <a class="hb-link" href="handbook/index.html">Buka Handbook &rarr;</a>
-        </header>
+    <main class="container flex-grow-1 py-5">
+        <div class="row g-5">
 
-        <nav class="list" aria-label="Daftar jobsheet">
-            <a class="item" href="handbook/index.html">
-                <span class="num">H</span>
-                <div>
-                    <h2>Handbook</h2>
-                    <p>Panduan lengkap Jobsheet 01 sampai 10: persiapan, penjelasan tiap jobsheet, deploy, tips presentasi, troubleshooting, dan glosarium.</p>
-                </div>
-                <span class="tag">Panduan</span>
-            </a>
+            <header class="col-lg-5">
+                <p class="mb-0">Daffa Rajendra Maulana <em>TI-2D</em></p>
+                <p>254107020181</p>
+                <h1 class="display-4">Desain <span class="emas fst-italic">Pemrograman Web</span></h1>
+                <p class="text-secondary">Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 10.</p>
+            </header>
 
-            <a class="item" href="jobsheet-01/index.html">
-                <span class="num">01</span>
-                <div>
-                    <h2>Jobsheet 01</h2>
-                    <p>Pengenalan struktur dasar dokumen HTML, pengelolaan direktori kerja, serta elemen teks dasar web.</p>
+            <nav class="col-lg-7">
+                <div class="list-group list-group-flush border-top">
+                    <?php foreach ($jobsheet as [$nomor, $judul, $deskripsi, $tag, $link]): ?>
+                    <a href="<?= $link ?>" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-4">
+                        <span class="nomor emas fs-2 fst-italic"><?= $nomor ?></span>
+                        <div class="flex-grow-1">
+                            <h2 class="fs-4"><?= $judul ?></h2>
+                            <p class="text-secondary small mb-0"><?= $deskripsi ?></p>
+                        </div>
+                        <span class="badge rounded-pill border emas"><?= $tag ?></span>
+                    </a>
+                    <?php endforeach; ?>
                 </div>
-                <span class="tag">Modul 1</span>
-            </a>
+            </nav>
 
-            <a class="item" href="jobsheet-02/index.html">
-                <span class="num">02</span>
-                <div>
-                    <h2>Jobsheet 02</h2>
-                    <p>Implementasi CSS (Cascading Style Sheets), styling elemen komponen, selektor, dan layout visual.</p>
-                </div>
-                <span class="tag">Modul 2</span>
-            </a>
-
-            <a class="item" href="jobsheet-03/index.html">
-                <span class="num">03</span>
-                <div>
-                    <h2>Jobsheet 03</h2>
-                    <p>Pengembangan tata letak tingkat lanjut menggunakan teknik modern dan struktur dokumen kompleks.</p>
-                </div>
-                <span class="tag">Modul 3</span>
-            </a>
-
-            <a class="item" href="jobsheet-03_bootstrap/index.html">
-                <span class="num">03b</span>
-                <div>
-                    <h2>Jobsheet 03 (Bootstrap)</h2>
-                    <p>Eksplorasi framework CSS Bootstrap untuk mempercepat pembuatan antarmuka responsif.</p>
-                </div>
-                <span class="tag">Framework</span>
-            </a>
-
-            <a class="item" href="jobsheet-04/index.html">
-                <span class="num">04</span>
-                <div>
-                    <h2>Jobsheet 04</h2>
-                    <p>Penerapan form interaktif, validasi input, serta elemen kontrol form HTML lanjutan.</p>
-                </div>
-                <span class="tag">Modul 4</span>
-            </a>
-
-            <a class="item" href="jobsheet-05/index.html">
-                <span class="num">05</span>
-                <div>
-                    <h2>Jobsheet 05</h2>
-                    <p>Pengenalan logika pemrograman web sisi klien dan interaksi dinamis menggunakan JavaScript.</p>
-                </div>
-                <span class="tag">Modul 5</span>
-            </a>
-
-            <a class="item" href="jobsheet-06/index.html">
-                <span class="num">06</span>
-                <div>
-                    <h2>Jobsheet 06</h2>
-                    <p>Manipulasi DOM (Document Object Model) dan penanganan <em>event handling</em> tingkat lanjut.</p>
-                </div>
-                <span class="tag">Modul 6</span>
-            </a>
-
-            <a class="item" href="jobsheet-07/">
-                <span class="num">07</span>
-                <div>
-                    <h2>Jobsheet 07</h2>
-                    <p>Pengantar pemrograman web sisi server menggunakan PHP, struktur kontrol, dan penanganan variabel.</p>
-                </div>
-                <span class="tag">Modul 7</span>
-            </a>
-
-            <a class="item" href="jobsheet-08/">
-                <span class="num">08</span>
-                <div>
-                    <h2>Jobsheet 08</h2>
-                    <p>Koneksi database menggunakan PostgreSQL dan mengubah isi konten.</p>
-                </div>
-                <span class="tag">Modul 8</span>
-            </a>
-            <a class="item" href="jobsheet-09/">
-                <span class="num">09</span>
-                <div>
-                    <h2>Jobsheet 09</h2>
-                    <p>CRUD lanjutan: edit dan hapus data, konfirmasi hapus dengan JavaScript, serta pagination dan pencarian sisi server.</p>
-                </div>
-                <span class="tag">Modul 9</span>
-            </a>
-            <a class="item" href="jobsheet-10/">
-                <span class="num">10</span>
-                <div>
-                    <h2>Jobsheet 10</h2>
-                    <p>Autentikasi dan manajemen sesi: registrasi, login, logout, dan penguncian halaman dengan PHP.</p>
-                </div>
-                <span class="tag">Modul 10</span>
-            </a>
-        </nav>
+        </div>
     </main>
 
-    <footer>
-        <p>&copy; <span id="year">2026</span> Praktikum Desain Pemrograman Web. All rights reserved.</p>
+    <footer class="border-top text-center text-secondary small py-4">
+        &copy; <?= date('Y') ?> Praktikum Desain Pemrograman Web
     </footer>
 
-    <script>
-        document.getElementById('year').textContent = new Date().getFullYear();
-    </script>
 </body>
 </html>
