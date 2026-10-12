@@ -2,7 +2,7 @@
 
 # Jobsheet 02
 
-Jobsheet ini berisi penerapan CSS (layout, warna, grid, dan komponen) pada sistem pengelolaan inventaris kampus (SIMINVENT-Mini).
+Jobsheet ini berisi penerapan CSS (layout, warna, dan grid) pada sistem pengelolaan inventaris kampus (SIMINVENT-Mini).
 
 ## Identitas
 
@@ -20,7 +20,6 @@ jobsheet-02/
 ├── index.html          → halaman beranda
 ├── assets/
 │   ├── css/style.css    → file utama styling
-│   ├── fonts/           → font Poppins untuk angka statistik
 │   └── img/             → logo dan favicon
 ├── barang/
 │   ├── list.html        → tabel daftar barang
@@ -36,22 +35,23 @@ jobsheet-02/
 
 | Elemen | Rancangan |
 |---|---|
-| Navbar | Putih, logo di kiri, menu Beranda, Barang, dan Peminjam di tengah, dua tombol aksi di kanan |
-| Beranda | Header sambutan, empat kartu statistik, kartu Barang terbaru (3 data), dan kartu Aksi cepat |
-| Halaman lain | Breadcrumb dan judul halaman di atas, isi di dalam kartu |
-| Footer | Putih dengan garis di bagian atas |
+| Header | Putih dengan garis bawah, logo dan nama di kiri, lima menu berbentuk tab tepat di sampingnya, satu baris dan berada di tengah halaman |
+| Menu aktif | Teks indigo dengan garis bawah indigo |
+| Lebar konten | Dibatasi 1000px dan diletakkan di tengah halaman |
+| Konten | Kartu putih bersudut membulat dengan judul bergaris indigo di sisi kiri |
+| Kartu ringkasan | Empat kartu indigo muda dalam satu baris |
+| Tabel | Header indigo muda, baris berubah warna saat di-hover |
 | Warna utama | Indigo `#4f46e5` |
 | Latar halaman | `#f5f6fc` |
 
 ## Status Pengerjaan
 
 - Styling dasar (reset, variabel warna, layout header, main, dan footer) diterapkan lewat `style.css`.
-- Navbar memakai Flexbox: logo di kiri, menu di tengah, tombol aksi di kanan. Saat layar sempit, bagian navbar turun ke baris baru karena `flex-wrap`.
-- Kartu statistik di Beranda memakai CSS Grid empat kolom, dan kartu Barang terbaru bersama Aksi cepat memakai Grid dua kolom (`2fr 1fr`).
-- Tabel data diberi gaya hover baris dan badge berwarna untuk kategori, kondisi, dan status.
-- Tombol Edit dan Hapus pada tabel diberi warna berdasarkan class (`btn-edit` dan `btn-hapus`), bukan berdasarkan posisi.
-- Form tambah memakai Grid dua kolom.
-- Warna disimpan sebagai variabel CSS (`--indigo`, `--teks`, dan seterusnya) di `:root`, sehingga mengubah warna tema cukup dilakukan di satu tempat.
+- Header memakai Flexbox satu baris (`justify-content: center`): logo di kiri dan menu di sampingnya, dan menu turun ke baris baru saat layar sempit (`flex-wrap`).
+- Kartu ringkasan di Beranda memakai CSS Grid empat kolom.
+- Tabel data diberi gaya hover baris, dan kondisi barang diberi warna (hijau untuk Baik, merah untuk Rusak).
+- Tombol Edit, Detail, dan Hapus pada tabel diberi warna berdasarkan class (`btn-edit`, `btn-detail`, `btn-hapus`), bukan berdasarkan posisi.
+- Warna disimpan sebagai variabel CSS (`--indigo`, `--teks`, dan seterusnya) di `:root`.
 
 ## Cara Menjalankan
 

@@ -8,106 +8,46 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-    <header class="navbar">
-        <div class="container">
-            <a class="brand" href="index.html">
-                <img src="assets/img/logo.png" alt="Logo SIMINVENT" height="40">
-                <span>SIMINVENT<em>-Mini</em></span>
-            </a>
-            <nav class="menu">
-                <ul>
-                    <li><a href="index.html" class="active">Beranda</a></li>
-                    <li><a href="barang/list.html">Barang</a></li>
-                    <li><a href="peminjam/list.html">Peminjam</a></li>
-                </ul>
-            </nav>
-            <div class="aksi">
-                <a class="btn btn-outline" href="barang/tambah.html">+ Tambah Barang</a>
-                <a class="btn btn-solid" href="peminjam/tambah.html">+ Tambah Peminjam</a>
-            </div>
-        </div>
+    <header>
+        <a class="brand" href="index.html">
+            <img src="assets/img/logo.png" alt="Logo SIMINVENT" height="36">
+            <span>SIMINVENT-Mini</span>
+        </a>
+        <nav>
+            <ul>
+                <li><a href="index.html" class="active">Beranda</a></li>
+                <li><a href="barang/list.html">Daftar Barang</a></li>
+                <li><a href="barang/tambah.html">Tambah Barang</a></li>
+                <li><a href="peminjam/list.html">Daftar Peminjam</a></li>
+                <li><a href="peminjam/tambah.html">Tambah Peminjam</a></li>
+            </ul>
+        </nav>
     </header>
 
-    <section class="hero">
-        <div class="container">
-            <span class="label">Inventaris Kampus</span>
-            <h1>Kelola inventaris kampus <span>lebih rapi</span> dan cepat</h1>
-            <p>Catat barang, pantau stok, dan atur data peminjam dalam satu tempat yang sederhana.</p>
-        </div>
-    </section>
-
     <main>
-        <div class="container">
-            <section class="statistik">
-                <a class="stat" href="barang/list.html">
-                    <span class="ikon ikon-primary">&#9635;</span>
-                    <span class="angka">8</span>
-                    <span class="nama-stat">Total Barang</span>
-                </a>
-                <a class="stat" href="peminjam/list.html">
-                    <span class="ikon ikon-success">&#9786;</span>
-                    <span class="angka">5</span>
-                    <span class="nama-stat">Total Peminjam</span>
-                </a>
-                <a class="stat" href="barang/list.html">
-                    <span class="ikon ikon-warning">&#8803;</span>
-                    <span class="angka">120</span>
-                    <span class="nama-stat">Total Stok</span>
-                </a>
-                <a class="stat" href="barang/list.html">
-                    <span class="ikon ikon-danger">&#9888;</span>
-                    <span class="angka">2</span>
-                    <span class="nama-stat">Barang Rusak</span>
-                </a>
-            </section>
+        <section>
+            <h2>Selamat Datang di Sistem Inventaris Kampus</h2>
+            <p>Aplikasi sederhana untuk mengelola data barang dan peminjam inventaris kampus.</p>
+        </section>
 
-            <div class="dua-kolom">
-                <section class="kartu">
-                    <div class="kartu-judul">
-                        <h2>Barang terbaru</h2>
-                        <a href="barang/list.html">Lihat semua &rarr;</a>
-                    </div>
-                    <div class="table-responsive">
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th>Kode</th>
-                                    <th>Nama</th>
-                                    <th>Kondisi</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>BRG-008</td>
-                                    <td>Lemari Arsip</td>
-                                    <td><span class="badge badge-danger">Rusak</span></td>
-                                </tr>
-                                <tr>
-                                    <td>BRG-007</td>
-                                    <td>Kabel HDMI</td>
-                                    <td><span class="badge badge-success">Baik</span></td>
-                                </tr>
-                                <tr>
-                                    <td>BRG-006</td>
-                                    <td>Papan Tulis Putih</td>
-                                    <td><span class="badge badge-success">Baik</span></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </section>
-
-                <section class="kartu">
-                    <h2>Aksi cepat</h2>
-                    <ul class="aksi-cepat">
-                            <li><a href="barang/tambah.html">Tambah Barang</a></li>
-                            <li><a href="peminjam/tambah.html">Tambah Peminjam</a></li>
-                            <li><a href="barang/list.html">Daftar Barang</a></li>
-                            <li><a href="peminjam/list.html">Daftar Peminjam</a></li>
-                    </ul>
-                </section>
-            </div>
-        </div>
+        <section class="ringkasan">
+            <article>
+                <h3>Total Barang</h3>
+                <p>8</p>
+            </article>
+            <article>
+                <h3>Total Peminjam</h3>
+                <p>5</p>
+            </article>
+            <article>
+                <h3>Total Stok</h3>
+                <p>120</p>
+            </article>
+            <article>
+                <h3>Barang Rusak</h3>
+                <p>2</p>
+            </article>
+        </section>
     </main>
 
     <footer>
