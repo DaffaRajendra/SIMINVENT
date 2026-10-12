@@ -1,5 +1,6 @@
 <?php
 $jobsheet = [
+    ['H', 'Handbook', 'Panduan lengkap Jobsheet 01 sampai 10: persiapan, penjelasan tiap jobsheet, deploy, tips presentasi, troubleshooting, dan glosarium.', 'Panduan', 'handbook/index.html'],
     ['01', 'Jobsheet 01', 'Pengenalan struktur dasar dokumen HTML, pengelolaan direktori kerja, serta elemen teks dasar web.', 'Modul 1', 'jobsheet-01/index.html'],
     ['02', 'Jobsheet 02', 'Implementasi CSS (Cascading Style Sheets), styling elemen komponen, selektor, dan layout visual.', 'Modul 2', 'jobsheet-02/index.html'],
     ['03', 'Jobsheet 03', 'Pengembangan tata letak tingkat lanjut menggunakan teknik modern dan struktur dokumen kompleks.', 'Modul 3', 'jobsheet-03/index.html'],
@@ -50,6 +51,7 @@ $jobsheet = [
                 <p>254107020181</p>
                 <h1 class="display-4">Desain <span class="emas fst-italic">Pemrograman Web</span></h1>
                 <p class="text-secondary">Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 10.</p>
+                <a href="handbook/index.html" class="btn btn-outline-warning rounded-pill px-4">Buka Handbook &rarr;</a>
             </header>
 
             <nav class="col-lg-7">
