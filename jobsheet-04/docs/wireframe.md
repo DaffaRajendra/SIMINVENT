@@ -29,21 +29,21 @@ Tamu yang mencoba membuka halaman khusus Petugas diarahkan ke halaman Login.
 
 ## 2. Navigasi (Navbar)
 
-Semua halaman sudah memakai satu pola navbar: logo di kiri, menu di tengah, dan tombol aksi di kanan. Untuk Tamu tombol aksi diganti **Login**, untuk Petugas menu bertambah **Peminjaman** dan **Pengembalian**, dan nama Petugas dengan **Logout** ditampilkan di kanan.
+Semua halaman sudah memakai satu pola navbar: logo di kiri dan menu berbentuk tab tepat di sampingnya, satu baris dan berada di tengah halaman. Untuk Tamu menu dipersingkat dan ditambah **Login**, sedangkan untuk Petugas menu bertambah **Peminjaman** dan **Pengembalian**, ditutup dengan **Logout** beserta nama Petugas.
 
 **Tamu:**
 
 ```
-+-------------------------------------------------------------------+
-| SIMINVENT-Mini        Beranda | Barang | Peminjam         [Login] |
-+-------------------------------------------------------------------+
++--------------------------------------------------------------+
+| SIMINVENT-Mini     Beranda | Daftar Barang | Login           |
++--------------------------------------------------------------+
 ```
 
 **Petugas:**
 
 ```
 +------------------------------------------------------------------------------------------------+
-| SIMINVENT-Mini  Beranda | Barang | Peminjam | Peminjaman | Pengembalian | Siti (Logout)        |
+| SIMINVENT-Mini   Beranda | Barang | Peminjam | Peminjaman | Pengembalian | Logout (Siti)       |
 +------------------------------------------------------------------------------------------------+
 ```
 
@@ -176,86 +176,86 @@ Contoh isi data memakai data yang sudah ada di halaman Daftar Barang dan Daftar 
 ### 4.1 Login
 
 ```
-+-------------------------------------------------------------------+
-| SIMINVENT-Mini        Beranda | Barang | Peminjam         [Login] |
-|-------------------------------------------------------------------|
-|                                                                   |
-|            +----------------------------+                         |
-|            |       Login Petugas        |                         |
-|            |----------------------------|                         |
-|            |  Username                  |                         |
-|            |  [______________________]  |                         |
-|            |  Password                  |                         |
-|            |  [______________________]  |                         |
-|            |                            |                         |
-|            |  ! Pesan error (jika ada)  |                         |
-|            |                            |                         |
-|            |  [        Masuk        ]   |                         |
-|            |                            |                         |
-|            |  Belum punya akun?         |                         |
-|            |  Daftar di sini            |                         |
-|            +----------------------------+                         |
-|                                                                   |
-|-------------------------------------------------------------------|
-| (c) 2026 SIMINVENT-Mini                                           |
-+-------------------------------------------------------------------+
++--------------------------------------------------------------+
+| SIMINVENT-Mini     Beranda | Daftar Barang | Login           |
+|--------------------------------------------------------------|
+|                                                              |
+|            +----------------------------+                    |
+|            |       Login Petugas        |                    |
+|            |----------------------------|                    |
+|            |  Username                  |                    |
+|            |  [______________________]  |                    |
+|            |  Password                  |                    |
+|            |  [______________________]  |                    |
+|            |                            |                    |
+|            |  ! Pesan error (jika ada)  |                    |
+|            |                            |                    |
+|            |  [        Masuk        ]   |                    |
+|            |                            |                    |
+|            |  Belum punya akun?         |                    |
+|            |  Daftar di sini            |                    |
+|            +----------------------------+                    |
+|                                                              |
+|--------------------------------------------------------------|
+| (c) 2026 SIMINVENT-Mini                                      |
++--------------------------------------------------------------+
 ```
 
 ### 4.2 Registrasi Petugas
 
 ```
-+-------------------------------------------------------------------+
-| SIMINVENT-Mini        Beranda | Barang | Peminjam         [Login] |
-|-------------------------------------------------------------------|
-|                                                                   |
-|            +----------------------------+                         |
-|            |     Registrasi Petugas     |                         |
-|            |----------------------------|                         |
-|            |  Nama Lengkap              |                         |
-|            |  [______________________]  |                         |
-|            |  Username                  |                         |
-|            |  [______________________]  |                         |
-|            |  Password                  |                         |
-|            |  [______________________]  |                         |
-|            |  Konfirmasi Password       |                         |
-|            |  [______________________]  |                         |
-|            |                            |                         |
-|            |  [       Daftar        ]   |                         |
-|            |                            |                         |
-|            |  Sudah punya akun?         |                         |
-|            |  Login di sini             |                         |
-|            +----------------------------+                         |
-|                                                                   |
-+-------------------------------------------------------------------+
++--------------------------------------------------------------+
+| SIMINVENT-Mini     Beranda | Daftar Barang | Login           |
+|--------------------------------------------------------------|
+|                                                              |
+|            +----------------------------+                    |
+|            |     Registrasi Petugas     |                    |
+|            |----------------------------|                    |
+|            |  Nama Lengkap              |                    |
+|            |  [______________________]  |                    |
+|            |  Username                  |                    |
+|            |  [______________________]  |                    |
+|            |  Password                  |                    |
+|            |  [______________________]  |                    |
+|            |  Konfirmasi Password       |                    |
+|            |  [______________________]  |                    |
+|            |                            |                    |
+|            |  [       Daftar        ]   |                    |
+|            |                            |                    |
+|            |  Sudah punya akun?         |                    |
+|            |  Login di sini             |                    |
+|            +----------------------------+                    |
+|                                                              |
++--------------------------------------------------------------+
 ```
 
 ### 4.3 Dashboard Petugas
 
 ```
-+-----------------------------------------------------------------------------------------+
-| SIMINVENT-Mini  Beranda | Barang | Peminjam | Peminjaman | Pengembalian | Siti (Logout) |
-|-----------------------------------------------------------------------------------------|
-| Dashboard Petugas                                                                       |
-|                                                                                         |
-| +----------------+   +----------------+   +----------------+                            |
-| |  Total Barang  |   | Total Peminjam |   |Sedang Dipinjam |                            |
-| |       8        |   |       5        |   |       3        |                            |
-| +----------------+   +----------------+   +----------------+                            |
-|                                                                                         |
-| Aksi Cepat                                                                              |
-| [ + Peminjaman Baru ]   [ + Pengembalian ]   [ + Tambah Barang ]                        |
-|                                                                                         |
-| Transaksi Terbaru                                                                       |
-| +---------------------------------------------------------------+                       |
-| | Peminjam       | Barang            | Tgl Pinjam | Status      |                       |
-| |----------------|-------------------|------------|-------------|                       |
-| | Aulia Rahma    | Proyektor Epson   | 15/07/2026 | Dipinjam    |                       |
-| | Bagas Prasetyo | Laptop Asus       | 01/07/2026 | Dikembalikan|                       |
-| +---------------------------------------------------------------+                       |
-+-----------------------------------------------------------------------------------------+
++------------------------------------------------------------------------------------------+
+| SIMINVENT-Mini   Beranda | Barang | Peminjam | Peminjaman | Pengembalian | Logout (Siti) |
+|------------------------------------------------------------------------------------------|
+| Dashboard Petugas                                                                        |
+|                                                                                          |
+| +----------------+   +----------------+   +----------------+                             |
+| |  Total Barang  |   | Total Peminjam |   |Sedang Dipinjam |                             |
+| |       8        |   |       5        |   |       3        |                             |
+| +----------------+   +----------------+   +----------------+                             |
+|                                                                                          |
+| Aksi Cepat                                                                               |
+| [ + Peminjaman Baru ]   [ + Pengembalian ]   [ + Tambah Barang ]                         |
+|                                                                                          |
+| Transaksi Terbaru                                                                        |
+| +---------------------------------------------------------------+                        |
+| | Peminjam       | Barang            | Tgl Pinjam | Status      |                        |
+| |----------------|-------------------|------------|-------------|                        |
+| | Aulia Rahma    | Proyektor Epson   | 15/07/2026 | Dipinjam    |                        |
+| | Bagas Prasetyo | Laptop Asus       | 01/07/2026 | Dikembalikan|                        |
+| +---------------------------------------------------------------+                        |
++------------------------------------------------------------------------------------------+
 ```
 
-Tiga kartu statistik memakai pola yang sama dengan halaman Beranda (kartu dengan ikon, angka, dan label). Di layar kecil, kartu ditumpuk menjadi 1 kolom.
+Tiga kartu statistik memakai pola yang sama dengan halaman Beranda (kartu dengan angka dan label). Di layar kecil, kartu ditumpuk menjadi 1 kolom.
 
 ### 4.4 Form Peminjaman
 
@@ -361,17 +361,16 @@ Mockup dan halaman baru memakai gaya yang sama dengan halaman yang sudah berjala
 | Elemen | Nilai |
 |---|---|
 | Font | Segoe UI, Arial, sans-serif |
-| Font angka statistik | Poppins 600 |
 | Warna utama (tombol utama, menu aktif, link) | `#4f46e5` |
 | Warna utama saat hover | `#4338ca` |
-| Warna utama muda (badge, menu aktif di mobile) | `#e8e7fc` |
+| Warna utama muda (kartu ringkasan, menu aktif di mobile) | `#eef0ff` |
 | Latar halaman | `#f5f6fc` |
 | Latar navbar, kartu, dan footer | `#ffffff` |
 | Teks utama | `#1b1e3d` |
 | Teks sekunder (label kartu) | `#666b8f` |
 | Garis dan tepi kartu | `#e4e6f4` |
 | Tombol Hapus dan pesan error | `#dc3545` |
-| Pesan sukses dan badge Baik | Hijau Bootstrap `#198754` |
-| Lebar maksimum konten | 1140px |
-| Radius kartu | 1rem |
+| Pesan sukses dan teks kondisi Baik | Hijau Bootstrap `#198754` |
+| Lebar maksimum konten | 1000px |
+| Radius kartu | 0.375rem |
 | Breakpoint responsif | 1200px (navbar), 768px, dan 480px |

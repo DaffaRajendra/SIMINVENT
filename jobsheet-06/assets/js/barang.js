@@ -20,9 +20,7 @@ async function muatDaftarBarang() {
         }
         daftar.forEach(function (item) {
             tbody.appendChild(buatBaris(
-                [item.kode, item.nama, buatBadge(item.kategori, item.kategori === "elektronik" ? "primary" : "secondary"), item.lokasi, item.stok, buatBadge(item.kondisi, item.kondisi === "baik" ? "success" : "danger")],
-                "btn btn-sm btn-outline-secondary",
-                "btn btn-sm btn-outline-danger btn-hapus"
+                [item.kode, item.nama, kapital(item.kategori), item.lokasi, item.stok, buatTeks(item.kondisi, item.kondisi === "baik" ? "fw-semibold text-success" : "fw-semibold text-danger")]
             ));
         });
     } catch (err) {

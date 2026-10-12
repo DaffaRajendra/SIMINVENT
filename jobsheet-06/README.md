@@ -23,7 +23,7 @@ Mengambil dan menampilkan data secara asinkron menggunakan `fetch` dan JSON. Fil
 - `barang/list.html` dan `peminjam/list.html`: `<tbody>` dikosongkan. Baris tabel sekarang dibuat oleh `assets/js/barang.js` dan `assets/js/peminjam.js` dari hasil `fetch`.
 - Ditambahkan **loading indicator** (`#loading-indicator`) yang tampil selama proses fetch. Delay 600 ms disimulasikan dengan `setTimeout` agar loading terlihat.
 - Ditambahkan **penanganan error** (`try/catch`): jika fetch gagal, tabel menampilkan pesan "Gagal memuat data".
-- `assets/js/app.js`: konfirmasi hapus diubah ke **event delegation**, dan ditambah helper `buatBaris`, `buatBadge`, dan `tampilkanPesan` untuk membuat baris tabel.
+- `assets/js/app.js`: konfirmasi hapus diubah ke **event delegation**, dan ditambah helper `buatBaris`, `buatTeks`, dan `tampilkanPesan` untuk membuat baris tabel.
 - Footer semua halaman diperbarui menjadi Jobsheet 6.
 
 ## Cara Kerja
@@ -31,7 +31,7 @@ Mengambil dan menampilkan data secara asinkron menggunakan `fetch` dan JSON. Fil
 1. Saat halaman dimuat, `barang.js` menampilkan loading indicator dan mengosongkan `<tbody>`.
 2. `fetch("../data/barang.json")` mengambil data. Jika respons tidak OK (`res.ok`), error dilempar.
 3. `res.json()` mengubah isi file menjadi array objek JavaScript.
-4. Setiap objek dirender menjadi satu `<tr>` lewat `createElement`. Isi sel diatur lewat `append`, sedangkan kategori, kondisi, dan status dibuat sebagai badge oleh `buatBadge`.
+4. Setiap objek dirender menjadi satu `<tr>` lewat `createElement`. Isi sel diatur lewat `append`, sedangkan kondisi dibuat sebagai teks berwarna oleh `buatTeks`.
 5. Blok `finally` menyembunyikan loading indicator dan memperbarui counter, baik fetch berhasil maupun gagal.
 
 Fungsi utamanya memakai **`async/await`**. Versi `.then()` yang setara:
@@ -63,7 +63,6 @@ fetch("../data/barang.json")
 jobsheet-06/
 ├── assets/
 │   ├── css/style.css
-│   ├── fonts/
 │   ├── img/
 │   └── js/
 │       ├── app.js          → hamburger, validasi, pencarian, hapus, helper tabel

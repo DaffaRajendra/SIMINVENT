@@ -16,17 +16,15 @@ async function muatDaftarPeminjam() {
         const daftar = await res.json();
 
         if (daftar.length === 0) {
-            tampilkanPesan(tbody, 7, "Belum ada data peminjam.");
+            tampilkanPesan(tbody, 6, "Belum ada data peminjam.");
         }
         daftar.forEach(function (item) {
             tbody.appendChild(buatBaris(
-                [item.nim, item.nama, buatBadge(item.status, item.status === "mahasiswa" ? "primary" : item.status === "dosen" ? "success" : "secondary"), item.prodi, item.no_hp, item.email],
-                "btn btn-sm btn-outline-secondary",
-                "btn btn-sm btn-outline-danger btn-hapus"
+                [item.nim, item.nama, kapital(item.status), item.prodi, item.no_hp]
             ));
         });
     } catch (err) {
-        tampilkanPesan(tbody, 7, "Gagal memuat data (" + err.message + ").", true);
+        tampilkanPesan(tbody, 6, "Gagal memuat data (" + err.message + ").", true);
     } finally {
         loading.style.display = "none";
         perbaruiTabel();

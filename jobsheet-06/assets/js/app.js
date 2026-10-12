@@ -163,33 +163,42 @@ function initValidasiForm() {
     });
 }
 
-function buatBadge(teks, warna) {
+function kapital(teks) {
+    return teks.charAt(0).toUpperCase() + teks.slice(1);
+}
+
+function buatTeks(teks, kelas) {
     const span = document.createElement("span");
-    span.className = "badge rounded-pill bg-" + warna + "-subtle text-" + warna + "-emphasis";
-    span.textContent = teks.charAt(0).toUpperCase() + teks.slice(1);
+    span.className = kelas;
+    span.textContent = kapital(teks);
     return span;
 }
 
-function buatBaris(nilaiKolom, kelasEdit, kelasHapus) {
+function buatTombol(kelas, teks) {
+    const tombol = document.createElement("button");
+    tombol.type = "button";
+    tombol.className = kelas;
+    tombol.textContent = teks;
+    return tombol;
+}
+
+function buatBaris(nilaiKolom) {
     const tr = document.createElement("tr");
 
-    nilaiKolom.forEach(function (nilai) {
+    nilaiKolom.forEach(function (nilai, i) {
         const td = document.createElement("td");
+        if (i === 0) td.className = "text-nowrap";
         td.append(nilai);
         tr.appendChild(td);
     });
 
     const tdAksi = document.createElement("td");
     tdAksi.className = "text-nowrap";
-    const tombolEdit = document.createElement("button");
-    tombolEdit.type = "button";
-    tombolEdit.className = kelasEdit;
-    tombolEdit.innerHTML = '<i class="bi bi-pencil"></i> Edit';
-    const tombolHapus = document.createElement("button");
-    tombolHapus.type = "button";
-    tombolHapus.className = kelasHapus;
-    tombolHapus.innerHTML = '<i class="bi bi-trash"></i> Hapus';
-    tdAksi.append(tombolEdit, " ", tombolHapus);
+    tdAksi.append(
+        buatTombol("btn btn-sm btn-warning", "Edit"), " ",
+        buatTombol("btn btn-sm btn-primary", "Detail"), " ",
+        buatTombol("btn btn-sm btn-danger btn-hapus", "Hapus")
+    );
     tr.appendChild(tdAksi);
 
     return tr;

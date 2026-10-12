@@ -78,7 +78,6 @@ Validasi (form Tambah Peminjam) dan pencarian (Daftar Peminjam) yang sama ditera
 jobsheet-05/
 ├── assets/
 │   ├── css/style.css
-│   ├── fonts/
 │   ├── img/
 │   └── js/
 │       └── app.js

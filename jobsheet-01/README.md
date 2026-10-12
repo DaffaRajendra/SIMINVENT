@@ -32,10 +32,10 @@ jobsheet-01/
 
 | Halaman | Isi |
 |---|---|
-| Beranda | Sambutan, ringkasan (total barang, total peminjam, total stok, barang rusak), tabel Barang terbaru, dan daftar Aksi cepat |
-| Daftar Barang | Tabel kode, nama barang, kategori, lokasi, stok, kondisi, dan tombol Edit dan Hapus |
+| Beranda | Sambutan dan ringkasan (total barang, total peminjam, total stok, barang rusak) |
+| Daftar Barang | Tabel kode, nama barang, kategori, lokasi, stok, kondisi, dan tombol Edit, Detail, dan Hapus |
 | Tambah Barang | Form kode barang, nama barang, kategori, lokasi, stok, dan kondisi |
-| Daftar Peminjam | Tabel NIM atau NIP, nama, status, prodi atau unit, nomor HP, email, dan tombol Edit dan Hapus |
+| Daftar Peminjam | Tabel NIM atau NIP, nama, status, prodi atau unit, nomor HP, dan tombol Edit, Detail, dan Hapus |
 | Tambah Peminjam | Form NIM atau NIP, nama, status, prodi atau unit, nomor HP, dan email |
 
 ## Tata Letak
@@ -43,7 +43,7 @@ jobsheet-01/
 Karena jobsheet ini belum memakai CSS, tata letak ditentukan oleh struktur HTML:
 
 - `<header>` berisi nama aplikasi dan `<nav>` dengan lima tautan.
-- `<main>` dibagi menjadi beberapa `<section>`: sambutan, ringkasan, Barang terbaru, dan Aksi cepat.
+- `<main>` dibagi menjadi dua `<section>`: sambutan dan ringkasan.
 - Setiap angka ringkasan berada dalam satu `<article>`.
 - Data ditampilkan dengan `<table>`, sedangkan input memakai `<form>` dengan `<label>`, `<input>`, dan `<select>`.
 - `<footer>` menutup halaman.

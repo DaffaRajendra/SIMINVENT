@@ -27,12 +27,12 @@ Tujuannya supaya kamu bisa membandingkan langsung **dua pendekatan** untuk menca
 | Navbar dan hamburger | Checkbox hack (`:checked` dan sibling combinator `~`) | Komponen `.navbar` bawaan, dibuka tutup oleh JavaScript Bootstrap |
 | Kartu | `<section class="kartu">` dengan CSS custom (`border-radius` dan `border` manual) | Komponen `.card` bawaan |
 | Tabel | `<table>` dengan CSS custom (`:hover`, padding sel) | Class `.table`, `.table-hover`, `.table-light` |
-| Badge | `.badge-success` dan sejenisnya ditulis manual | `.badge .bg-success-subtle .text-success-emphasis` |
+| Warna kondisi | `.baik` dan `.rusak` ditulis manual | `.text-success` dan `.text-danger` |
 | Form | `<input>` dan `<select>` dengan CSS custom | Class `.form-control`, `.form-select`, `.form-label` |
-| Breakpoint | Ditulis sendiri (`1199px`, `768px`, `480px`) | Bawaan Bootstrap (`sm`, `md`, `lg`, `xl`, `xxl`) |
-| Total baris CSS custom | 580 baris (`style.css`) | 142 baris (`style.css`) |
+| Breakpoint | Ditulis sendiri (`768px`, `480px`) | Bawaan Bootstrap (`sm`, `md`, `lg`, `xl`, `xxl`) |
+| Total baris CSS custom | 320 baris (`style.css`) | 82 baris (`style.css`) |
 
-Intinya: **hasil akhirnya bisa mirip, tapi cara mencapainya sangat berbeda.** CSS murni memberi kontrol penuh tapi butuh menulis semua aturan sendiri. Bootstrap memberi banyak komponen dan utility class siap pakai, dengan konsekuensi harus memuat file CSS dan JS tambahan serta mengikuti konvensi nama class-nya. Pada versi Bootstrap, `style.css` hanya berisi warna tema indigo, penyesuaian navbar, dan font angka.
+Intinya: **hasil akhirnya bisa mirip, tapi cara mencapainya sangat berbeda.** CSS murni memberi kontrol penuh tapi butuh menulis semua aturan sendiri. Bootstrap memberi banyak komponen dan utility class siap pakai, dengan konsekuensi harus memuat file CSS dan JS tambahan serta mengikuti konvensi nama class-nya. Pada versi Bootstrap, `style.css` hanya berisi warna tema indigo, penyesuaian navbar, dan beberapa penyesuaian kecil lain.
 
 ## Struktur Folder
 
@@ -41,7 +41,6 @@ jobsheet-03_bootstrap/
 ├── index.html              → beranda
 ├── assets/
 │   ├── css/style.css        → warna tema dan penyesuaian kecil di atas Bootstrap
-│   ├── fonts/               → font Poppins untuk angka statistik
 │   └── img/                 → logo dan favicon
 ├── barang/
 │   ├── list.html
@@ -59,10 +58,10 @@ jobsheet-03_bootstrap/
 Tata letak menyesuaikan lebar layar secara otomatis memakai satu file HTML yang sama. Pada jobsheet ini, penyesuaian tersebut tidak ditulis manual lewat CSS, melainkan memanfaatkan sistem grid dan komponen siap pakai dari **Bootstrap 5**.
 
 ### 2. Pendekatan Mobile-First Bootstrap
-Berbeda dengan desktop-first, Bootstrap menganut strategi **mobile-first**: gaya default suatu elemen berlaku untuk layar kecil, lalu ditambahkan class breakpoint (`md-`, `lg-`, `xl-`) untuk mengubah tampilan saat layar melebar. Contohnya `col-6 col-xl-3` pada kartu statistik: secara default mengambil 6 dari 12 kolom (dua kartu per baris), lalu menjadi 3 kolom (empat kartu per baris) pada layar `xl` (1200px ke atas).
+Berbeda dengan desktop-first, Bootstrap menganut strategi **mobile-first**: gaya default suatu elemen berlaku untuk layar kecil, lalu ditambahkan class breakpoint (`md-`, `lg-`, `xl-`) untuk mengubah tampilan saat layar melebar. Contohnya `col-6 col-md-3` pada kartu ringkasan: secara default mengambil 6 dari 12 kolom (dua kartu per baris), lalu menjadi 3 kolom (empat kartu per baris) pada layar `md` (768px ke atas).
 
 ### 3. Grid System Bootstrap
-Lebar halaman dibagi menjadi 12 kolom virtual lewat kombinasi `container`, `row`, dan `col-*`. Kartu Barang terbaru memakai `col-lg-8` dan kartu Aksi cepat memakai `col-lg-4`, sehingga sejajar di layar besar dan menumpuk di layar kecil.
+Lebar halaman dibagi menjadi 12 kolom virtual lewat kombinasi `container`, `row`, dan `col-*`. Kartu ringkasan memakai empat `col-6 col-md-3`, sedangkan form memakai `col-md-8 col-lg-6` sehingga tidak melebar penuh di layar besar.
 
 ### 4. Breakpoint
 Titik lebar layar standar Bootstrap: `sm` (576px), `md` (768px), `lg` (992px), `xl` (1200px), dan `xxl` (1400px). Navbar memakai `navbar-expand-xl`, jadi menu terbentang penuh mulai 1200px.
@@ -74,16 +73,17 @@ Class kecil siap pakai untuk spacing, warna, tipografi, dan tata letak, misalnya
 Komponen `navbar` otomatis berubah dari horizontal (layar besar) menjadi menu hamburger (layar kecil) lewat atribut `data-bs-toggle="collapse"` dan `data-bs-target`, tanpa JavaScript tambahan selain `bootstrap.bundle.min.js`.
 
 ### 7. Komponen Siap Pakai
-`card`, `badge`, `breadcrumb`, `input-group`, serta class form seperti `form-control` dan `form-select` membuat elemen tampil seragam tanpa styling manual satu per satu.
+`card`, `table`, `btn`, serta class form seperti `form-control` dan `form-select` membuat elemen tampil seragam tanpa styling manual satu per satu.
 
 ## Tata Letak dan Desain
 
 | Elemen | Rancangan |
 |---|---|
-| Navbar | Putih, logo di kiri, menu Beranda, Barang, dan Peminjam di tengah, dua tombol aksi di kanan |
-| Beranda | Header sambutan, empat kartu statistik, kartu Barang terbaru (3 data), dan kartu Aksi cepat |
-| Halaman lain | Breadcrumb dan judul halaman di atas, isi di dalam kartu |
-| Footer | Putih dengan garis di bagian atas |
+| Header | Putih dengan garis bawah, logo dan nama di kiri, lima menu berbentuk tab tepat di sampingnya, satu baris dan berada di tengah halaman |
+| Menu aktif | Teks indigo dengan garis bawah indigo |
+| Konten | Kartu putih bersudut membulat dengan judul bergaris indigo di sisi kiri, lebar dibatasi 1000px dan diletakkan di tengah |
+| Kartu ringkasan | Empat kartu indigo muda dalam satu baris |
+| Tabel | Header indigo muda, tombol Edit, Detail, dan Hapus berwarna |
 | Warna utama | Indigo `#4f46e5` |
 | Latar halaman | `#f5f6fc` |
 

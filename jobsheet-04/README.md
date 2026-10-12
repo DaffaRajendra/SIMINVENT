@@ -78,8 +78,8 @@ Diagram alur lengkap dengan percabangan ada di bagian 3 pada `docs/wireframe.md`
 
 ## Keselarasan dengan Halaman yang Sudah Ada
 
-- **Navbar sudah seragam.** Semua halaman memakai satu pola: logo, menu Beranda, Barang, dan Peminjam di tengah, serta tombol Tambah Barang dan Tambah Peminjam di kanan. Pola ini dilanjutkan untuk Petugas dengan menambah menu Peminjaman dan Pengembalian.
-- **Kartu statistik** di Beranda dipakai ulang pada Dashboard Petugas.
+- **Navbar sudah seragam.** Semua halaman memakai satu pola: logo dan lima menu dalam satu baris di tengah halaman. Pola ini dilanjutkan untuk Petugas dengan menambah menu Peminjaman dan Pengembalian.
+- **Kartu ringkasan** di Beranda dipakai ulang pada Dashboard Petugas.
 - **Halaman Peminjam** ditambah tombol **Riwayat** di kolom Aksi untuk membuka Riwayat Peminjaman.
 - **Gaya visual** mengikuti halaman yang ada: warna utama indigo `#4f46e5`, font Segoe UI, komponen Bootstrap.
 
@@ -102,7 +102,6 @@ dan di bawah, lalu pastikan file gambarnya ada di docs/mockup/.
 jobsheet-04/
 ├── assets/
 │   ├── css/style.css
-│   ├── fonts/
 │   └── img/
 ├── barang/
 │   ├── list.html

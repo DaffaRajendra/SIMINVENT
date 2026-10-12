@@ -20,7 +20,6 @@ jobsheet-03/
 ├── index.html          → halaman beranda
 ├── assets/
 │   ├── css/style.css    → file utama styling (termasuk media query)
-│   ├── fonts/           → font Poppins untuk angka statistik
 │   └── img/             → logo dan favicon
 ├── barang/
 │   ├── list.html        → tabel daftar barang
@@ -44,29 +43,29 @@ Jobsheet ini memakai strategi **desktop-first**: gaya default untuk layar besar 
 
 | Lebar layar | Perubahan |
 |---|---|
-| 1199px ke bawah | Menu dan tombol aksi disembunyikan, diganti tombol hamburger |
-| 768px ke bawah | Kartu statistik jadi 2 kolom, Barang terbaru dan Aksi cepat ditumpuk, form jadi 1 kolom |
-| 480px ke bawah | Kartu statistik jadi 1 kolom, judul hero diperkecil, tombol di header halaman selebar layar |
+| 768px ke bawah | Menu disembunyikan dan diganti tombol hamburger, kartu ringkasan jadi 2 kolom |
+| 480px ke bawah | Kartu ringkasan jadi 1 kolom, jarak tepi dikecilkan, input form selebar layar |
 
 ## Tata Letak dan Desain
 
 | Elemen | Rancangan |
 |---|---|
-| Navbar | Putih, logo di kiri, menu Beranda, Barang, dan Peminjam di tengah, dua tombol aksi di kanan |
-| Beranda | Header sambutan, empat kartu statistik, kartu Barang terbaru (3 data), dan kartu Aksi cepat |
-| Halaman lain | Breadcrumb dan judul halaman di atas, isi di dalam kartu |
-| Footer | Putih dengan garis di bagian atas |
+| Header | Putih dengan garis bawah, logo dan nama di kiri, lima menu berbentuk tab tepat di sampingnya, satu baris dan berada di tengah halaman |
+| Menu aktif | Teks indigo dengan garis bawah indigo |
+| Konten | Kartu putih bersudut membulat dengan judul bergaris indigo di sisi kiri, lebar dibatasi 1000px dan diletakkan di tengah |
+| Kartu ringkasan | Empat kartu indigo muda dalam satu baris |
+| Tabel | Header indigo muda, tombol Edit, Detail, dan Hapus berwarna |
 | Warna utama | Indigo `#4f46e5` |
 | Latar halaman | `#f5f6fc` |
 
 ## Status Pengerjaan
 
 - Meta `viewport` sudah ditambahkan di setiap halaman HTML.
-- Media query untuk breakpoint 1199px, 768px, dan 480px sudah diterapkan di `style.css` (total 580 baris CSS).
-- Navbar berubah menjadi menu hamburger (checkbox hack) di bawah 1199px.
-- Kartu statistik (CSS Grid) menyesuaikan jumlah kolom sesuai lebar layar.
+- Media query untuk breakpoint 768px dan 480px sudah diterapkan di `style.css` (total 320 baris CSS).
+- Header berubah menjadi menu hamburger (checkbox hack) di bawah 768px. Di antara 768px dan sekitar 1000px, menu turun ke baris di bawah logo karena `flex-wrap`.
+- Kartu ringkasan (CSS Grid) menyesuaikan jumlah kolom sesuai lebar layar.
 - Tabel data dibungkus `.table-responsive` agar bisa di-scroll horizontal di layar sempit.
-- Form menjadi satu kolom di layar sempit.
+- Input form menjadi selebar layar di layar mobile.
 
 ## Cara Menjalankan
 
