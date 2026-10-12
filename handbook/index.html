@@ -1,0 +1,2654 @@
+<!DOCTYPE html>
+<html lang="id"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Handbook SIMINVENT-Mini - Desain Pemrograman Web</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&family=JetBrains+Mono:wght@400&display=swap" rel="stylesheet">
+<style>:root{--bg:#0b1310;--bg2:#101b16;--ivory:#efe8d8;--muted:#9aa39a;--gold:#c2a468;--line:rgba(239,232,216,.12)}
+*{box-sizing:border-box;margin:0;padding:0}html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--ivory);font-family:'Jost',Arial,sans-serif;font-weight:300;line-height:1.75;display:flex}
+#side{position:sticky;top:0;height:100vh;width:290px;flex:none;overflow:auto;padding:1.5rem 1rem;border-right:1px solid var(--line);background:var(--bg2)}
+#side .back{color:var(--gold);text-decoration:none;font-size:.85rem}.bt{font-family:'Cormorant Garamond',serif;font-size:1.8rem;margin:1rem 0 .8rem;color:var(--gold);font-style:italic}
+nav a{display:flex;gap:.6rem;padding:.35rem .5rem;color:var(--muted);text-decoration:none;font-size:.88rem;border-left:2px solid transparent;line-height:1.35}
+nav a b{color:var(--gold);font-weight:400;font-family:'Cormorant Garamond',serif;font-style:italic}
+nav a:hover,nav a.on{color:var(--ivory);border-left-color:var(--gold);background:rgba(194,164,104,.07)}
+#tg{display:none}
+main{flex:1;min-width:0;max-width:900px;margin:0 auto;padding:3rem 2rem}
+.cover{padding:3rem 0 2rem;border-bottom:1px solid var(--line);margin-bottom:2rem}
+.who{color:var(--muted);font-size:.9rem}
+h1{font-family:'Cormorant Garamond',serif;font-weight:300;font-size:clamp(2.6rem,6vw,4.4rem);line-height:1.05}h1 em{display:block;color:var(--gold)}
+.rule{width:64px;height:1px;background:var(--gold);margin:1.5rem 0}.sub{color:var(--muted);max-width:55ch}
+.np button{margin-top:1.2rem;background:none;color:var(--gold);border:1px solid var(--gold);padding:.4rem 1.1rem;border-radius:99px;cursor:pointer;font:inherit}
+.bab{padding:2.5rem 0;border-bottom:1px solid var(--line);scroll-margin-top:1rem}
+.bab-head{display:flex;gap:1rem;align-items:baseline;margin-bottom:1.2rem}
+.bn{font-family:'Cormorant Garamond',serif;font-style:italic;font-size:2.6rem;color:var(--gold);line-height:1}
+.bab h2{font-family:'Cormorant Garamond',serif;font-weight:500;font-size:1.9rem;line-height:1.2}
+h3{font-family:'Cormorant Garamond',serif;font-weight:600;font-size:1.45rem;color:var(--gold);margin:2rem 0 .6rem}
+h4{font-size:1.05rem;font-weight:500;margin:1.4rem 0 .4rem}
+p{margin:.7rem 0}ul,ol{margin:.6rem 0 .6rem 1.4rem}li{margin:.25rem 0}
+a{color:var(--gold)}strong{font-weight:500}
+code{font-family:'JetBrains Mono',monospace;font-size:.85em;background:rgba(194,164,104,.12);padding:.1em .4em;border-radius:4px}
+pre{background:#070d0a;border:1px solid var(--line);border-radius:8px;padding:1rem;overflow:auto;margin:1rem 0}
+pre code{background:none;padding:0;font-size:.82rem;line-height:1.55;color:#e6dfcc}
+table{border-collapse:collapse;width:100%;margin:1rem 0;font-size:.92rem;display:block;overflow:auto}
+th,td{border:1px solid var(--line);padding:.5rem .7rem;text-align:left;vertical-align:top}th{background:rgba(194,164,104,.12);font-weight:500}
+blockquote{border-left:3px solid var(--gold);background:rgba(194,164,104,.07);padding:.5rem 1rem;margin:1rem 0;color:var(--ivory)}
+img{max-width:100%;height:auto;border:1px solid var(--line);border-radius:8px;margin:.8rem 0;display:block}
+details{border:1px solid var(--line);border-radius:8px;margin:.6rem 0;padding:.2rem 1rem}
+summary{cursor:pointer;padding:.5rem 0;font-weight:400;color:var(--gold)}details[open] summary{margin-bottom:.4rem}
+hr{border:0;border-top:1px solid var(--line);margin:1.5rem 0}
+footer{text-align:center;color:var(--muted);font-size:.85rem;padding:2rem 0}
+@media(max-width:900px){body{display:block}#side{position:fixed;left:0;top:0;z-index:9;transform:translateX(-100%);transition:transform .25s}#side.open{transform:none}
+#tg{display:block;position:fixed;top:.6rem;right:.6rem;z-index:10;background:var(--bg2);color:var(--gold);border:1px solid var(--gold);border-radius:99px;padding:.35rem .9rem;font:inherit}main{padding:3.5rem 1.2rem 2rem}}
+@media print{body{background:#fff;color:#111;display:block}#side,#tg,.np{display:none}main{max-width:none;padding:0}
+h1 em,.bn,h3,summary,a{color:#7a5f1e}code{background:#eee}pre{background:#f5f5f5;color:#111}pre code{color:#111}th{background:#eee}.bab{break-before:page}details{break-inside:avoid}details>*{display:block}}
+</style></head><body>
+<button id="tg" aria-label="Daftar isi">&#9776; Daftar isi</button>
+<aside id="side"><a class="back" href="../index.php">&larr; Beranda portofolio</a><div class="bt">Handbook</div><nav><a href="#bab-01" data-t="bab-01"><b>01</b><span>Gambaran proyek SIMINVENT-Mini</span></a><a href="#bab-02" data-t="bab-02"><b>02</b><span>Persiapan dari nol</span></a><a href="#bab-03" data-t="bab-03"><b>03</b><span>Jobsheet 01</span></a><a href="#bab-04" data-t="bab-04"><b>04</b><span>Jobsheet 02</span></a><a href="#bab-05" data-t="bab-05"><b>05</b><span>Jobsheet 03</span></a><a href="#bab-06" data-t="bab-06"><b>06</b><span>Jobsheet 03 Bootstrap</span></a><a href="#bab-07" data-t="bab-07"><b>07</b><span>Jobsheet 04</span></a><a href="#bab-08" data-t="bab-08"><b>08</b><span>Jobsheet 05</span></a><a href="#bab-09" data-t="bab-09"><b>09</b><span>Jobsheet 06</span></a><a href="#bab-10" data-t="bab-10"><b>10</b><span>Jobsheet 07</span></a><a href="#bab-11" data-t="bab-11"><b>11</b><span>Jobsheet 08</span></a><a href="#bab-12" data-t="bab-12"><b>12</b><span>Jobsheet 09</span></a><a href="#bab-13" data-t="bab-13"><b>13</b><span>Jobsheet 10</span></a><a href="#bab-14" data-t="bab-14"><b>14</b><span>Portofolio dan deploy</span></a><a href="#bab-15" data-t="bab-15"><b>15</b><span>Tips presentasi dan pertanyaan yang sering muncul dari dosen</span></a><a href="#bab-16" data-t="bab-16"><b>16</b><span>Troubleshooting umum</span></a><a href="#bab-17" data-t="bab-17"><b>17</b><span>Lampiran</span></a></nav></aside>
+<main>
+<header class="cover"><p class="who">Daffa Rajendra Maulana &middot; TI-2D &middot; 254107020181</p><h1>Handbook <em>SIMINVENT-Mini</em></h1><div class="rule"></div><p class="sub">Panduan lengkap Desain Pemrograman Web, Jobsheet 01 sampai 10: dari HTML sampai autentikasi PHP + PostgreSQL.</p><p class="np"><button onclick="window.print()">Cetak / simpan PDF</button></p></header>
+<section class="bab" id="bab-01"><div class="bab-head"><span class="bn">01</span><h2>Gambaran proyek SIMINVENT-Mini: tujuan, data, peta jobsheet 01 sampai 10, alur belajar</h2></div>
+<h3 id="s01-apa-itu-siminvent-mini">Apa itu SIMINVENT-Mini</h3>
+<p>SIMINVENT-Mini adalah sistem informasi inventaris kampus berukuran kecil. Aplikasi ini mencatat <strong>barang</strong> (kursi, proyektor, laptop, dan sebagainya) dan <strong>peminjam</strong> (mahasiswa, dosen, petugas). Proyeknya dibangun bertahap selama mata kuliah Desain Pemrograman Web: dimulai dari HTML polos di Jobsheet 01 dan berakhir sebagai aplikasi PHP dengan database PostgreSQL, login petugas, dan deploy ke internet di Jobsheet 10.</p>
+<p>Dalam modul dosen, proyeknya bernama SIMPUS-Mini (perpustakaan dengan entitas buku dan anggota). Di handbook ini seluruh contoh memakai versi SIMINVENT-Mini, jadi padanannya sebagai berikut.</p>
+<table>
+<thead>
+<tr>
+<th>Modul dosen (SIMPUS-Mini)</th>
+<th>Proyek ini (SIMINVENT-Mini)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Buku</td>
+<td>Barang</td>
+</tr>
+<tr>
+<td>Anggota</td>
+<td>Peminjam</td>
+</tr>
+<tr>
+<td>Petugas perpustakaan</td>
+<td>Petugas inventaris</td>
+</tr>
+<tr>
+<td>Katalog buku (publik)</td>
+<td>Daftar barang (publik)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s01-tujuan-pembelajaran">Tujuan pembelajaran</h3>
+<ul>
+<li>Memahami urutan teknologi web: HTML, CSS, responsif, framework, JavaScript, fetch, PHP, database, autentikasi.</li>
+<li>Mampu menjelaskan <strong>kenapa</strong> setiap lapisan dibutuhkan, bukan hanya cara menulis kodenya.</li>
+<li>Memiliki satu proyek utuh yang bisa dibuka lewat internet sebagai portofolio.</li>
+</ul>
+<h3 id="s01-data-yang-dikelola">Data yang dikelola</h3>
+<p><strong>Barang</strong>: kode barang (unik), nama barang, kategori (perabotan atau elektronik), lokasi, stok, kondisi (baik atau rusak), waktu dibuat.</p>
+<p><strong>Peminjam</strong>: NIM atau NIP (unik), nama, status (mahasiswa, dosen, petugas), prodi atau unit, nomor HP, email.</p>
+<p><strong>Petugas</strong> (mulai Jobsheet 10): nama, username (unik), password (disimpan sebagai hash), role.</p>
+<h3 id="s01-peta-jobsheet">Peta jobsheet</h3>
+<table>
+<thead>
+<tr>
+<th>Jobsheet</th>
+<th>Topik</th>
+<th>Bentuk hasil</th>
+<th>Data disimpan di</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01</td>
+<td>HTML saja</td>
+<td>5 halaman <code>.html</code> tanpa gaya</td>
+<td>Ditulis manual di HTML</td>
+</tr>
+<tr>
+<td>02</td>
+<td>CSS tulisan sendiri</td>
+<td>Halaman bergaya indigo</td>
+<td>Ditulis manual di HTML</td>
+</tr>
+<tr>
+<td>03</td>
+<td>CSS responsif dan hamburger</td>
+<td>Tampil baik di HP dan laptop</td>
+<td>Ditulis manual di HTML</td>
+</tr>
+<tr>
+<td>03 Bootstrap</td>
+<td>Versi Bootstrap 5 dari jobsheet 03</td>
+<td>Hasil mirip dengan CSS jauh lebih pendek</td>
+<td>Ditulis manual di HTML</td>
+</tr>
+<tr>
+<td>04</td>
+<td>Rancangan UI/UX dan wireframe</td>
+<td>Dokumen <code>docs/wireframe.md</code></td>
+<td>Belum ada fitur baru</td>
+</tr>
+<tr>
+<td>05</td>
+<td>JavaScript DOM dan event</td>
+<td>Validasi, pencarian, konfirmasi hapus</td>
+<td>Ditulis manual di HTML</td>
+</tr>
+<tr>
+<td>06</td>
+<td><code>fetch</code> dan JSON</td>
+<td>Tabel dibuat dari file JSON</td>
+<td>File <code>.json</code></td>
+</tr>
+<tr>
+<td>07</td>
+<td>PHP sisi server dan form</td>
+<td>Halaman <code>.php</code>, validasi server</td>
+<td><code>$_SESSION</code></td>
+</tr>
+<tr>
+<td>08</td>
+<td>PHP dan PostgreSQL, CRUD</td>
+<td>Data permanen, edit, hapus</td>
+<td>Database PostgreSQL</td>
+</tr>
+<tr>
+<td>09</td>
+<td>CRUD lanjutan</td>
+<td>Pagination dan pencarian server</td>
+<td>Database PostgreSQL</td>
+</tr>
+<tr>
+<td>10</td>
+<td>Autentikasi dan sesi</td>
+<td>Registrasi, login, logout, halaman terkunci</td>
+<td>Database PostgreSQL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s01-alur-belajar-yang-disarankan">Alur belajar yang disarankan</h3>
+<ol>
+<li><strong>Lihat hasilnya dulu.</strong> Buka tiap jobsheet dari halaman portofolio (<code>index.php</code> di root) dan bandingkan tampilannya dari 01 sampai 10.</li>
+<li><strong>Baca README jobsheet</strong> yang bersangkutan. Setiap README memuat tujuan, perubahan dari jobsheet sebelumnya, struktur folder, cara menjalankan, dan cara menguji.</li>
+<li><strong>Buka kodenya</strong> sambil membandingkan dengan jobsheet sebelumnya. Perubahan antarjobsheet sengaja kecil supaya mudah dilacak.</li>
+<li><strong>Jalankan dan uji</strong> mengikuti langkah "Cara Menguji" di README.</li>
+<li><strong>Latih menjelaskan</strong> dengan bagian Tips Presentasi dan pertanyaan dosen di handbook ini.</li>
+</ol>
+<blockquote>
+<p>Pola yang berulang di seluruh jobsheet: <strong>halaman dibuat dulu, lalu dihidupkan, lalu datanya dipindah ke tempat yang lebih permanen.</strong> HTML menjadi CSS, menjadi JavaScript, menjadi PHP, menjadi database.</p>
+</blockquote>
+</section><section class="bab" id="bab-02"><div class="bab-head"><span class="bn">02</span><h2>Persiapan dari nol: tools, struktur repo, cara menjalankan tiap jobsheet</h2></div>
+<h3 id="s02-tools-yang-dibutuhkan">Tools yang dibutuhkan</h3>
+<table>
+<thead>
+<tr>
+<th>Kebutuhan</th>
+<th>Dipakai untuk</th>
+<th>Catatan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Browser (Chrome atau Edge)</td>
+<td>Membuka halaman dan DevTools (F12)</td>
+<td>Console dan Network sering dipakai untuk uji</td>
+</tr>
+<tr>
+<td>VS Code</td>
+<td>Menulis kode</td>
+<td>Ekstensi berguna: Live Server, PHP Intelephense</td>
+</tr>
+<tr>
+<td>Git dan akun GitHub</td>
+<td>Menyimpan dan mengunggah proyek</td>
+<td>Setiap jobsheet satu commit</td>
+</tr>
+<tr>
+<td>PHP 8.x</td>
+<td>Menjalankan jobsheet 07 sampai 10</td>
+<td>Bisa lewat Laragon atau <code>php -S</code></td>
+</tr>
+<tr>
+<td>Laragon (opsional)</td>
+<td>Paket PHP, Apache, dan Postgres di Windows</td>
+<td>Alternatif XAMPP</td>
+</tr>
+<tr>
+<td>Akun Supabase</td>
+<td>Database PostgreSQL di internet</td>
+<td>Paket gratis cukup</td>
+</tr>
+<tr>
+<td>Akun Vercel</td>
+<td>Menayangkan proyek</td>
+<td>Sambungkan dengan akun GitHub</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s02-struktur-repo">Struktur repo</h3>
+<p>Proyek memakai <strong>dua repo GitHub</strong> dengan isi folder yang sama, tetapi tujuannya berbeda.</p>
+<table>
+<thead>
+<tr>
+<th>Repo</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Desain-Pemrograman-Web</td>
+<td>Repo tugas yang dinilai dosen. Riwayat commit per jobsheet</td>
+</tr>
+<tr>
+<td>SIMINVENT (folder <code>Desain-Pemrograman-Web-Deploy</code>)</td>
+<td>Salinan khusus untuk Vercel. Dari repo inilah situs ditayangkan</td>
+</tr>
+</tbody>
+</table>
+<p>Struktur folder utamanya:</p>
+<pre><code>Desain-Pemrograman-Web/
+├── index.php              halaman portofolio (daftar jobsheet dan handbook)
+├── Dockerfile.vercel      menjalankan PHP di Vercel
+├── handbook/              handbook ini
+├── jobsheet-01/ … jobsheet-06/    HTML, CSS, JavaScript
+├── jobsheet-03_bootstrap/         versi Bootstrap dari jobsheet 03
+├── jobsheet-07/           PHP dan session
+├── jobsheet-08/           PHP dan PostgreSQL
+├── jobsheet-09/           pagination dan pencarian
+└── jobsheet-10/           autentikasi
+</code></pre>
+<p>Setiap folder jobsheet memuat <code>README.md</code> (laporan), <code>dokumentasi/</code> (tangkapan layar), dan <code>docs/</code> bila ada rancangan.</p>
+<h3 id="s02-cara-menjalankan-tiap-jobsheet">Cara menjalankan tiap jobsheet</h3>
+<table>
+<thead>
+<tr>
+<th>Jobsheet</th>
+<th>Cara menjalankan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>01 sampai 05</td>
+<td>Buka <code>index.html</code> dengan klik dua kali</td>
+</tr>
+<tr>
+<td>06</td>
+<td><strong>Harus lewat server lokal</strong> karena <code>fetch</code> ke file diblokir pada <code>file://</code>. Pakai Live Server di VS Code atau <code>python -m http.server 8000</code></td>
+</tr>
+<tr>
+<td>07</td>
+<td><code>php -S localhost:8000</code> dari dalam folder jobsheet, atau lewat Laragon</td>
+</tr>
+<tr>
+<td>08, 09, 10</td>
+<td>Sama seperti 07, tetapi database dan environment variable harus siap (lihat bawah)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s02-menyiapkan-database-untuk-jobsheet-08-sampai-10">Menyiapkan database untuk jobsheet 08 sampai 10</h3>
+<ol>
+<li>Buat project di Supabase, lalu buka <strong>SQL Editor</strong>.</li>
+<li>Jalankan <code>sql/01_barang_peminjam.sql</code> dari jobsheet 08. Untuk jobsheet 10 jalankan juga <code>sql/02_users.sql</code>.</li>
+<li>Ambil data koneksi di tombol <strong>Connect</strong>, bagian <strong>Session pooler</strong>.</li>
+<li>Isi environment variable berikut. Nilainya tidak boleh ditulis di dalam kode.</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>Variabel</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>DB_HOST</code></td>
+<td>Host pooler Supabase</td>
+</tr>
+<tr>
+<td><code>DB_PORT</code></td>
+<td><code>5432</code></td>
+</tr>
+<tr>
+<td><code>DB_NAME</code></td>
+<td><code>postgres</code></td>
+</tr>
+<tr>
+<td><code>DB_USER</code></td>
+<td>User dari halaman Connect (berbentuk <code>postgres.xxxx</code>)</td>
+</tr>
+<tr>
+<td><code>DB_PASSWORD</code></td>
+<td>Password database</td>
+</tr>
+</tbody>
+</table>
+<p>Contoh di PowerShell sebelum menjalankan server lokal:</p>
+<pre><code class="language-powershell">$env:DB_HOST = &quot;host-pooler-kamu&quot;
+$env:DB_PORT = &quot;5432&quot;
+$env:DB_NAME = &quot;postgres&quot;
+$env:DB_USER = &quot;postgres.xxxx&quot;
+$env:DB_PASSWORD = &quot;password-kamu&quot;
+php -S localhost:8000
+</code></pre>
+<blockquote>
+<p><strong>Penting:</strong> jangan pernah memasukkan password database ke GitHub. Di Vercel, isi di menu <strong>Settings → Environment Variables</strong>.</p>
+</blockquote>
+</section><section class="bab" id="bab-03"><div class="bab-head"><span class="bn">03</span><h2>Jobsheet 01: HTML saja</h2></div>
+<h3 id="s03-tujuan">Tujuan</h3>
+<p>Membuat kerangka semua halaman memakai HTML murni tanpa CSS. Tahap ini hanya soal <strong>struktur dan isi</strong>, bukan tampilan.</p>
+<h3 id="s03-halaman-yang-dibuat">Halaman yang dibuat</h3>
+<table>
+<thead>
+<tr>
+<th>Halaman</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beranda</td>
+<td>Sambutan dan ringkasan angka</td>
+</tr>
+<tr>
+<td>Daftar Barang</td>
+<td>Tabel kode, nama, kategori, lokasi, stok, kondisi, aksi</td>
+</tr>
+<tr>
+<td>Tambah Barang</td>
+<td>Form enam isian</td>
+</tr>
+<tr>
+<td>Daftar Peminjam</td>
+<td>Tabel NIM atau NIP, nama, status, prodi, nomor HP, aksi</td>
+</tr>
+<tr>
+<td>Tambah Peminjam</td>
+<td>Form enam isian</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s03-elemen-html-yang-dipakai">Elemen HTML yang dipakai</h3>
+<table>
+<thead>
+<tr>
+<th>Elemen</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;main&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;footer&gt;</code></td>
+<td>Struktur halaman yang bermakna (semantik)</td>
+</tr>
+<tr>
+<td><code>&lt;table&gt;</code>, <code>&lt;thead&gt;</code>, <code>&lt;tbody&gt;</code>, <code>&lt;tr&gt;</code>, <code>&lt;th&gt;</code>, <code>&lt;td&gt;</code></td>
+<td>Menampilkan data berbentuk tabel</td>
+</tr>
+<tr>
+<td><code>&lt;form&gt;</code>, <code>&lt;label&gt;</code>, <code>&lt;input&gt;</code>, <code>&lt;select&gt;</code>, <code>&lt;button&gt;</code></td>
+<td>Mengumpulkan isian pengguna</td>
+</tr>
+<tr>
+<td><code>&lt;a href&gt;</code></td>
+<td>Berpindah antarhalaman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s03-kerangka-dasar">Kerangka dasar</h3>
+<pre><code class="language-html">&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;id&quot;&gt;
+&lt;head&gt;
+    &lt;meta charset=&quot;UTF-8&quot;&gt;
+    &lt;title&gt;SIMINVENT-Mini&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;header&gt;
+        &lt;h1&gt;SIMINVENT-Mini&lt;/h1&gt;
+        &lt;nav&gt;
+            &lt;a href=&quot;index.html&quot;&gt;Beranda&lt;/a&gt;
+            &lt;a href=&quot;barang/list.html&quot;&gt;Daftar Barang&lt;/a&gt;
+        &lt;/nav&gt;
+    &lt;/header&gt;
+    &lt;main&gt;
+        &lt;section&gt;...&lt;/section&gt;
+    &lt;/main&gt;
+    &lt;footer&gt;...&lt;/footer&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+<h3 id="s03-hal-yang-perlu-dipahami">Hal yang perlu dipahami</h3>
+<ul>
+<li><strong><code>&lt;label for="x"&gt;</code> harus cocok dengan <code>id="x"</code></strong> pada input, supaya klik label memfokuskan isian dan pembaca layar tahu fungsinya.</li>
+<li>Atribut <code>name</code> pada input <strong>wajib ada</strong> agar nilainya terkirim saat form dikirim. Atribut <code>id</code> hanya untuk label dan JavaScript.</li>
+<li>Path relatif: halaman di <code>barang/</code> mengakses beranda dengan <code>../index.html</code>.</li>
+</ul>
+<h3 id="s03-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tautan 404 antarhalaman</td>
+<td>Path relatif salah</td>
+<td>Hitung kedalaman folder, tambah <code>../</code></td>
+</tr>
+<tr>
+<td>Karakter aneh pada huruf</td>
+<td><code>charset</code> tidak diset</td>
+<td>Tambah <code>&lt;meta charset="UTF-8"&gt;</code></td>
+</tr>
+<tr>
+<td>Label tidak bisa diklik</td>
+<td><code>for</code> dan <code>id</code> tidak cocok</td>
+<td>Samakan keduanya</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" alt="Beranda jobsheet 01" src="../jobsheet-01/dokumentasi/beranda.png" /></p>
+</section><section class="bab" id="bab-04"><div class="bab-head"><span class="bn">04</span><h2>Jobsheet 02: CSS tulisan sendiri</h2></div>
+<h3 id="s04-tujuan">Tujuan</h3>
+<p>Memberi tampilan pada halaman Jobsheet 01 memakai CSS yang ditulis sendiri dalam satu file <code>assets/css/style.css</code>.</p>
+<h3 id="s04-rancangan-visual">Rancangan visual</h3>
+<table>
+<thead>
+<tr>
+<th>Elemen</th>
+<th>Rancangan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Warna utama</td>
+<td>Indigo <code>#4f46e5</code></td>
+</tr>
+<tr>
+<td>Latar halaman</td>
+<td><code>#f5f6fc</code></td>
+</tr>
+<tr>
+<td>Header</td>
+<td>Putih, logo di kiri, menu berbentuk tab</td>
+</tr>
+<tr>
+<td>Menu aktif</td>
+<td>Teks dan garis bawah indigo</td>
+</tr>
+<tr>
+<td>Konten</td>
+<td>Kartu putih bersudut membulat, lebar maksimum 1000px, di tengah</td>
+</tr>
+<tr>
+<td>Kartu ringkasan</td>
+<td>Empat kartu dalam satu baris</td>
+</tr>
+<tr>
+<td>Tabel</td>
+<td>Header indigo muda, baris berubah warna saat di-hover</td>
+</tr>
+<tr>
+<td>Kondisi barang</td>
+<td>Hijau untuk Baik, merah untuk Rusak</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s04-konsep-css-yang-dipakai">Konsep CSS yang dipakai</h3>
+<p><strong>Variabel CSS</strong> disimpan di <code>:root</code> agar warna diubah di satu tempat saja.</p>
+<pre><code class="language-css">:root {
+    --indigo: #4f46e5;
+    --teks: #1b1e3d;
+}
+.btn-aksi { color: var(--indigo); }
+</code></pre>
+<p><strong>Flexbox</strong> untuk satu baris sejajar, misalnya header:</p>
+<pre><code class="language-css">header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+</code></pre>
+<p><strong>Grid</strong> untuk kolom beraturan, misalnya empat kartu ringkasan:</p>
+<pre><code class="language-css">.ringkasan {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+}
+</code></pre>
+<h3 id="s04-kapan-memakai-flexbox-atau-grid">Kapan memakai Flexbox atau Grid</h3>
+<table>
+<thead>
+<tr>
+<th>Situasi</th>
+<th>Pilihan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Satu dimensi (satu baris atau satu kolom), seperti menu</td>
+<td>Flexbox</td>
+</tr>
+<tr>
+<td>Dua dimensi (baris dan kolom sekaligus), seperti deretan kartu</td>
+<td>Grid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s04-selector-dan-spesifisitas">Selector dan spesifisitas</h3>
+<ul>
+<li>Beri gaya berdasarkan <strong>class</strong> (<code>.btn-hapus</code>), bukan posisi elemen, supaya tidak rusak saat urutan berubah.</li>
+<li>Bila dua aturan sama kuat, <strong>yang ditulis paling akhir menang</strong>. Urutan penulisan CSS itu penting.</li>
+</ul>
+<h3 id="s04-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CSS tidak berpengaruh</td>
+<td>Path <code>&lt;link&gt;</code> salah</td>
+<td>Cek tab Network di DevTools</td>
+</tr>
+<tr>
+<td>Gaya tertimpa</td>
+<td>Aturan lain lebih spesifik atau lebih akhir</td>
+<td>Periksa tab Styles di DevTools</td>
+</tr>
+<tr>
+<td>Lebar melebihi layar</td>
+<td>Tidak memakai <code>box-sizing: border-box</code></td>
+<td>Tambahkan pada reset</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" alt="Daftar barang jobsheet 02" src="../jobsheet-02/dokumentasi/daftarbarang.png" /></p>
+</section><section class="bab" id="bab-05"><div class="bab-head"><span class="bn">05</span><h2>Jobsheet 03: CSS responsif dan hamburger</h2></div>
+<h3 id="s05-tujuan">Tujuan</h3>
+<p>Membuat halaman menyesuaikan diri dengan lebar layar (<strong>Responsive Web Design</strong>) memakai satu file HTML dan CSS yang sama untuk HP, tablet, dan laptop.</p>
+<h3 id="s05-tiga-bahan-utama-rwd">Tiga bahan utama RWD</h3>
+<table>
+<thead>
+<tr>
+<th>Bahan</th>
+<th>Contoh</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Meta viewport</td>
+<td><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;</code></td>
+<td>Memberi tahu browser HP agar memakai lebar layar sebenarnya</td>
+</tr>
+<tr>
+<td>Media query</td>
+<td><code>@media (max-width: 768px) { ... }</code></td>
+<td>Gaya khusus untuk lebar tertentu</td>
+</tr>
+<tr>
+<td>Layout lentur</td>
+<td>Flexbox, Grid, persen, <code>max-width</code></td>
+<td>Elemen mengikuti ruang yang tersedia</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s05-desktop-first">Desktop-first</h3>
+<p>Jobsheet ini memakai pendekatan <strong>desktop-first</strong>: gaya dasar ditulis untuk layar besar, lalu dikecilkan lewat <code>max-width</code> di <strong>bagian paling bawah</strong> <code>style.css</code>. Alasannya, pada kekuatan selector yang sama aturan yang ditulis terakhir yang menang.</p>
+<table>
+<thead>
+<tr>
+<th>Lebar layar</th>
+<th>Perubahan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>768px ke bawah</td>
+<td>Menu diganti tombol hamburger, kartu ringkasan jadi 2 kolom</td>
+</tr>
+<tr>
+<td>480px ke bawah</td>
+<td>Kartu jadi 1 kolom, jarak tepi dikecilkan, input selebar layar</td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-css">@media (max-width: 768px) {
+    .ringkasan { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 480px) {
+    .ringkasan { grid-template-columns: 1fr; }
+}
+</code></pre>
+<h3 id="s05-hamburger-tanpa-javascript-checkbox-hack">Hamburger tanpa JavaScript (checkbox hack)</h3>
+<p>Di jobsheet ini menu hamburger dibuat hanya dengan CSS: sebuah <code>&lt;input type="checkbox"&gt;</code> tersembunyi dan selector <code>:checked ~ menu</code> untuk menampilkan menu. Di Jobsheet 05 cara ini diganti dengan JavaScript.</p>
+<h3 id="s05-tabel-di-layar-sempit">Tabel di layar sempit</h3>
+<p>Tabel dibungkus <code>&lt;div class="table-responsive"&gt;</code> dengan <code>overflow-x: auto</code>, sehingga tabel bisa digeser ke samping alih-alih merusak lebar halaman.</p>
+<h3 id="s05-cara-menguji">Cara menguji</h3>
+<ol>
+<li>Buka halaman, tekan <strong>F12</strong>, lalu klik ikon perangkat (mode responsif).</li>
+<li>Ubah lebar dari besar ke kecil, amati titik 768px dan 480px.</li>
+<li>Pastikan tidak ada scroll horizontal pada halaman, selain di dalam tabel.</li>
+</ol>
+<h3 id="s05-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Di HP tampil seperti desktop kecil</td>
+<td>Meta viewport tidak ada</td>
+<td>Tambahkan di setiap halaman</td>
+</tr>
+<tr>
+<td>Media query tidak jalan</td>
+<td>Ditulis di atas aturan dasar</td>
+<td>Pindahkan ke bagian paling bawah</td>
+</tr>
+<tr>
+<td>Halaman bisa digeser ke samping</td>
+<td>Ada elemen lebih lebar dari layar</td>
+<td>Tambahkan <code>max-width: 100%</code> atau bungkus dengan <code>overflow-x: auto</code></td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" alt="Tampilan mobile jobsheet 03" src="../jobsheet-03/dokumentasi/mobile-beranda.png" /></p>
+</section><section class="bab" id="bab-06"><div class="bab-head"><span class="bn">06</span><h2>Jobsheet 03 Bootstrap</h2></div>
+<h3 id="s06-tujuan">Tujuan</h3>
+<p>Membangun ulang halaman yang sama dengan <strong>Bootstrap 5</strong>, supaya terlihat jelas perbedaan antara menulis CSS sendiri dan memakai framework.</p>
+<h3 id="s06-cara-memasang-bootstrap">Cara memasang Bootstrap</h3>
+<p>Cukup lewat CDN, tanpa instalasi:</p>
+<pre><code class="language-html">&lt;link href=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css&quot; rel=&quot;stylesheet&quot;&gt;
+&lt;script src=&quot;https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js&quot;&gt;&lt;/script&gt;
+</code></pre>
+<h3 id="s06-perbandingan-dengan-css-murni">Perbandingan dengan CSS murni</h3>
+<table>
+<thead>
+<tr>
+<th>Aspek</th>
+<th>Jobsheet 03 (CSS murni)</th>
+<th>Jobsheet 03 (Bootstrap)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Layout</td>
+<td>Flex dan grid ditulis manual</td>
+<td><code>.row</code> dan <code>.col-*</code> (grid 12 kolom)</td>
+</tr>
+<tr>
+<td>Navbar dan hamburger</td>
+<td>Checkbox hack</td>
+<td>Komponen <code>.navbar</code> bawaan</td>
+</tr>
+<tr>
+<td>Kartu</td>
+<td>CSS custom</td>
+<td>Komponen <code>.card</code></td>
+</tr>
+<tr>
+<td>Tabel</td>
+<td>CSS custom</td>
+<td><code>.table</code>, <code>.table-hover</code>, <code>.table-light</code></td>
+</tr>
+<tr>
+<td>Warna kondisi</td>
+<td><code>.baik</code> dan <code>.rusak</code> manual</td>
+<td><code>.text-success</code> dan <code>.text-danger</code></td>
+</tr>
+<tr>
+<td>Form</td>
+<td>CSS custom</td>
+<td><code>.form-control</code>, <code>.form-select</code>, <code>.form-label</code></td>
+</tr>
+<tr>
+<td>Breakpoint</td>
+<td>Ditulis sendiri (768px, 480px)</td>
+<td>Bawaan (<code>sm</code>, <code>md</code>, <code>lg</code>, <code>xl</code>, <code>xxl</code>)</td>
+</tr>
+<tr>
+<td>Baris CSS buatan sendiri</td>
+<td>320 baris</td>
+<td>82 baris</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s06-contoh-komponen">Contoh komponen</h3>
+<pre><code class="language-html">&lt;div class=&quot;row g-4&quot;&gt;
+    &lt;div class=&quot;col-12 col-md-6 col-lg-3&quot;&gt;
+        &lt;div class=&quot;card&quot;&gt;&lt;div class=&quot;card-body&quot;&gt;...&lt;/div&gt;&lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+<p>Artinya: satu kolom penuh di HP, dua kolom di tablet (<code>md</code>), empat kolom di laptop (<code>lg</code>).</p>
+<h3 id="s06-kapan-memilih-yang-mana">Kapan memilih yang mana</h3>
+<table>
+<thead>
+<tr>
+<th>Pilih CSS murni bila</th>
+<th>Pilih Bootstrap bila</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Ingin kontrol penuh dan belajar dasar</td>
+<td>Ingin cepat jadi dan konsisten</td>
+</tr>
+<tr>
+<td>Tampilan sangat khusus</td>
+<td>Tampilan standar sudah cukup</td>
+</tr>
+<tr>
+<td>Ingin file ringan tanpa dependensi</td>
+<td>Tidak masalah memuat CSS dan JS tambahan</td>
+</tr>
+</tbody>
+</table>
+<p>Di jobsheet 08 sampai 10, Bootstrap tetap dipakai dengan sedikit penyesuaian warna (indigo) di <code>style.css</code>.</p>
+<p><img loading="lazy" alt="Beranda versi Bootstrap" src="../jobsheet-03_bootstrap/dokumentasi/beranda.png" /></p>
+</section><section class="bab" id="bab-07"><div class="bab-head"><span class="bn">07</span><h2>Jobsheet 04: rancangan UI/UX dan wireframe</h2></div>
+<h3 id="s07-tujuan">Tujuan</h3>
+<p>Merancang <strong>tampilan dan alur penggunaan sebelum fiturnya dibuat</strong>. Tidak ada perubahan kode; hasilnya dokumen <code>docs/wireframe.md</code>.</p>
+<h3 id="s07-aktor-dan-hak-akses">Aktor dan hak akses</h3>
+<table>
+<thead>
+<tr>
+<th>Aktor</th>
+<th>Peran</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Tamu</td>
+<td>Pengunjung tanpa login. Hanya melihat daftar barang</td>
+</tr>
+<tr>
+<td>Petugas</td>
+<td>Sudah login. Mengelola barang, peminjam, serta peminjaman dan pengembalian</td>
+</tr>
+</tbody>
+</table>
+<p>Tamu yang membuka halaman khusus petugas diarahkan ke halaman Login. Rancangan inilah yang diwujudkan di Jobsheet 10.</p>
+<h3 id="s07-halaman-yang-dirancang">Halaman yang dirancang</h3>
+<p>Login, Registrasi Petugas, Dashboard Petugas, Form Peminjaman, Form Pengembalian, dan Riwayat Peminjaman.</p>
+<h3 id="s07-user-flow-peminjaman">User flow peminjaman</h3>
+<ol>
+<li>Petugas login.</li>
+<li>Dari Dashboard pilih <strong>Peminjaman Baru</strong>, lalu pilih peminjam.</li>
+<li>Bila peminjam punya tunggakan, peminjaman ditolak.</li>
+<li>Pilih barang. Bila stok 0 atau barang rusak, muncul pesan dan petugas memilih barang lain.</li>
+<li>Tekan <strong>Simpan</strong>: stok berkurang satu, transaksi tercatat, muncul pesan sukses.</li>
+</ol>
+<h3 id="s07-skenario-khusus-edge-case">Skenario khusus (edge case)</h3>
+<table>
+<thead>
+<tr>
+<th>Situasi</th>
+<th>Perilaku sistem</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Stok barang 0</td>
+<td>Barang non-aktif dengan label "(Stok habis)"</td>
+</tr>
+<tr>
+<td>Barang rusak</td>
+<td>Barang non-aktif dengan label "(Rusak)"</td>
+</tr>
+<tr>
+<td>Peminjam bertunggakan</td>
+<td>Peminjaman ditolak beserta alasannya</td>
+</tr>
+<tr>
+<td>Login gagal</td>
+<td>Pesan umum tanpa menyebut mana yang salah</td>
+</tr>
+<tr>
+<td>Tamu membuka halaman petugas</td>
+<td>Diarahkan ke Login</td>
+</tr>
+<tr>
+<td>Data kosong</td>
+<td>Tampil teks "Belum ada data"</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s07-mengapa-merancang-dulu">Mengapa merancang dulu</h3>
+<ul>
+<li>Kesalahan alur murah diperbaiki di kertas, mahal diperbaiki di kode.</li>
+<li>Semua halaman berikutnya memakai pola yang sama, sehingga tampilan konsisten.</li>
+<li>Skenario khusus yang dipikirkan sejak awal menghindari kode tambal sulam.</li>
+</ul>
+<h3 id="s07-peringatan-jujur">Peringatan jujur</h3>
+<p>Fitur peminjaman dan pengembalian dalam rancangan ini <strong>belum dibangun</strong> pada SIMINVENT-Mini yang ada sekarang. Di modul dosen, fitur itu baru muncul di Jobsheet 12, yang belum menjadi bagian proyek ini.</p>
+<p><img loading="lazy" alt="Beranda jobsheet 04" src="../jobsheet-04/dokumentasi/beranda.png" /></p>
+</section><section class="bab" id="bab-08"><div class="bab-head"><span class="bn">08</span><h2>Jobsheet 05: JavaScript DOM dan event</h2></div>
+<h3 id="s08-tujuan">Tujuan</h3>
+<p>Menghidupkan halaman di sisi browser: menu hamburger, validasi form, pencarian tabel, dan konfirmasi hapus. Semuanya berjalan <strong>tanpa server dan tanpa database</strong>, dalam satu berkas <code>assets/js/app.js</code>.</p>
+<h3 id="s08-pola-dasar-yang-dipakai-terus">Pola dasar yang dipakai terus</h3>
+<ol>
+<li><strong>Pilih elemen</strong>: <code>document.getElementById("search-input")</code> atau <code>querySelectorAll(".btn-hapus")</code>.</li>
+<li><strong>Pasang event listener</strong>: <code>addEventListener("click", fungsi)</code>.</li>
+<li><strong>Ubah DOM</strong>: <code>style.display</code>, <code>classList.toggle</code>, <code>createElement</code>, <code>textContent</code>.</li>
+</ol>
+<h3 id="s08-fitur-yang-dibuat">Fitur yang dibuat</h3>
+<table>
+<thead>
+<tr>
+<th>Fitur</th>
+<th>Event</th>
+<th>Cara kerja</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Hamburger</td>
+<td><code>click</code></td>
+<td><code>classList.toggle("show")</code> pada menu <code>#navMenu</code></td>
+</tr>
+<tr>
+<td>Validasi form</td>
+<td><code>submit</code></td>
+<td>Memeriksa tiap isian, menampilkan pesan di bawah field, <code>preventDefault()</code> bila ada salah</td>
+</tr>
+<tr>
+<td>Pencarian real-time</td>
+<td><code>keyup</code></td>
+<td>Menyembunyikan baris yang tidak cocok dengan <code>style.display = "none"</code></td>
+</tr>
+<tr>
+<td>Counter baris</td>
+<td>Mengikuti pencarian</td>
+<td>Teks "Menampilkan X dari Y barang"</td>
+</tr>
+<tr>
+<td>Konfirmasi hapus</td>
+<td><code>click</code></td>
+<td>Dialog <code>confirm()</code> sebelum baris dihapus</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s08-aturan-validasi">Aturan validasi</h3>
+<table>
+<thead>
+<tr>
+<th>Form</th>
+<th>Isian</th>
+<th>Aturan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Barang</td>
+<td>Kode Barang</td>
+<td>Wajib, hanya huruf, angka, dan tanda hubung</td>
+</tr>
+<tr>
+<td>Barang</td>
+<td>Stok</td>
+<td>Bilangan bulat, tidak negatif</td>
+</tr>
+<tr>
+<td>Peminjam</td>
+<td>NIM / NIP</td>
+<td>Angka, 8 sampai 20 digit</td>
+</tr>
+<tr>
+<td>Peminjam</td>
+<td>No. HP</td>
+<td>8 sampai 15 karakter (angka, plus, hubung)</td>
+</tr>
+<tr>
+<td>Peminjam</td>
+<td>Email</td>
+<td>Format email valid</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s08-refactor-aturan-disimpan-sebagai-data">Refactor: aturan disimpan sebagai data</h3>
+<p>Alih-alih satu blok <code>if</code> per isian, aturan disimpan dalam array lalu dicek dengan satu perulangan.</p>
+<pre><code class="language-js">const ATURAN = [
+    { name: &quot;kode_barang&quot;, label: &quot;Kode Barang&quot;, wajib: true,
+      pola: /^[A-Za-z0-9-]+$/,
+      pesanPola: &quot;Kode Barang hanya boleh berisi huruf, angka, dan tanda hubung (-).&quot; },
+    { name: &quot;stok&quot;, label: &quot;Stok&quot;, wajib: true, bulat: true, min: 0 }
+];
+
+ATURAN.forEach(function (aturan) {
+    const input = form.querySelector(&quot;[name='&quot; + aturan.name + &quot;']&quot;);
+    const pesan = cekNilai(aturan, input.value);
+    // tampilkan atau hapus pesan error
+});
+</code></pre>
+<p>Menambah aturan baru cukup menambah satu objek ke array.</p>
+<h3 id="s08-pencarian-hanya-pada-kolom-nama">Pencarian hanya pada kolom nama</h3>
+<p>Alih-alih membaca seluruh teks baris, pencarian membaca satu sel saja lewat <code>row.cells[idx]</code>, sehingga mengetik "baik" tidak ikut menemukan kolom Kondisi.</p>
+<h3 id="s08-batasan-penting">Batasan penting</h3>
+<p>Hapus di jobsheet ini <strong>hanya menghilangkan baris dari tampilan</strong>. Data muncul lagi setelah halaman dimuat ulang karena belum ada penyimpanan. Itu sebabnya jobsheet 07 dan 08 dibutuhkan.</p>
+<h3 id="s08-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Cannot read properties of null</code></td>
+<td>Elemen belum ada saat script jalan, atau id salah</td>
+<td>Pasang script di akhir <code>&lt;body&gt;</code> atau pakai <code>DOMContentLoaded</code></td>
+</tr>
+<tr>
+<td>Hamburger terbuka lalu langsung menutup</td>
+<td>Bootstrap dan JavaScript sendiri sama-sama men-toggle</td>
+<td>Hapus atribut <code>data-bs-toggle</code> dan <code>data-bs-target</code> dari tombol</td>
+</tr>
+<tr>
+<td>Form tetap terkirim walau ada error</td>
+<td>Lupa <code>e.preventDefault()</code></td>
+<td>Panggil saat ada isian tidak valid</td>
+</tr>
+<tr>
+<td>Pesan error browser muncul mendahului pesan sendiri</td>
+<td>Validasi bawaan browser aktif</td>
+<td>Tambahkan <code>novalidate</code> pada <code>&lt;form&gt;</code></td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" alt="Pesan error validasi" src="../jobsheet-05/dokumentasi/validasi-tambahbarang.png" /></p>
+<p><img loading="lazy" alt="Pencarian dan counter" src="../jobsheet-05/dokumentasi/cari-listbarang.png" /></p>
+</section><section class="bab" id="bab-09"><div class="bab-head"><span class="bn">09</span><h2>Jobsheet 06: fetch dan JSON</h2></div>
+<h3 id="s09-tujuan">Tujuan</h3>
+<p>Mengambil data secara <strong>asinkron</strong> dari file JSON memakai <code>fetch</code>, lalu menampilkannya sebagai baris tabel. File JSON menjadi pengganti sementara untuk server, sebelum PHP dan database tersedia.</p>
+<h3 id="s09-konsep-kunci">Konsep kunci</h3>
+<table>
+<thead>
+<tr>
+<th>Konsep</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JSON</td>
+<td>Format teks untuk data: objek <code>{}</code> dan array <code>[]</code></td>
+</tr>
+<tr>
+<td><code>fetch(url)</code></td>
+<td>Meminta data tanpa memuat ulang halaman, hasilnya berupa Promise</td>
+</tr>
+<tr>
+<td><code>async</code> / <code>await</code></td>
+<td>Menulis kode asinkron agar terbaca berurutan</td>
+</tr>
+<tr>
+<td><code>try</code> / <code>catch</code> / <code>finally</code></td>
+<td>Menangani kegagalan, dan menjalankan pembersihan apa pun hasilnya</td>
+</tr>
+<tr>
+<td>Loading indicator</td>
+<td>Memberi tahu pengguna bahwa data sedang diambil</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s09-contoh-data">Contoh data</h3>
+<pre><code class="language-json">[
+  { &quot;kode&quot;: &quot;BRG-001&quot;, &quot;nama&quot;: &quot;Kursi Lipat&quot;, &quot;kategori&quot;: &quot;perabotan&quot;,
+    &quot;lokasi&quot;: &quot;Lab 1&quot;, &quot;stok&quot;: 12, &quot;kondisi&quot;: &quot;baik&quot; }
+]
+</code></pre>
+<h3 id="s09-alur-kerja">Alur kerja</h3>
+<pre><code class="language-js">async function muatBarang() {
+    tampilkanLoading();
+    try {
+        const res = await fetch(&quot;../data/barang.json&quot;);
+        if (!res.ok) throw new Error(&quot;Gagal memuat data&quot;);
+        const daftar = await res.json();
+        daftar.forEach(function (b) { tbody.append(buatBaris(b)); });
+    } catch (err) {
+        tampilkanPesan(&quot;Gagal memuat data&quot;);
+    } finally {
+        sembunyikanLoading();
+        perbaruiCounter();
+    }
+}
+</code></pre>
+<ol>
+<li>Tampilkan loading dan kosongkan <code>&lt;tbody&gt;</code>.</li>
+<li><code>fetch</code> mengambil file. Bila <code>res.ok</code> salah, lempar error.</li>
+<li><code>res.json()</code> mengubah teks menjadi array objek JavaScript.</li>
+<li>Tiap objek dijadikan <code>&lt;tr&gt;</code> lewat <code>createElement</code>.</li>
+<li>Blok <code>finally</code> menyembunyikan loading, baik berhasil maupun gagal.</li>
+</ol>
+<h3 id="s09-versi-then-yang-setara">Versi <code>.then()</code> yang setara</h3>
+<pre><code class="language-js">fetch(&quot;../data/barang.json&quot;)
+    .then(function (res) { return res.json(); })
+    .then(function (daftar) { /* render baris */ })
+    .catch(function (err) { /* tampilkan pesan gagal */ });
+</code></pre>
+<p><code>await</code> terbaca dari atas ke bawah, <code>.then()</code> berantai. Hasilnya sama.</p>
+<h3 id="s09-event-delegation">Event delegation</h3>
+<p>Baris tabel dibuat <strong>setelah</strong> halaman dimuat, sehingga pendengar <code>click</code> tidak bisa dipasang langsung ke tombol Hapus yang belum ada. Solusinya: pasang satu pendengar di <code>document</code>, lalu periksa <code>e.target.closest(".btn-hapus")</code>. Pola ini tetap dipakai sampai jobsheet 10.</p>
+<h3 id="s09-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Failed to fetch</code> atau CORS</td>
+<td>Halaman dibuka dengan <code>file://</code></td>
+<td>Jalankan lewat Live Server atau <code>python -m http.server</code></td>
+</tr>
+<tr>
+<td>Tabel kosong tanpa pesan</td>
+<td>Path JSON salah</td>
+<td>Cek tab Network, cari status 404</td>
+</tr>
+<tr>
+<td>Tombol Hapus pada baris baru tidak jalan</td>
+<td>Listener dipasang sebelum baris ada</td>
+<td>Gunakan event delegation</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>Perbedaan inti dengan jobsheet 07: di sini <strong>JavaScript di browser</strong> yang membuat baris tabel. Di jobsheet 07 <strong>PHP di server</strong> yang membuatnya, sehingga file <code>buku.js</code> dan <code>anggota.js</code> dihapus.</p>
+</blockquote>
+<p><img loading="lazy" alt="Daftar barang jobsheet 06" src="../jobsheet-06/dokumentasi/daftarbarang.png" /></p>
+</section><section class="bab" id="bab-10"><div class="bab-head"><span class="bn">10</span><h2>Jobsheet 07: PHP sisi server dan form</h2></div>
+<h3 id="s10-tujuan">Tujuan</h3>
+<p>Memproses input form di <strong>server</strong>: ambil dari <code>$_POST</code>, validasi, simpan sementara di <code>$_SESSION</code>, lalu tampilkan di halaman daftar. Ini titik peralihan dari front-end murni ke server-side.</p>
+<h3 id="s10-perubahan-utama-dari-jobsheet-06">Perubahan utama dari jobsheet 06</h3>
+<ul>
+<li>Semua halaman <code>.html</code> menjadi <code>.php</code>.</li>
+<li>Navbar dan footer dipindah ke <code>includes/header.php</code> dan <code>includes/footer.php</code>.</li>
+<li>Form memakai <code>method="post"</code> dan <code>action="proses_tambah.php"</code>.</li>
+<li>Daftar dirender oleh PHP dengan <code>foreach</code>, bukan oleh <code>fetch</code>.</li>
+<li>File <code>buku.js</code>, <code>anggota.js</code>, dan folder <code>data/</code> dihapus.</li>
+</ul>
+<h3 id="s10-alur-data">Alur data</h3>
+<pre><code>tambah.php (form)  --POST--&gt;  proses_tambah.php  --valid--&gt;  $_SESSION[...]  --&gt;  redirect list.php
+                                     |
+                                     +--tidak valid--&gt;  flash error + isian lama  --&gt;  redirect tambah.php
+</code></pre>
+<h3 id="s10-potongan-kode-inti">Potongan kode inti</h3>
+<pre><code class="language-php">&lt;?php
+$nama = trim($_POST['nama'] ?? '');
+$errors = [];
+if ($nama === '') {
+    $errors[] = 'Nama wajib diisi.';
+}
+if (!empty($errors)) {
+    setFlash('error', $errors);
+    redirect('tambah.php');
+}
+$_SESSION['peminjam'][] = ['nama' =&gt; $nama];
+setFlash('success', 'Data berhasil ditambahkan.');
+redirect('list.php');
+</code></pre>
+<h3 id="s10-konsep-penting">Konsep penting</h3>
+<table>
+<thead>
+<tr>
+<th>Konsep</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>$_POST</code>, <code>$_GET</code></td>
+<td>Data kiriman form dan URL</td>
+</tr>
+<tr>
+<td><code>$_SESSION</code></td>
+<td>Penyimpanan per pengunjung di server, bertahan antarhalaman</td>
+</tr>
+<tr>
+<td>Validasi server</td>
+<td>Wajib ada, karena validasi JavaScript bisa dilewati</td>
+</tr>
+<tr>
+<td>Pola PRG (Post, Redirect, Get)</td>
+<td>Setelah POST selalu redirect, agar refresh tidak mengirim ulang form</td>
+</tr>
+<tr>
+<td>Flash message</td>
+<td>Pesan disimpan di session, ditampilkan sekali, lalu dihapus</td>
+</tr>
+<tr>
+<td>Old input</td>
+<td>Isian lama dikembalikan ke form saat validasi gagal</td>
+</tr>
+<tr>
+<td><code>e()</code> / <code>htmlspecialchars</code></td>
+<td>Mengubah <code>&lt;</code> menjadi <code>&amp;lt;</code> agar input tidak menjadi skrip (mencegah XSS)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s10-path-relatif-otomatis">Path relatif otomatis</h3>
+<p><code>header.php</code> menghitung awalan path (<code>$base</code>) dari kedalaman folder halaman: kosong di root, <code>../</code> untuk halaman di subfolder. Dengan begitu proyek berjalan benar dari root domain maupun dari subfolder.</p>
+<h3 id="s10-validasi-di-dua-lapisan">Validasi di dua lapisan</h3>
+<table>
+<thead>
+<tr>
+<th>Lapisan</th>
+<th>Gunanya</th>
+<th>Bisa dilewati?</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>JavaScript (client)</td>
+<td>Umpan balik cepat bagi pengguna</td>
+<td>Ya, dengan mematikan JavaScript atau mengirim request manual</td>
+</tr>
+<tr>
+<td>PHP (server)</td>
+<td>Penjaga sebenarnya</td>
+<td>Tidak</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s10-cara-menguji">Cara menguji</h3>
+<ol>
+<li>Kirim form kosong: JavaScript menahan dan menampilkan error.</li>
+<li>Nonaktifkan JavaScript lalu kirim data tidak valid: server tetap menolak.</li>
+<li>Isi judul dengan <code>&lt;b&gt;tes&lt;/b&gt;</code>: tampil sebagai teks biasa, bukan huruf tebal.</li>
+<li>Buka <code>proses_tambah.php</code> langsung dari address bar: dialihkan kembali ke form.</li>
+</ol>
+<h3 id="s10-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Halaman PHP tampil sebagai teks kode</td>
+<td>Dibuka dengan klik dua kali</td>
+<td>Jalankan lewat server PHP</td>
+</tr>
+<tr>
+<td><code>Cannot modify header information</code></td>
+<td>Ada output sebelum <code>header()</code> atau <code>redirect()</code></td>
+<td>Pastikan tidak ada spasi atau HTML sebelum <code>&lt;?php</code></td>
+</tr>
+<tr>
+<td>Data hilang saat ditutup lalu dibuka</td>
+<td>Session hanya sementara</td>
+<td>Normal, solusinya database di jobsheet 08</td>
+</tr>
+</tbody>
+</table>
+<p><img loading="lazy" alt="Beranda jobsheet 07" src="../jobsheet-07/dokumentasi/beranda.png" /></p>
+</section><section class="bab" id="bab-11"><div class="bab-head"><span class="bn">11</span><h2>Jobsheet 08: PHP dan PostgreSQL, CRUD</h2></div>
+<h3 id="s11-tujuan">Tujuan</h3>
+<p>Mengganti <code>$_SESSION</code> dengan <strong>database PostgreSQL</strong> sehingga data permanen. Mencakup perancangan tabel, koneksi PDO, dan keempat operasi <strong>CRUD</strong>: Create, Read, Update, Delete.</p>
+<h3 id="s11-arsitektur">Arsitektur</h3>
+<pre><code>Browser  →  PHP (Vercel atau Laragon)  →  PDO  →  PostgreSQL (Supabase)
+</code></pre>
+<p>PHP tidak menyimpan data sendiri. PHP hanya menerima permintaan, bertanya ke database, lalu merakit HTML.</p>
+<h3 id="s11-skema-tabel">Skema tabel</h3>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS barang (
+    id          SERIAL PRIMARY KEY,
+    kode_barang VARCHAR(50)  NOT NULL UNIQUE,
+    nama_barang VARCHAR(150) NOT NULL,
+    kategori    VARCHAR(20)  CHECK (kategori IN ('perabotan', 'elektronik')),
+    lokasi      VARCHAR(100) NOT NULL,
+    stok        INTEGER      CHECK (stok &gt;= 0),
+    kondisi     VARCHAR(20)  CHECK (kondisi IN ('baik', 'rusak')),
+    dibuat_pada TIMESTAMP    DEFAULT NOW()
+);
+</code></pre>
+<p>Tabel <code>peminjam</code> dirancang serupa: <code>nim</code> unik, <code>status</code> salah satu dari mahasiswa, dosen, petugas, serta prodi, nomor HP, dan email.</p>
+<table>
+<thead>
+<tr>
+<th>Batasan</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>PRIMARY KEY</code> dan <code>SERIAL</code></td>
+<td>Nomor unik otomatis untuk tiap baris</td>
+</tr>
+<tr>
+<td><code>UNIQUE</code></td>
+<td>Mencegah kode barang atau NIM kembar</td>
+</tr>
+<tr>
+<td><code>NOT NULL</code></td>
+<td>Isian wajib</td>
+</tr>
+<tr>
+<td><code>CHECK</code></td>
+<td>Membatasi nilai yang boleh masuk</td>
+</tr>
+<tr>
+<td><code>DEFAULT NOW()</code></td>
+<td>Waktu otomatis saat baris dibuat</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s11-koneksi-pdo">Koneksi PDO</h3>
+<pre><code class="language-php">$pdo = new PDO(
+    &quot;pgsql:host=$host;port=$port;dbname=$db;sslmode=require&quot;,
+    $user,
+    $pass
+);
+$pdo-&gt;setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+</code></pre>
+<p>Kredensial dibaca dari environment variable (<code>getenv('DB_HOST')</code> dan seterusnya), <strong>bukan ditulis di kode</strong>. Mode <code>ERRMODE_EXCEPTION</code> membuat error database dilempar sebagai exception yang bisa ditangkap.</p>
+<h3 id="s11-crud-dengan-prepared-statement">CRUD dengan prepared statement</h3>
+<table>
+<thead>
+<tr>
+<th>Operasi</th>
+<th>Berkas</th>
+<th>Perintah SQL</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Create</td>
+<td><code>proses_tambah.php</code></td>
+<td><code>INSERT INTO ... VALUES (:kode, :nama, ...)</code></td>
+</tr>
+<tr>
+<td>Read</td>
+<td><code>list.php</code>, <code>edit.php</code></td>
+<td><code>SELECT * FROM barang</code> dan <code>WHERE id = :id</code></td>
+</tr>
+<tr>
+<td>Update</td>
+<td><code>proses_edit.php</code></td>
+<td><code>UPDATE ... SET ... WHERE id = :id</code></td>
+</tr>
+<tr>
+<td>Delete</td>
+<td><code>proses_hapus.php</code></td>
+<td><code>DELETE FROM barang WHERE id = :id</code></td>
+</tr>
+</tbody>
+</table>
+<pre><code class="language-php">$stmt = $pdo-&gt;prepare(
+    'INSERT INTO barang (kode_barang, nama_barang, kategori, lokasi, stok, kondisi)
+     VALUES (:kode, :nama, :kategori, :lokasi, :stok, :kondisi)'
+);
+$stmt-&gt;execute([
+    'kode' =&gt; $kode, 'nama' =&gt; $nama, 'kategori' =&gt; $kategori,
+    'lokasi' =&gt; $lokasi, 'stok' =&gt; $stok, 'kondisi' =&gt; $kondisi,
+]);
+</code></pre>
+<p><strong>Kenapa prepared statement:</strong> nilai dikirim terpisah dari perintah SQL, sehingga tidak bisa menyisipkan perintah berbahaya (<strong>SQL Injection</strong>). Jangan pernah menyambung string seperti <code>"... WHERE id = $id"</code>.</p>
+<h3 id="s11-menangani-data-kembar">Menangani data kembar</h3>
+<pre><code class="language-php">try {
+    $stmt-&gt;execute([...]);
+} catch (PDOException $e) {
+    if ($e-&gt;getCode() === '23505') {
+        setFlash('error', 'Kode barang sudah dipakai.');
+    } else {
+        error_log($e-&gt;getMessage());
+        setFlash('error', 'Terjadi kesalahan saat menyimpan data.');
+    }
+    redirect('tambah.php');
+}
+</code></pre>
+<p>Kode <strong><code>23505</code></strong> adalah SQLSTATE PostgreSQL untuk pelanggaran <code>UNIQUE</code>. Pesan teknis hanya masuk log server, pengguna melihat pesan yang rapi.</p>
+<h3 id="s11-hapus-harus-post">Hapus harus POST</h3>
+<p>Penghapusan hanya menerima <code>POST</code>, karena tautan biasa (<code>GET</code>) bisa terpicu tidak sengaja oleh mesin pencari atau prefetch browser. Tombol Hapus pada daftar membuat form POST lewat JavaScript setelah pengguna menekan OK pada dialog konfirmasi. Di server, <code>proses_hapus.php</code> menolak akses selain POST.</p>
+<h3 id="s11-fitur-tambahan-jobsheet-ini">Fitur tambahan jobsheet ini</h3>
+<ul>
+<li>Beranda menampilkan statistik dari database: total barang, total peminjam, total stok, barang rusak.</li>
+<li>Pencarian sisi server di daftar barang dengan <code>ILIKE</code>.</li>
+<li><code>migrasi_peminjam.php</code> memindahkan data lama dari JSON ke tabel <code>peminjam</code> (sekali jalan).</li>
+<li>Seluruh gaya dijadikan satu file <code>style.css</code>.</li>
+</ul>
+<h3 id="s11-peran-session-sekarang">Peran <code>$_SESSION</code> sekarang</h3>
+<p>Data tidak lagi di session, tetapi session tetap dipakai untuk <strong>flash message</strong> dan <strong>old input</strong>.</p>
+<h3 id="s11-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<p>Lihat bagian Troubleshooting umum. Ringkasnya: variabel koneksi salah atau kosong, project Supabase sedang di-pause, dan tabel lama yang strukturnya berbeda.</p>
+</section><section class="bab" id="bab-12"><div class="bab-head"><span class="bn">12</span><h2>Jobsheet 09: CRUD lanjutan, edit, hapus, pencarian, pagination</h2></div>
+<h3 id="s12-tujuan">Tujuan</h3>
+<p>Menyempurnakan CRUD: konfirmasi hapus yang benar-benar terhubung ke server, <strong>pencarian sisi server</strong>, dan <strong>pagination</strong> agar daftar tidak menampilkan semua data sekaligus.</p>
+<h3 id="s12-apa-yang-berubah-dari-jobsheet-08">Apa yang berubah dari jobsheet 08</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Perubahan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>barang/list.php</code>, <code>peminjam/list.php</code></td>
+<td>Hitung total, ambil 5 data per halaman, cari dengan <code>ILIKE</code>, urut <code>id DESC</code></td>
+</tr>
+<tr>
+<td><code>includes/helpers.php</code></td>
+<td>Fungsi <code>tampilkanPaginasi()</code></td>
+</tr>
+<tr>
+<td><code>assets/js/app.js</code></td>
+<td>Filter tabel sisi klien dihapus karena pencarian kini dikerjakan server</td>
+</tr>
+<tr>
+<td><code>assets/css/style.css</code></td>
+<td>Warna komponen pagination mengikuti tema</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s12-cara-kerja-pagination">Cara kerja pagination</h3>
+<pre><code class="language-php">$perPage = 5;
+$keyword = trim($_GET['q'] ?? '');
+$page = max(1, (int) ($_GET['page'] ?? 1));
+
+$hitung = $pdo-&gt;prepare('SELECT COUNT(*) FROM barang WHERE nama_barang ILIKE :kw');
+$hitung-&gt;execute(['kw' =&gt; '%' . $keyword . '%']);
+$totalRows = (int) $hitung-&gt;fetchColumn();
+
+$totalPages = max(1, (int) ceil($totalRows / $perPage));
+$page = min($page, $totalPages);
+$offset = ($page - 1) * $perPage;
+
+$stmt = $pdo-&gt;prepare(
+    'SELECT * FROM barang WHERE nama_barang ILIKE :kw
+     ORDER BY id DESC LIMIT :limit OFFSET :offset'
+);
+$stmt-&gt;bindValue('kw', '%' . $keyword . '%');
+$stmt-&gt;bindValue('limit', $perPage, PDO::PARAM_INT);
+$stmt-&gt;bindValue('offset', $offset, PDO::PARAM_INT);
+$stmt-&gt;execute();
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Langkah</th>
+<th>Alasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>COUNT(*)</code> dulu</td>
+<td>Untuk tahu jumlah halaman</td>
+</tr>
+<tr>
+<td><code>max(1, ...)</code> pada halaman</td>
+<td>Mencegah halaman nol atau negatif</td>
+</tr>
+<tr>
+<td><code>min($page, $totalPages)</code></td>
+<td>Halaman terlalu besar dialihkan ke halaman terakhir</td>
+</tr>
+<tr>
+<td><code>OFFSET = (halaman - 1) × per halaman</code></td>
+<td>Menentukan baris awal</td>
+</tr>
+<tr>
+<td><code>bindValue(..., PDO::PARAM_INT)</code></td>
+<td><code>LIMIT</code> dan <code>OFFSET</code> harus berupa angka, bukan teks</td>
+</tr>
+<tr>
+<td><code>ORDER BY id DESC</code></td>
+<td>Data terbaru tampil di halaman pertama</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s12-pencarian-server-dan-get">Pencarian server dan GET</h3>
+<p>Form pencarian memakai <code>method="get"</code>, sehingga kata kunci dan halaman muncul di URL (<code>list.php?q=kursi&amp;page=2</code>). URL itu bisa disalin, di-bookmark, dan tetap benar saat halaman di-refresh. Nomor halaman membawa kata kunci lewat <code>urlencode</code>.</p>
+<h3 id="s12-pencarian-server-dan-filter-klien">Pencarian server dan filter klien</h3>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Filter klien (jobsheet 05)</th>
+<th>Pencarian server (jobsheet 09)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mencari di</td>
+<td>Baris yang sedang tampil</td>
+<td>Seluruh data di database</td>
+</tr>
+<tr>
+<td>Dikerjakan oleh</td>
+<td>JavaScript di browser</td>
+<td>SQL <code>ILIKE</code> di server</td>
+</tr>
+<tr>
+<td>Cocok untuk</td>
+<td>Data sedikit</td>
+<td>Data banyak</td>
+</tr>
+</tbody>
+</table>
+<p><code>ILIKE</code> adalah bentuk <code>LIKE</code> milik PostgreSQL yang tidak membedakan huruf besar dan kecil.</p>
+<h3 id="s12-cara-menguji">Cara menguji</h3>
+<ol>
+<li>Tambahkan lebih dari 5 barang. Nomor halaman muncul, halaman 2 berisi sisanya.</li>
+<li>Cari satu kata. URL berubah menjadi <code>list.php?q=...</code>, dan jumlah halaman mengikuti hasil.</li>
+<li>Buka <code>list.php?page=99</code>. Otomatis menampilkan halaman terakhir.</li>
+<li>Cari kata yang tidak ada. Muncul pesan data tidak ditemukan.</li>
+<li>Klik Hapus lalu Cancel pada dialog: tidak ada yang berubah dan tidak ada permintaan ke server.</li>
+</ol>
+<h3 id="s12-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Error sintaks pada <code>LIMIT</code></td>
+<td>Nilai di-bind sebagai teks</td>
+<td>Gunakan <code>bindValue</code> dengan <code>PDO::PARAM_INT</code></td>
+</tr>
+<tr>
+<td>Pagination hilang setelah mencari</td>
+<td>Kata kunci tidak dibawa pada tautan halaman</td>
+<td>Sertakan <code>&amp;q=</code> di setiap tautan</td>
+</tr>
+<tr>
+<td>Halaman kosong di halaman jauh</td>
+<td>Halaman tidak dibatasi</td>
+<td>Pakai <code>min($page, $totalPages)</code></td>
+</tr>
+</tbody>
+</table>
+</section><section class="bab" id="bab-13"><div class="bab-head"><span class="bn">13</span><h2>Jobsheet 10: autentikasi dan sesi, penguncian halaman</h2></div>
+<h3 id="s13-tujuan">Tujuan</h3>
+<p>Hanya petugas yang sudah login boleh mengubah data. Jobsheet ini menambah <strong>registrasi, login, logout</strong>, dan <strong>penjaga halaman</strong>.</p>
+<h3 id="s13-autentikasi-dan-otorisasi">Autentikasi dan otorisasi</h3>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Pertanyaan yang dijawab</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autentikasi</td>
+<td>"Kamu siapa?" (login)</td>
+</tr>
+<tr>
+<td>Otorisasi</td>
+<td>"Kamu boleh melakukan apa?" (hak akses)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s13-tabel-users">Tabel users</h3>
+<pre><code class="language-sql">CREATE TABLE IF NOT EXISTS users (
+    id       SERIAL PRIMARY KEY,
+    nama     VARCHAR(255) NOT NULL,
+    username VARCHAR(50)  NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL,
+    role     VARCHAR(20)  NOT NULL DEFAULT 'petugas'
+);
+</code></pre>
+<h3 id="s13-password-tidak-pernah-disimpan-apa-adanya">Password tidak pernah disimpan apa adanya</h3>
+<pre><code class="language-php">$hash = password_hash($password, PASSWORD_DEFAULT);
+password_verify($password, $user['password']);
+</code></pre>
+<p><code>password_hash()</code> menghasilkan teks acak satu arah (tidak bisa dikembalikan ke password asli). <code>password_verify()</code> mencocokkan password yang diketik dengan hash tersebut. Jika database bocor, password asli pengguna tetap aman.</p>
+<h3 id="s13-berkas-yang-ditambahkan">Berkas yang ditambahkan</h3>
+<table>
+<thead>
+<tr>
+<th>Berkas</th>
+<th>Fungsi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>auth/register.php</code>, <code>proses_register.php</code></td>
+<td>Daftar akun, cek username kembar, simpan hash</td>
+</tr>
+<tr>
+<td><code>auth/login.php</code>, <code>proses_login.php</code></td>
+<td>Cek password, simpan identitas ke <code>$_SESSION</code></td>
+</tr>
+<tr>
+<td><code>auth/logout.php</code></td>
+<td><code>session_destroy()</code> lalu kembali ke login</td>
+</tr>
+<tr>
+<td><code>includes/auth.php</code></td>
+<td>Penjaga halaman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s13-proses-login">Proses login</h3>
+<pre><code class="language-php">$stmt = $pdo-&gt;prepare('SELECT * FROM users WHERE username = :username');
+$stmt-&gt;execute(['username' =&gt; $username]);
+$user = $stmt-&gt;fetch(PDO::FETCH_ASSOC);
+
+if ($user &amp;&amp; password_verify($password, $user['password'])) {
+    $_SESSION['user_id'] = $user['id'];
+    $_SESSION['nama'] = $user['nama'];
+    $_SESSION['role'] = $user['role'];
+    redirect('../index.php');
+}
+setFlash('error', 'Username atau password salah.');
+redirect('login.php');
+</code></pre>
+<p>Pesan gagal sengaja <strong>umum</strong>: penyerang tidak boleh tahu apakah yang salah usernamenya atau passwordnya.</p>
+<h3 id="s13-penjaga-halaman">Penjaga halaman</h3>
+<pre><code class="language-php">&lt;?php
+require_once __DIR__ . '/helpers.php';
+
+if (!isset($_SESSION['user_id'])) {
+    redirect('../auth/login.php');
+}
+</code></pre>
+<p>Cara memakainya adalah menaruh satu baris di <strong>paling atas</strong> halaman yang dikunci:</p>
+<pre><code class="language-php">&lt;?php
+require __DIR__ . '/../includes/auth.php';
+</code></pre>
+<p><strong>Kenapa harus baris pertama:</strong> pengalihan memakai <code>header('Location: ...')</code>, yang gagal bila halaman sudah mengeluarkan HTML. Penjaga juga tidak butuh database, jadi tetap bekerja walau koneksi database bermasalah.</p>
+<p>Pada halaman <code>proses_*.php</code>, baris auth <strong>menggantikan</strong> <code>require helpers.php</code>, karena <code>auth.php</code> sudah memuat <code>helpers.php</code>. Memuatnya dua kali menimbulkan error "Cannot redeclare e()".</p>
+<h3 id="s13-siapa-boleh-apa">Siapa boleh apa</h3>
+<table>
+<thead>
+<tr>
+<th>Halaman</th>
+<th>Tamu</th>
+<th>Petugas</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Beranda</td>
+<td>Boleh</td>
+<td>Boleh</td>
+</tr>
+<tr>
+<td>Daftar Barang</td>
+<td>Boleh</td>
+<td>Boleh</td>
+</tr>
+<tr>
+<td>Tambah, edit, hapus barang</td>
+<td>Dialihkan ke Login</td>
+<td>Boleh</td>
+</tr>
+<tr>
+<td>Seluruh halaman Peminjam</td>
+<td>Dialihkan ke Login</td>
+<td>Boleh</td>
+</tr>
+<tr>
+<td>Login dan Registrasi</td>
+<td>Boleh</td>
+<td>Dialihkan ke Beranda</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s13-navbar-dinamis">Navbar dinamis</h3>
+<pre><code class="language-php">$sudahLogin = isset($_SESSION['user_id']);
+</code></pre>
+<pre><code class="language-php">&lt;?php if ($sudahLogin): ?&gt;
+    &lt;span&gt;&lt;?= e($_SESSION['nama']) ?&gt;&lt;/span&gt;
+    &lt;a href=&quot;&lt;?= $base ?&gt;auth/logout.php&quot;&gt;Logout&lt;/a&gt;
+&lt;?php else: ?&gt;
+    &lt;a href=&quot;&lt;?= $base ?&gt;auth/login.php&quot;&gt;Login&lt;/a&gt;
+&lt;?php endif; ?&gt;
+</code></pre>
+<blockquote>
+<p>Menyembunyikan menu <strong>bukan</strong> pengganti penjagaan. Menu hanya merapikan tampilan, sedangkan <code>auth.php</code> yang benar-benar memblokir akses langsung lewat URL. Keduanya harus ada.</p>
+</blockquote>
+<h3 id="s13-cara-menguji">Cara menguji</h3>
+<ol>
+<li>Tanpa login, buka <code>peminjam/list.php</code> atau <code>barang/tambah.php</code>: dialihkan ke Login.</li>
+<li>Daftar lewat Registrasi, lalu login: navbar menampilkan nama dan Logout.</li>
+<li>Buka lagi halaman yang tadi terkunci: sekarang bisa.</li>
+<li>Lihat kolom <code>password</code> di tabel <code>users</code>: berisi teks acak panjang.</li>
+<li>Salah memasukkan password: muncul pesan umum "Username atau password salah."</li>
+<li>Logout, lalu buka halaman terkunci: kembali dialihkan ke Login.</li>
+</ol>
+<h3 id="s13-yang-belum-ada">Yang belum ada</h3>
+<p>Pembatasan berdasarkan <code>role</code> (misalnya hanya admin yang boleh menghapus) belum diterapkan. Kolom <code>role</code> sudah tersedia, jadi pengembangannya tinggal memeriksa <code>$_SESSION['role']</code> setelah baris auth.</p>
+<h3 id="s13-kesalahan-yang-sering-terjadi">Kesalahan yang sering terjadi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Cannot redeclare e()</code></td>
+<td><code>helpers.php</code> dimuat dua kali</td>
+<td>Ganti <code>require helpers</code> dengan baris auth pada <code>proses_*.php</code></td>
+</tr>
+<tr>
+<td>Pengalihan ke Login tidak jalan</td>
+<td>Ada output sebelum <code>auth.php</code></td>
+<td>Letakkan baris auth paling atas</td>
+</tr>
+<tr>
+<td>Login berhasil tetapi langsung terlempar lagi</td>
+<td>Session tidak dimulai</td>
+<td>Pastikan <code>session_start()</code> ada di <code>helpers.php</code></td>
+</tr>
+</tbody>
+</table>
+</section><section class="bab" id="bab-14"><div class="bab-head"><span class="bn">14</span><h2>Portofolio dan deploy</h2></div>
+<h3 id="s14-portofolio">Portofolio</h3>
+<p>Halaman portofolio adalah <code>index.php</code> di root repo. Isinya daftar kartu yang menautkan ke tiap jobsheet, ditambah menu <strong>Handbook</strong> ini. Tiap jobsheet punya <code>README.md</code> berbentuk laporan: identitas, tujuan, perubahan, struktur folder, cara menjalankan, cara menguji, dokumentasi (tangkapan layar), dan kesimpulan.</p>
+<p>Standar README per jobsheet yang dipakai di proyek ini:</p>
+<table>
+<thead>
+<tr>
+<th>Bagian</th>
+<th>Isi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Identitas</td>
+<td>Nama, NIM, mata kuliah, kelas</td>
+</tr>
+<tr>
+<td>Tujuan</td>
+<td>Satu atau dua kalimat</td>
+</tr>
+<tr>
+<td>Perubahan dari jobsheet sebelumnya</td>
+<td>Daftar berkas atau fitur yang berubah</td>
+</tr>
+<tr>
+<td>Struktur folder</td>
+<td>Pohon folder singkat</td>
+</tr>
+<tr>
+<td>Dokumentasi</td>
+<td>Gambar dari folder <code>dokumentasi/</code></td>
+</tr>
+<tr>
+<td>Cara menjalankan dan menguji</td>
+<td>Langkah bernomor</td>
+</tr>
+<tr>
+<td>Kesimpulan</td>
+<td>Satu paragraf</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s14-menyimpan-ke-github">Menyimpan ke GitHub</h3>
+<p>Satu jobsheet, satu commit. Pesan commit mengikuti pola yang sama agar riwayat rapi.</p>
+<table>
+<thead>
+<tr>
+<th>Contoh pesan</th>
+<th>Isi commit</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>JS7_PHP &amp; Form Handling</code></td>
+<td>Kode jobsheet 7</td>
+</tr>
+<tr>
+<td><code>JS8_Database &amp; SQL</code></td>
+<td>Kode dan SQL jobsheet 8</td>
+</tr>
+<tr>
+<td><code>JS8_Laporan dan Dokumentasi</code></td>
+<td>README dan tangkapan layar</td>
+</tr>
+<tr>
+<td><code>JS8_Update Desain</code></td>
+<td>Perubahan tampilan</td>
+</tr>
+</tbody>
+</table>
+<p>Alur harian:</p>
+<pre><code class="language-bash">git status
+git add .
+git commit -m &quot;JS10_Autentikasi &amp; Sesi&quot;
+git push
+</code></pre>
+<blockquote>
+<p><strong>Jangan</strong> memakai <code>git push --force</code> tanpa benar-benar paham dampaknya, karena riwayat orang lain bisa hilang. Bila cabang lokal dan remote berbeda riwayat, selesaikan dengan merge atau <code>git revert</code>, bukan memaksa.</p>
+</blockquote>
+<h3 id="s14-memeriksa-folder-terhubung-ke-repo-yang-mana">Memeriksa folder terhubung ke repo yang mana</h3>
+<pre><code class="language-bash">git remote -v
+</code></pre>
+<p>Perintah ini menampilkan alamat repo yang dituju <code>push</code>. Bila salah, ganti dengan <code>git remote set-url origin &lt;alamat-baru&gt;</code>.</p>
+<h3 id="s14-menayangkan-ke-vercel">Menayangkan ke Vercel</h3>
+<p>Vercel menjalankan PHP lewat <strong>Dockerfile</strong>. Berkas <code>Dockerfile.vercel</code> di root repo berisi:</p>
+<pre><code class="language-dockerfile">FROM dunglas/frankenphp:php8.3-bookworm
+
+WORKDIR /app
+
+RUN install-php-extensions pdo_pgsql
+
+COPY . /app
+
+CMD [&quot;sh&quot;, &quot;-c&quot;, &quot;frankenphp php-server --listen :${PORT:-80} --root /app&quot;]
+</code></pre>
+<p>Artinya: pakai FrankenPHP (server PHP 8.3), pasang ekstensi <code>pdo_pgsql</code> supaya PHP bisa bicara dengan PostgreSQL, salin seluruh proyek, lalu jalankan server pada port yang diberikan Vercel.</p>
+<p>Langkah deploy:</p>
+<ol>
+<li>Dorong kode ke GitHub.</li>
+<li>Di Vercel, pilih <strong>Add New Project</strong>, lalu impor repo.</li>
+<li>Atur preset proyek ke opsi <strong>Container</strong> bila tersedia, sehingga Dockerfile yang dipakai.</li>
+<li>Isi <strong>Environment Variables</strong>: <code>DB_HOST</code>, <code>DB_PORT</code>, <code>DB_NAME</code>, <code>DB_USER</code>, <code>DB_PASSWORD</code>. Nama variabel harus persis sama, termasuk huruf besar.</li>
+<li>Klik <strong>Deploy</strong>, lalu buka alamat yang diberikan.</li>
+<li>Setiap <code>git push</code> berikutnya memicu deploy ulang otomatis.</li>
+</ol>
+<h3 id="s14-hal-yang-perlu-diperhatikan-saat-deploy">Hal yang perlu diperhatikan saat deploy</h3>
+<table>
+<thead>
+<tr>
+<th>Hal</th>
+<th>Penjelasan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Paket gratis (Hobby)</td>
+<td>Repo milik organisasi yang privat tidak bisa dideploy. Pakai repo di akun pribadi</td>
+</tr>
+<tr>
+<td>Author commit</td>
+<td>Pada paket gratis, commit harus berasal dari pemilik akun</td>
+</tr>
+<tr>
+<td>Supabase gratis</td>
+<td>Project bisa <strong>di-pause</strong> bila lama tidak aktif. Klik <strong>Restore project</strong> sebelum demo</td>
+</tr>
+<tr>
+<td>Variabel lingkungan</td>
+<td>Perubahan nilai baru berlaku setelah <strong>deploy ulang</strong></td>
+</tr>
+<tr>
+<td>Cache</td>
+<td>Aplikasi mengirim <code>Cache-Control: no-store</code> agar data selalu terbaru</td>
+</tr>
+<tr>
+<td>Rahasia</td>
+<td>Jangan memasukkan password ke repo. <code>.env</code> sudah ada di <code>.gitignore</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s14-daftar-periksa-sebelum-menyerahkan">Daftar periksa sebelum menyerahkan</h3>
+<ul>
+<li>[ ] Semua jobsheet terbuka dari halaman portofolio.</li>
+<li>[ ] README tiap jobsheet lengkap dan gambarnya tampil.</li>
+<li>[ ] Registrasi, login, dan CRUD berjalan di alamat Vercel (bukan hanya di lokal).</li>
+<li>[ ] Tidak ada password atau kunci di dalam repo.</li>
+<li>[ ] Pesan commit konsisten.</li>
+</ul>
+</section><section class="bab" id="bab-15"><div class="bab-head"><span class="bn">15</span><h2>Tips presentasi dan pertanyaan yang sering muncul dari dosen</h2></div>
+<h3 id="s15-menyiapkan-presentasi">Menyiapkan presentasi</h3>
+<ol>
+<li><strong>Siapkan data dan akun contoh</strong> sebelum mulai, termasuk satu akun petugas yang sudah terdaftar.</li>
+<li><strong>Pastikan Supabase aktif</strong> dan alamat Vercel bisa dibuka. Buka halamannya 10 menit sebelum giliran.</li>
+<li><strong>Siapkan cadangan lokal</strong> (<code>php -S localhost:8000</code>) untuk jaga-jaga bila internet bermasalah.</li>
+<li><strong>Buka tab yang dibutuhkan lebih dulu</strong>: portofolio, halaman Barang, halaman Login, editor dengan <code>includes/auth.php</code>, dan Supabase Table Editor.</li>
+</ol>
+<h3 id="s15-urutan-demo-yang-disarankan-5-sampai-7-menit">Urutan demo yang disarankan (5 sampai 7 menit)</h3>
+<table>
+<thead>
+<tr>
+<th>Menit</th>
+<th>Yang ditunjukkan</th>
+<th>Yang dijelaskan</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>0 sampai 1</td>
+<td>Portofolio, jobsheet 01 sampai 03</td>
+<td>Perkembangan dari HTML ke responsif</td>
+</tr>
+<tr>
+<td>1 sampai 2</td>
+<td>Jobsheet 05 dan 06</td>
+<td>JavaScript: validasi, pencarian, fetch</td>
+</tr>
+<tr>
+<td>2 sampai 3</td>
+<td>Jobsheet 07</td>
+<td>Perpindahan ke server dan validasi server</td>
+</tr>
+<tr>
+<td>3 sampai 5</td>
+<td>Jobsheet 08 dan 09</td>
+<td>Database, CRUD, prepared statement, pagination dan pencarian</td>
+</tr>
+<tr>
+<td>5 sampai 6</td>
+<td>Jobsheet 10</td>
+<td>Buka halaman terkunci tanpa login, daftar, login, tampilkan hash di Supabase</td>
+</tr>
+<tr>
+<td>6 sampai 7</td>
+<td>Penutup</td>
+<td>Yang sudah dipelajari dan rencana pengembangan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s15-cara-menjawab">Cara menjawab</h3>
+<ul>
+<li>Jawab pendek dulu (satu kalimat), lalu beri alasan atau contoh dari kode sendiri.</li>
+<li>Tunjukkan baris kodenya bila ditanya "di mana". Hafal berkas utama tiap jobsheet.</li>
+<li>Bila belum tahu, katakan terus terang lalu sebutkan bagaimana kamu akan mencarinya. Itu lebih baik daripada menebak.</li>
+<li>Bagian yang belum dikerjakan (misalnya pembatasan <code>role</code>) lebih baik diakui dan dijelaskan rencananya.</li>
+</ul>
+<h3 id="s15-pertanyaan-yang-sering-muncul">Pertanyaan yang sering muncul</h3>
+<details>
+<summary>Apa bedanya HTML, CSS, dan JavaScript?</summary>
+<p>HTML membentuk struktur dan isi halaman, CSS mengatur tampilannya, dan JavaScript membuatnya bereaksi terhadap pengguna. Di proyek ini ketiganya berpisah: <code>.html</code> atau <code>.php</code> untuk struktur, <code>style.css</code> untuk tampilan, dan <code>app.js</code> untuk perilaku.</p>
+</details>
+<details>
+<summary>Kapan memakai Flexbox dan kapan Grid?</summary>
+<p>Flexbox untuk satu dimensi, misalnya menu yang berderet dalam satu baris. Grid untuk dua dimensi, misalnya empat kartu ringkasan di Beranda yang berbaris dan berkolom.</p>
+</details>
+<details>
+<summary>Apa itu desain responsif, dan kenapa memakai desktop-first?</summary>
+<p>Desain responsif membuat satu halaman menyesuaikan lebar layar lewat meta viewport, media query, dan layout lentur. Jobsheet 03 memakai desktop-first: gaya dasar untuk layar besar, lalu <code>@media (max-width: ...)</code> di bagian bawah untuk layar kecil. Pendekatan sebaliknya adalah mobile-first, memakai <code>min-width</code>.</p>
+</details>
+<details>
+<summary>Kenapa ada dua versi jobsheet 03, CSS murni dan Bootstrap?</summary>
+<p>Untuk membandingkan dua cara mencapai hasil yang mirip. CSS murni memberi kontrol penuh dengan 320 baris, sedangkan Bootstrap lebih cepat dengan 82 baris tetapi memuat file tambahan dan mengikuti nama class bawaannya.</p>
+</details>
+<details>
+<summary>Kenapa merancang wireframe sebelum membuat kode?</summary>
+<p>Kesalahan alur lebih murah diperbaiki di rancangan daripada di kode. Wireframe jobsheet 04 juga menetapkan aktor (tamu dan petugas) yang kemudian diwujudkan lewat login di jobsheet 10.</p>
+</details>
+<details>
+<summary>Apa itu DOM?</summary>
+<p>DOM adalah representasi halaman HTML sebagai pohon objek yang bisa dibaca dan diubah JavaScript, misalnya memilih elemen dengan <code>getElementById</code> lalu mengubah isinya.</p>
+</details>
+<details>
+<summary>Kenapa validasi perlu di JavaScript dan di PHP?</summary>
+<p>JavaScript memberi umpan balik cepat, tetapi bisa dilewati dengan mematikan JavaScript atau mengirim request manual. PHP adalah penjaga sebenarnya, sehingga semua aturan diperiksa ulang di server.</p>
+</details>
+<details>
+<summary>Apa bedanya `async/await` dengan `.then()`?</summary>
+<p>Keduanya menangani Promise dan hasilnya sama. <code>await</code> membuat kode terbaca berurutan dari atas ke bawah, sedangkan <code>.then()</code> menyambung fungsi berantai.</p>
+</details>
+<details>
+<summary>Apa itu event delegation dan kenapa dipakai?</summary>
+<p>Satu pendengar dipasang di elemen induk (<code>document</code>), lalu dicek elemen yang diklik lewat <code>e.target.closest(...)</code>. Cara ini perlu untuk elemen yang dibuat setelah halaman dimuat, karena pendengar tidak bisa dipasang pada elemen yang belum ada.</p>
+</details>
+<details>
+<summary>Apa bedanya GET dan POST?</summary>
+<p>GET mengirim data lewat URL dan dipakai untuk operasi aman seperti mencari atau membuka halaman. POST mengirim data di badan permintaan dan dipakai untuk operasi yang mengubah data seperti tambah, edit, dan hapus.</p>
+</details>
+<details>
+<summary>Kenapa hapus harus POST?</summary>
+<p>Tautan GET bisa terpicu tanpa sengaja, misalnya oleh prefetch browser atau mesin pencari, sehingga data terhapus. Dengan POST, penghapusan hanya terjadi lewat form yang sengaja dikirim, dan di server <code>proses_hapus.php</code> menolak akses selain POST.</p>
+</details>
+<details>
+<summary>Apa itu pola PRG?</summary>
+<p>Post, Redirect, Get. Setelah memproses POST, server mengarahkan ke halaman lain. Dengan begitu menekan refresh tidak mengirim ulang form dan menggandakan data.</p>
+</details>
+<details>
+<summary>Bagaimana mencegah XSS?</summary>
+<p>Setiap data pengguna yang dicetak ke HTML dibungkus fungsi <code>e()</code> yang memanggil <code>htmlspecialchars</code>. Input seperti <code>&lt;script&gt;</code> tampil sebagai teks biasa dan tidak dijalankan.</p>
+</details>
+<details>
+<summary>Apa itu SQL Injection, dan bagaimana mencegahnya?</summary>
+<p>Penyerang menyisipkan perintah SQL lewat isian. Pencegahannya dengan prepared statement: perintah SQL dan nilainya dikirim terpisah, sehingga nilai selalu dianggap data, bukan perintah.</p>
+</details>
+<details>
+<summary>Apa itu PDO, dan kenapa memakai `ERRMODE_EXCEPTION`?</summary>
+<p>PDO adalah lapisan akses database di PHP yang seragam untuk berbagai database. Mode exception membuat error database dilempar sebagai exception sehingga bisa ditangkap dengan <code>try/catch</code> dan ditampilkan sebagai pesan yang rapi.</p>
+</details>
+<details>
+<summary>Kenapa password database tidak ditulis di kode?</summary>
+<p>Kode diunggah ke GitHub. Jika password ada di kode, siapa pun yang melihat repo bisa mengakses database. Karena itu nilainya dibaca dari environment variable dengan <code>getenv</code>.</p>
+</details>
+<details>
+<summary>Apa arti kode error `23505`?</summary>
+<p>Itu SQLSTATE PostgreSQL untuk pelanggaran batasan <code>UNIQUE</code>, misalnya kode barang atau NIM yang sudah dipakai. Kode ini ditangkap dan diubah menjadi pesan yang mudah dipahami.</p>
+</details>
+<details>
+<summary>Bagaimana rumus pagination?</summary>
+<p><code>offset = (halaman - 1) × jumlah per halaman</code>, dipakai bersama <code>LIMIT jumlah per halaman</code>. Jumlah halaman adalah <code>ceil(total data / jumlah per halaman)</code>, dan nomor halaman dibatasi agar tidak melewati halaman terakhir.</p>
+</details>
+<details>
+<summary>Apa bedanya `LIKE` dan `ILIKE`?</summary>
+<p><code>ILIKE</code> khusus PostgreSQL dan tidak membedakan huruf besar dan kecil, sehingga mencari "kursi" juga menemukan "Kursi".</p>
+</details>
+<details>
+<summary>Kenapa password memakai `password_hash` dan bukan disimpan langsung?</summary>
+<p>Bila database bocor, password asli tidak terbaca. <code>password_hash</code> menghasilkan hash satu arah, dan <code>password_verify</code> mencocokkan password yang diketik dengan hash itu.</p>
+</details>
+<details>
+<summary>Apa bedanya autentikasi dan otorisasi?</summary>
+<p>Autentikasi memastikan siapa penggunanya (login). Otorisasi menentukan apa yang boleh dilakukannya. Jobsheet 10 menerapkan keduanya secara sederhana: sudah login atau belum.</p>
+</details>
+<details>
+<summary>Kenapa `auth.php` harus di baris paling atas?</summary>
+<p>Pengalihan memakai <code>header('Location: ...')</code>, yang gagal bila halaman sudah mengirim output HTML. Karena itu penjaga dijalankan sebelum <code>header.php</code>.</p>
+</details>
+<details>
+<summary>Apa bedanya session dan database?</summary>
+<p>Session bersifat sementara dan per pengunjung, cocok untuk status login dan pesan flash. Database permanen dan dipakai bersama, cocok untuk data barang, peminjam, dan akun.</p>
+</details>
+<details>
+<summary>Apakah menyembunyikan menu sudah cukup untuk mengamankan halaman?</summary>
+<p>Tidak. Orang masih bisa membuka halaman lewat URL. Yang benar-benar memblokir adalah penjaga <code>auth.php</code>. Menyembunyikan menu hanya merapikan tampilan.</p>
+</details>
+<details>
+<summary>Apa kekurangan proyek ini, dan apa rencana pengembangannya?</summary>
+<p>Kolom <code>role</code> belum dipakai untuk membedakan hak akses, belum ada proteksi CSRF, dan fitur peminjaman serta pengembalian yang dirancang di jobsheet 04 belum dibangun. Rencananya: menambah pengecekan <code>role</code> setelah <code>auth.php</code>, menambah token CSRF pada form, lalu membangun modul peminjaman dengan transaksi database.</p>
+</details>
+</section><section class="bab" id="bab-16"><div class="bab-head"><span class="bn">16</span><h2>Troubleshooting umum</h2></div>
+<p>Cari gejala yang sama dengan yang kamu lihat, lalu ikuti solusinya.</p>
+<h3 id="s16-database-dan-koneksi">Database dan koneksi</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Tenant or user not found</code></td>
+<td>Project Supabase sedang di-pause, atau user pooler salah</td>
+<td>Buka Supabase lalu <strong>Restore project</strong>. Ambil ulang user dan host dari tombol <strong>Connect</strong>, bagian <strong>Session pooler</strong></td>
+</tr>
+<tr>
+<td><code>could not translate host name "port=5432"</code></td>
+<td><code>DB_HOST</code> kosong, atau nama variabel salah ketik (misalnya <code>host</code>, bukan <code>DB_HOST</code>)</td>
+<td>Perbaiki nama Key persis seperti daftar variabel, lalu deploy ulang</td>
+</tr>
+<tr>
+<td>Koneksi gagal hanya di lokal</td>
+<td>Environment variable tidak ada di sesi terminal atau Laragon</td>
+<td>Isi variabel sebelum menjalankan <code>php -S</code>, atau atur di Laragon</td>
+</tr>
+<tr>
+<td>Koneksi gagal setelah ganti password</td>
+<td>Password lama masih terpasang di Vercel</td>
+<td>Ubah nilainya di Environment Variables lalu <strong>Redeploy</strong></td>
+</tr>
+<tr>
+<td><code>could not find driver</code></td>
+<td>Ekstensi <code>pdo_pgsql</code> belum aktif</td>
+<td>Aktifkan di <code>php.ini</code>, atau pastikan <code>Dockerfile.vercel</code> memuat <code>install-php-extensions pdo_pgsql</code></td>
+</tr>
+<tr>
+<td>Data tidak muncul walau tabel ada</td>
+<td>Tabel lama dengan kolom berbeda sudah ada, sedangkan <code>CREATE TABLE IF NOT EXISTS</code> tidak menimpanya</td>
+<td>Hapus tabel lama (<code>DROP TABLE</code>), jalankan ulang file SQL</td>
+</tr>
+<tr>
+<td>Supabase meminta memilih RLS saat membuat tabel</td>
+<td>Tabel baru dapat diakses lewat API publik</td>
+<td>Pilih <strong>Run and enable RLS</strong>. Aplikasi PHP tidak terpengaruh karena terhubung langsung ke database</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s16-kesalahan-php">Kesalahan PHP</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Halaman PHP tampil sebagai teks</td>
+<td>Dibuka dengan klik dua kali</td>
+<td>Jalankan lewat server PHP</td>
+</tr>
+<tr>
+<td><code>Cannot modify header information - headers already sent</code></td>
+<td>Ada output (spasi, HTML, <code>echo</code>) sebelum <code>header()</code> atau <code>redirect()</code></td>
+<td>Pindahkan logika pengalihan ke bagian paling atas, hapus spasi sebelum <code>&lt;?php</code></td>
+</tr>
+<tr>
+<td><code>Cannot redeclare e()</code></td>
+<td><code>helpers.php</code> dimuat dua kali dengan <code>require</code></td>
+<td>Gunakan <code>require_once</code>, atau ganti baris <code>require helpers</code> dengan <code>auth.php</code> pada <code>proses_*.php</code></td>
+</tr>
+<tr>
+<td><code>Undefined array key "..."</code></td>
+<td>Kode masih memakai kolom yang sudah dihapus, atau berkas lama masih terdeploy</td>
+<td>Samakan semua berkas dengan skema terbaru, lalu deploy ulang</td>
+</tr>
+<tr>
+<td>Pesan merah "Silakan login terlebih dahulu." tersangkut di halaman lain</td>
+<td>Penjaga halaman versi lama menyimpan pesan flash</td>
+<td>Hapus baris <code>setFlash</code> dari <code>includes/auth.php</code></td>
+</tr>
+<tr>
+<td>Error sintaks pada <code>LIMIT</code> atau <code>OFFSET</code></td>
+<td>Nilai di-bind sebagai teks</td>
+<td>Gunakan <code>bindValue</code> dengan <code>PDO::PARAM_INT</code></td>
+</tr>
+<tr>
+<td>Login benar tetapi langsung terlempar</td>
+<td>Session tidak dimulai</td>
+<td>Pastikan <code>session_start()</code> berjalan di <code>helpers.php</code> sebelum memeriksa <code>$_SESSION</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s16-tampilan-dan-javascript">Tampilan dan JavaScript</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Failed to fetch</code> pada jobsheet 06</td>
+<td>Halaman dibuka dengan <code>file://</code></td>
+<td>Jalankan lewat Live Server atau <code>python -m http.server 8000</code></td>
+</tr>
+<tr>
+<td>Tombol Hapus pada baris baru tidak jalan</td>
+<td>Pendengar dipasang sebelum baris ada</td>
+<td>Gunakan event delegation pada <code>document</code></td>
+</tr>
+<tr>
+<td>Hamburger terbuka lalu menutup sendiri</td>
+<td>Bootstrap dan JavaScript sendiri sama-sama men-toggle</td>
+<td>Hapus <code>data-bs-toggle</code> dan <code>data-bs-target</code> dari tombol</td>
+</tr>
+<tr>
+<td>Perubahan CSS tidak terlihat</td>
+<td>Browser memakai berkas lama</td>
+<td>Muat ulang paksa dengan <strong>Ctrl+F5</strong></td>
+</tr>
+<tr>
+<td>Ikon tab (favicon) kosong atau tidak muncul</td>
+<td>Berkas <code>.ico</code> kosong atau rusak</td>
+<td>Buat ulang dari gambar asli lewat konverter ICO, lalu muat ulang paksa</td>
+</tr>
+<tr>
+<td>Halaman tampil seperti desktop kecil di HP</td>
+<td>Meta viewport tidak ada</td>
+<td>Tambahkan di setiap halaman</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s16-git-dan-deploy">Git dan deploy</h3>
+<table>
+<thead>
+<tr>
+<th>Gejala</th>
+<th>Penyebab</th>
+<th>Solusi</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>fatal: refusing to merge unrelated histories</code> atau cabang "diverged"</td>
+<td>Dua repo punya riwayat yang berbeda</td>
+<td>Samakan dengan <code>git fetch</code>, lalu <code>git reset --soft origin/main</code> dan buat commit baru. Hindari <code>--force</code></td>
+</tr>
+<tr>
+<td>Terlanjur commit dan push hal yang salah</td>
+<td>Kesalahan operasional</td>
+<td>Batalkan dengan <code>git revert HEAD</code>, lalu <code>git push</code>. Cara ini aman karena riwayat tidak dihapus</td>
+</tr>
+<tr>
+<td>Folder lokal terhubung ke repo yang salah</td>
+<td>Alamat <code>origin</code> keliru</td>
+<td>Periksa dengan <code>git remote -v</code>, perbaiki dengan <code>git remote set-url origin &lt;alamat&gt;</code></td>
+</tr>
+<tr>
+<td>Vercel menolak deploy</td>
+<td>Repo milik organisasi yang privat, atau author commit bukan pemilik akun</td>
+<td>Pakai repo di akun pribadi dan commit dari akun yang sama</td>
+</tr>
+<tr>
+<td>Situs Vercel menampilkan versi lama</td>
+<td>Deploy belum selesai, atau variabel baru belum diterapkan</td>
+<td>Tunggu deploy selesai, lalu <strong>Redeploy</strong> bila variabel berubah</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s16-cara-berpikir-saat-debugging">Cara berpikir saat debugging</h3>
+<ol>
+<li><strong>Baca pesan errornya.</strong> Sebagian besar sudah menyebut berkas dan baris.</li>
+<li><strong>Persempit lokasinya</strong>: browser (Console), jaringan (tab Network), PHP (pesan di layar atau log), atau database (SQL Editor Supabase).</li>
+<li><strong>Ubah satu hal, uji lagi.</strong> Mengubah banyak hal sekaligus menyulitkan pelacakan.</li>
+<li><strong>Bandingkan dengan versi yang bekerja</strong> (jobsheet sebelumnya atau commit sebelumnya).</li>
+</ol>
+</section><section class="bab" id="bab-17"><div class="bab-head"><span class="bn">17</span><h2>Lampiran: glosarium dan cheat sheet</h2></div>
+<h3 id="s17-glosarium">Glosarium</h3>
+<table>
+<thead>
+<tr>
+<th>Istilah</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Autentikasi</td>
+<td>Proses memastikan identitas pengguna (login)</td>
+</tr>
+<tr>
+<td>Otorisasi</td>
+<td>Penentuan hak akses setelah identitas diketahui</td>
+</tr>
+<tr>
+<td>Asinkron</td>
+<td>Pekerjaan berjalan di latar belakang tanpa menghentikan halaman</td>
+</tr>
+<tr>
+<td>Breakpoint</td>
+<td>Lebar layar tempat tata letak berubah pada media query</td>
+</tr>
+<tr>
+<td>CDN</td>
+<td>Jaringan penyedia berkas (seperti Bootstrap) yang dimuat dari internet</td>
+</tr>
+<tr>
+<td>CRUD</td>
+<td>Create, Read, Update, Delete: empat operasi dasar data</td>
+</tr>
+<tr>
+<td>CSRF</td>
+<td>Serangan yang memaksa pengguna login mengirim permintaan tanpa sadar</td>
+</tr>
+<tr>
+<td>Dockerfile</td>
+<td>Berkas resep untuk membangun lingkungan menjalankan aplikasi</td>
+</tr>
+<tr>
+<td>DOM</td>
+<td>Representasi halaman HTML sebagai pohon objek di browser</td>
+</tr>
+<tr>
+<td>Environment variable</td>
+<td>Nilai konfigurasi (misalnya password) yang disimpan di luar kode</td>
+</tr>
+<tr>
+<td>Event</td>
+<td>Kejadian di halaman seperti klik atau ketikan</td>
+</tr>
+<tr>
+<td>Event delegation</td>
+<td>Satu pendengar di elemen induk untuk melayani elemen anak, termasuk yang dibuat belakangan</td>
+</tr>
+<tr>
+<td>Flash message</td>
+<td>Pesan sekali tampil yang disimpan di session</td>
+</tr>
+<tr>
+<td>Framework</td>
+<td>Kumpulan komponen siap pakai (contoh: Bootstrap)</td>
+</tr>
+<tr>
+<td>Guard</td>
+<td>Pemeriksaan di awal halaman yang memblokir akses tak berhak</td>
+</tr>
+<tr>
+<td>Hash</td>
+<td>Hasil satu arah dari sebuah teks, dipakai untuk menyimpan password</td>
+</tr>
+<tr>
+<td>ILIKE</td>
+<td>Operator pencarian teks PostgreSQL yang tidak membedakan huruf besar dan kecil</td>
+</tr>
+<tr>
+<td>JSON</td>
+<td>Format teks untuk menyimpan dan bertukar data</td>
+</tr>
+<tr>
+<td>Media query</td>
+<td>Aturan CSS yang berlaku pada lebar layar tertentu</td>
+</tr>
+<tr>
+<td>Migrasi</td>
+<td>Memindahkan data atau struktur dari satu tempat ke tempat lain</td>
+</tr>
+<tr>
+<td>Offset</td>
+<td>Jumlah baris yang dilewati sebelum mulai mengambil data</td>
+</tr>
+<tr>
+<td>Pagination</td>
+<td>Membagi daftar panjang menjadi beberapa halaman</td>
+</tr>
+<tr>
+<td>PDO</td>
+<td>Antarmuka PHP untuk mengakses berbagai database</td>
+</tr>
+<tr>
+<td>PRG</td>
+<td>Post, Redirect, Get: pengalihan setelah POST agar tidak terkirim ulang</td>
+</tr>
+<tr>
+<td>Prepared statement</td>
+<td>Perintah SQL dengan tempat kosong, nilainya dikirim terpisah</td>
+</tr>
+<tr>
+<td>Primary key</td>
+<td>Kolom pengenal unik tiap baris</td>
+</tr>
+<tr>
+<td>Promise</td>
+<td>Objek hasil pekerjaan asinkron yang akan selesai atau gagal</td>
+</tr>
+<tr>
+<td>RLS</td>
+<td>Row Level Security: pembatas akses per baris di PostgreSQL</td>
+</tr>
+<tr>
+<td>Responsive</td>
+<td>Tampilan menyesuaikan ukuran layar</td>
+</tr>
+<tr>
+<td>Session</td>
+<td>Penyimpanan data per pengunjung di server</td>
+</tr>
+<tr>
+<td>SQL Injection</td>
+<td>Serangan yang menyisipkan perintah SQL lewat isian</td>
+</tr>
+<tr>
+<td>SQLSTATE</td>
+<td>Kode standar yang menandai jenis error database</td>
+</tr>
+<tr>
+<td>Validasi</td>
+<td>Memeriksa apakah isian memenuhi aturan</td>
+</tr>
+<tr>
+<td>Viewport</td>
+<td>Area yang terlihat pada layar perangkat</td>
+</tr>
+<tr>
+<td>Wireframe</td>
+<td>Sketsa kerangka tampilan sebelum dibuat</td>
+</tr>
+<tr>
+<td>XSS</td>
+<td>Serangan yang menyisipkan skrip lewat data yang ditampilkan</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-cheat-sheet-git">Cheat sheet: Git</h3>
+<table>
+<thead>
+<tr>
+<th>Tujuan</th>
+<th>Perintah</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Menyalin repo</td>
+<td><code>git clone &lt;alamat&gt;</code></td>
+</tr>
+<tr>
+<td>Melihat status</td>
+<td><code>git status</code></td>
+</tr>
+<tr>
+<td>Menyiapkan semua perubahan</td>
+<td><code>git add .</code></td>
+</tr>
+<tr>
+<td>Membuat commit</td>
+<td><code>git commit -m "JS10_Autentikasi &amp; Sesi"</code></td>
+</tr>
+<tr>
+<td>Mengunggah</td>
+<td><code>git push</code></td>
+</tr>
+<tr>
+<td>Mengambil pembaruan</td>
+<td><code>git pull</code></td>
+</tr>
+<tr>
+<td>Melihat repo tujuan</td>
+<td><code>git remote -v</code></td>
+</tr>
+<tr>
+<td>Mengganti repo tujuan</td>
+<td><code>git remote set-url origin &lt;alamat&gt;</code></td>
+</tr>
+<tr>
+<td>Riwayat singkat</td>
+<td><code>git log --oneline</code></td>
+</tr>
+<tr>
+<td>Membatalkan commit terakhir secara aman</td>
+<td><code>git revert HEAD</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-cheat-sheet-php">Cheat sheet: PHP</h3>
+<table>
+<thead>
+<tr>
+<th>Tujuan</th>
+<th>Kode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Data form (POST)</td>
+<td><code>$_POST['nama'] ?? ''</code></td>
+</tr>
+<tr>
+<td>Data URL (GET)</td>
+<td><code>$_GET['page'] ?? 1</code></td>
+</tr>
+<tr>
+<td>Menghapus spasi</td>
+<td><code>trim($teks)</code></td>
+</tr>
+<tr>
+<td>Mengamankan output</td>
+<td><code>htmlspecialchars($teks, ENT_QUOTES, 'UTF-8')</code></td>
+</tr>
+<tr>
+<td>Mengalihkan</td>
+<td><code>header('Location: list.php'); exit;</code></td>
+</tr>
+<tr>
+<td>Memulai session</td>
+<td><code>session_start();</code></td>
+</tr>
+<tr>
+<td>Menyimpan ke session</td>
+<td><code>$_SESSION['user_id'] = $id;</code></td>
+</tr>
+<tr>
+<td>Mengakhiri session</td>
+<td><code>session_destroy();</code></td>
+</tr>
+<tr>
+<td>Meng-hash password</td>
+<td><code>password_hash($pw, PASSWORD_DEFAULT)</code></td>
+</tr>
+<tr>
+<td>Mencocokkan password</td>
+<td><code>password_verify($pw, $hash)</code></td>
+</tr>
+<tr>
+<td>Membaca environment variable</td>
+<td><code>getenv('DB_HOST')</code></td>
+</tr>
+<tr>
+<td>Membulatkan ke atas</td>
+<td><code>ceil($total / $perPage)</code></td>
+</tr>
+<tr>
+<td>Memastikan bilangan bulat</td>
+<td><code>filter_var($x, FILTER_VALIDATE_INT)</code></td>
+</tr>
+<tr>
+<td>Memvalidasi email</td>
+<td><code>filter_var($x, FILTER_VALIDATE_EMAIL)</code></td>
+</tr>
+<tr>
+<td>Memuat berkas sekali</td>
+<td><code>require_once __DIR__ . '/helpers.php';</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-cheat-sheet-sql-postgresql">Cheat sheet: SQL PostgreSQL</h3>
+<table>
+<thead>
+<tr>
+<th>Tujuan</th>
+<th>Perintah</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Membuat tabel</td>
+<td><code>CREATE TABLE IF NOT EXISTS nama (...)</code></td>
+</tr>
+<tr>
+<td>Menambah data</td>
+<td><code>INSERT INTO barang (kode_barang, nama_barang) VALUES (:kode, :nama)</code></td>
+</tr>
+<tr>
+<td>Membaca semua</td>
+<td><code>SELECT * FROM barang</code></td>
+</tr>
+<tr>
+<td>Membaca satu</td>
+<td><code>SELECT * FROM barang WHERE id = :id</code></td>
+</tr>
+<tr>
+<td>Mengubah</td>
+<td><code>UPDATE barang SET stok = :stok WHERE id = :id</code></td>
+</tr>
+<tr>
+<td>Menghapus</td>
+<td><code>DELETE FROM barang WHERE id = :id</code></td>
+</tr>
+<tr>
+<td>Mencari teks</td>
+<td><code>WHERE nama_barang ILIKE :kw</code> dengan nilai <code>'%kata%'</code></td>
+</tr>
+<tr>
+<td>Mengurutkan</td>
+<td><code>ORDER BY id DESC</code></td>
+</tr>
+<tr>
+<td>Membatasi</td>
+<td><code>LIMIT 5 OFFSET 10</code></td>
+</tr>
+<tr>
+<td>Menghitung</td>
+<td><code>SELECT COUNT(*) FROM barang</code></td>
+</tr>
+<tr>
+<td>Menjumlahkan</td>
+<td><code>SELECT COALESCE(SUM(stok), 0) FROM barang</code></td>
+</tr>
+<tr>
+<td>Menghapus tabel</td>
+<td><code>DROP TABLE nama</code></td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>Selalu</strong> sertakan <code>WHERE</code> pada <code>UPDATE</code> dan <code>DELETE</code>. Tanpa <code>WHERE</code>, seluruh baris di tabel ikut berubah atau terhapus.</p>
+</blockquote>
+<h3 id="s17-cheat-sheet-pola-pdo">Cheat sheet: pola PDO</h3>
+<pre><code class="language-php">$stmt = $pdo-&gt;prepare('SELECT * FROM barang WHERE id = :id');
+$stmt-&gt;execute(['id' =&gt; $id]);
+$satu  = $stmt-&gt;fetch(PDO::FETCH_ASSOC);
+$semua = $stmt-&gt;fetchAll(PDO::FETCH_ASSOC);
+$angka = $stmt-&gt;fetchColumn();
+</code></pre>
+<h3 id="s17-cheat-sheet-javascript-dom">Cheat sheet: JavaScript DOM</h3>
+<table>
+<thead>
+<tr>
+<th>Tujuan</th>
+<th>Kode</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Memilih satu elemen</td>
+<td><code>document.getElementById("id")</code> atau <code>querySelector(".kelas")</code></td>
+</tr>
+<tr>
+<td>Memilih banyak elemen</td>
+<td><code>querySelectorAll(".kelas")</code></td>
+</tr>
+<tr>
+<td>Memasang event</td>
+<td><code>elemen.addEventListener("click", fungsi)</code></td>
+</tr>
+<tr>
+<td>Mengubah teks</td>
+<td><code>elemen.textContent = "baru"</code></td>
+</tr>
+<tr>
+<td>Menampilkan atau menyembunyikan</td>
+<td><code>elemen.style.display = "none"</code></td>
+</tr>
+<tr>
+<td>Menambah atau mencabut class</td>
+<td><code>elemen.classList.toggle("show")</code></td>
+</tr>
+<tr>
+<td>Membuat elemen</td>
+<td><code>document.createElement("span")</code></td>
+</tr>
+<tr>
+<td>Mencegah aksi bawaan</td>
+<td><code>e.preventDefault()</code></td>
+</tr>
+<tr>
+<td>Mengambil data</td>
+<td><code>const res = await fetch(url); const data = await res.json();</code></td>
+</tr>
+<tr>
+<td>Dialog konfirmasi</td>
+<td><code>confirm("Yakin?")</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-cheat-sheet-bootstrap-5">Cheat sheet: Bootstrap 5</h3>
+<table>
+<thead>
+<tr>
+<th>Tujuan</th>
+<th>Class</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Wadah tengah</td>
+<td><code>container</code></td>
+</tr>
+<tr>
+<td>Baris dan kolom</td>
+<td><code>row</code>, <code>col-12 col-md-6 col-lg-3</code></td>
+</tr>
+<tr>
+<td>Jarak</td>
+<td><code>p-4</code> (padding), <code>mb-3</code> (margin bawah), <code>gap-2</code></td>
+</tr>
+<tr>
+<td>Kartu</td>
+<td><code>card</code>, <code>card-body</code></td>
+</tr>
+<tr>
+<td>Tabel</td>
+<td><code>table table-hover align-middle</code></td>
+</tr>
+<tr>
+<td>Tombol</td>
+<td><code>btn btn-primary</code>, <code>btn btn-outline-danger btn-sm</code></td>
+</tr>
+<tr>
+<td>Form</td>
+<td><code>form-label</code>, <code>form-control</code>, <code>form-select</code></td>
+</tr>
+<tr>
+<td>Lencana</td>
+<td><code>badge rounded-pill bg-success-subtle text-success-emphasis</code></td>
+</tr>
+<tr>
+<td>Peringatan</td>
+<td><code>alert alert-success</code>, <code>alert alert-danger</code></td>
+</tr>
+<tr>
+<td>Sembunyikan di layar tertentu</td>
+<td><code>d-none d-md-block</code></td>
+</tr>
+<tr>
+<td>Flex</td>
+<td><code>d-flex justify-content-between align-items-center</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-cheat-sheet-http">Cheat sheet: HTTP</h3>
+<table>
+<thead>
+<tr>
+<th>Kode</th>
+<th>Arti</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>200</td>
+<td>Berhasil</td>
+</tr>
+<tr>
+<td>302</td>
+<td>Dialihkan ke alamat lain (dipakai <code>redirect</code>)</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Dilarang</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Tidak ditemukan</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Kesalahan di server</td>
+</tr>
+</tbody>
+</table>
+<h3 id="s17-rujukan">Rujukan</h3>
+<ul>
+<li>Dokumentasi PHP: php.net</li>
+<li>Dokumentasi PostgreSQL: postgresql.org/docs</li>
+<li>Dokumentasi Bootstrap: getbootstrap.com</li>
+<li>Referensi web (HTML, CSS, JavaScript): developer.mozilla.org</li>
+<li>Modul dosen: repo <code>PemogramanWeb2026</code></li>
+</ul>
+</section>
+<footer>&copy; 2026 Praktikum Desain Pemrograman Web</footer></main>
+<script>
+const side=document.getElementById('side');document.getElementById('tg').onclick=()=>side.classList.toggle('open');
+side.addEventListener('click',e=>{if(e.target.closest('nav a'))side.classList.remove('open')});
+const links=[...document.querySelectorAll('nav a')];
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){links.forEach(l=>l.classList.toggle('on',l.dataset.t===e.target.id))}}),{rootMargin:'-20% 0px -70% 0px'});
+document.querySelectorAll('.bab').forEach(s=>io.observe(s));
+</script></body></html>

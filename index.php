@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portofolio Desain Pemrograman Web - Jobsheet 01 s/d 08</title>
+    <title>Portofolio Desain Pemrograman Web - Jobsheet 01 s/d 10</title>
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%230b1310'/%3E%3Crect x='2' y='2' width='60' height='60' rx='12' fill='none' stroke='%23c2a468' stroke-opacity='.45' stroke-width='1.5'/%3E%3Cg transform='translate(14 14) scale(1.5)' fill='none' stroke='%23c2a468' stroke-width='1.6' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m18 16 4-4-4-4'/%3E%3Cpath d='m6 8-4 4 4 4'/%3E%3Cpath d='m14.5 4-5 16'/%3E%3C/g%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -146,6 +146,19 @@
             white-space: nowrap;
         }
 
+        .hb-link {
+            display: inline-block;
+            margin-top: 1.6rem;
+            color: var(--gold);
+            border: 1px solid var(--gold-soft);
+            padding: 0.55rem 1.4rem;
+            border-radius: 999px;
+            text-decoration: none;
+            font-size: 0.95rem;
+            transition: background 0.3s ease;
+        }
+        .hb-link:hover, .hb-link:focus-visible { background: rgba(194, 164, 104, 0.12); outline: none; }
+
         footer {
             border-top: 1px solid var(--line);
             text-align: center;
@@ -184,10 +197,20 @@
             <p>254107020181</p><br>
             <h1>Desain <em>Pemrograman Web</em></h1>
             <div class="rule"></div>
-            <p>Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 08.</p>
+            <p>Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 10.</p>
+            <a class="hb-link" href="handbook/index.html">Buka Handbook &rarr;</a>
         </header>
 
         <nav class="list" aria-label="Daftar jobsheet">
+            <a class="item" href="handbook/index.html">
+                <span class="num">H</span>
+                <div>
+                    <h2>Handbook</h2>
+                    <p>Panduan lengkap Jobsheet 01 sampai 10: persiapan, penjelasan tiap jobsheet, deploy, tips presentasi, troubleshooting, dan glosarium.</p>
+                </div>
+                <span class="tag">Panduan</span>
+            </a>
+
             <a class="item" href="jobsheet-01/index.html">
                 <span class="num">01</span>
                 <div>
