@@ -197,7 +197,7 @@
             <p>254107020181</p><br>
             <h1>Desain <em>Pemrograman Web</em></h1>
             <div class="rule"></div>
-            <p>Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 10.</p>
+            <p>Kumpulan hasil praktikum, tugas, dan modul Jobsheet 01 sampai 12.</p>
             <a class="hb-link" href="handbook/index.html">Buka Handbook &rarr;</a>
         </header>
 
@@ -311,7 +311,7 @@
                 <span class="num">11</span>
                 <div>
                     <h2>Jobsheet 11</h2>
-                    <p>Keamanan Web Dasar.</p>
+                    <p>Keamanan Web Dasar: SQL Injection, XSS, CSRF.</p>
                 </div>
                 <span class="tag">Modul 11</span>
             </a>
