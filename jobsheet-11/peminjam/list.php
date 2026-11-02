@@ -84,7 +84,11 @@ include __DIR__ . '/../includes/judul_halaman.php';
                             <td><?= e($peminjam['email']) ?></td>
                             <td class="text-nowrap">
                                 <a href="edit.php?id=<?= (int) $peminjam['id'] ?>" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i> Edit</a>
-                                <button type="button" class="btn btn-sm btn-outline-danger btn-hapus" data-id="<?= (int) $peminjam['id'] ?>"><i class="bi bi-trash"></i> Hapus</button>
+                                <form class="form-hapus d-inline" method="post" action="proses_hapus.php">
+                                    <input type="hidden" name="id" value="<?= (int) $peminjam['id'] ?>">
+                                    <?= csrf_field() ?>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger btn-hapus"><i class="bi bi-trash"></i> Hapus</button>
+                                </form>
                             </td>
                         </tr>
                             <?php endforeach; ?>

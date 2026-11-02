@@ -1,10 +1,13 @@
 <?php
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
+require_once __DIR__ . '/../includes/csrf.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('list.php');
 }
+
+csrf_verify();
 
 $id = filter_var($_POST['id'] ?? null, FILTER_VALIDATE_INT);
 if ($id === false || $id === null) {

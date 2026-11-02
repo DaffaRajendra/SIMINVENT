@@ -20,6 +20,7 @@ include __DIR__ . '/../includes/judul_halaman.php';
             <div class="card">
                 <div class="card-body p-4">
                     <form method="post" action="proses_login.php">
+                        <?= csrf_field() ?>
                         <div class="mb-3">
                             <label for="username" class="form-label fw-semibold">Username</label>
                             <input type="text" class="form-control py-2" id="username" name="username" required>

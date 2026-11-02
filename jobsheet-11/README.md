@@ -1,4 +1,4 @@
-# Jobsheet 10 — Autentikasi & Manajemen Sesi (SIMINVENT-Mini)
+# Jobsheet 11 — Keamanan Web Dasar (SIMINVENT-Mini)
 
 ## Identitas
 
@@ -11,70 +11,54 @@
 
 ## Tujuan
 
-Menerapkan autentikasi dan manajemen sesi pengguna pada SIMINVENT-Mini: registrasi, login, logout, dan penguncian halaman yang hanya boleh diakses petugas.
+Menerapkan prinsip keamanan web dasar pada SIMINVENT-Mini: mencegah XSS, CSRF, dan session fixation, serta mengaudit ulang kemungkinan SQL Injection.
 
-## Perubahan dari Jobsheet 9
+## Perubahan dari Jobsheet 10
 
 | Berkas | Perubahan |
 |---|---|
-| `sql/02_users.sql` | Tabel `users` (nama, username, password, role) |
-| `auth/register.php`, `auth/proses_register.php` | Registrasi petugas, password disimpan dengan `password_hash()`, username duplikat dicek |
-| `auth/login.php`, `auth/proses_login.php` | Login dengan `password_verify()`, data pengguna disimpan di `$_SESSION` |
-| `auth/logout.php` | Menghapus sesi dengan `session_destroy()` |
-| `includes/auth.php` | Penjaga halaman: tamu dialihkan ke halaman login |
-| `includes/header.php` | Navbar menampilkan nama petugas dan Logout bila sudah login, atau Login bila belum |
+| `includes/csrf.php` | Fungsi `csrf_token()`, `csrf_field()`, dan `csrf_verify()` untuk token CSRF per-session |
+| `includes/header.php` | Memuat `csrf.php` (`require_once`) |
+| `auth/login.php`, `auth/register.php` | Form ditambah `csrf_field()` |
+| `barang/tambah.php`, `barang/edit.php`, `peminjam/tambah.php`, `peminjam/edit.php` | Form ditambah `csrf_field()` |
+| `barang/list.php`, `peminjam/list.php` | Tombol Hapus kini berada di dalam `<form class="form-hapus" method="post">` berisi `id` dan `csrf_field()` |
+| `auth/proses_login.php`, `auth/proses_register.php` | Memanggil `csrf_verify()` sebelum memproses data |
+| `barang/proses_tambah.php`, `proses_edit.php`, `proses_hapus.php` | Memanggil `csrf_verify()` setelah guard login dan pengecekan metode POST |
+| `peminjam/proses_tambah.php`, `proses_edit.php`, `proses_hapus.php` | Sama seperti barang |
+| `auth/proses_login.php` | `session_regenerate_id(true)` setelah login berhasil (mencegah session fixation) |
+| `assets/js/app.js` | Konfirmasi hapus dipindah ke event `submit` pada `form.form-hapus` (form dibuat di HTML, bukan lewat JavaScript) |
+| `docs/security-checklist.md` | Hasil audit keamanan beserta bukti sebelum dan sesudah |
 
-## Skema Tabel `users`
+## Ringkasan Perlindungan
 
-```sql
-CREATE TABLE IF NOT EXISTS users (
-    id SERIAL PRIMARY KEY,
-    nama VARCHAR(255) NOT NULL,
-    username VARCHAR(50) NOT NULL UNIQUE,
-    password VARCHAR(255) NOT NULL,
-    role VARCHAR(20) NOT NULL DEFAULT 'petugas'
-);
-```
-
-## Cara Kerja Penjaga Halaman
-
-`includes/auth.php` dipanggil di baris pertama setiap halaman yang dikunci, sebelum `header.php`, sehingga `header('Location: ...')` masih bisa dijalankan sebelum ada output HTML.
-
-```php
-<?php
-require_once __DIR__ . '/helpers.php';
-
-if (!isset($_SESSION['user_id'])) {
-    setFlash('error', 'Silakan login terlebih dahulu.');
-    redirect('../auth/login.php');
-}
-```
-
-| Status | Halaman |
+| Kerentanan | Penanganan |
 |---|---|
-| Dikunci (wajib login) | `barang/tambah`, `barang/edit`, `barang/proses_*`, seluruh halaman `peminjam/*` |
-| Publik | `index.php` (Beranda) dan `barang/list.php` |
+| XSS | Semua output data dibungkus `e()` (`htmlspecialchars`, `ENT_QUOTES`, UTF-8). Sudah diterapkan sejak Jobsheet 10 dan diaudit ulang. |
+| CSRF | Token acak 64 karakter heksadesimal per-session, dikirim lewat input tersembunyi, dibandingkan dengan `hash_equals()`. Token salah atau kosong mendapat HTTP 403. |
+| Session fixation | ID session diganti setelah `password_verify()` berhasil. |
+| SQL Injection | Semua query memakai prepared statement PDO. Tidak ada perubahan kode. |
 
-## Alur Login
+## Cara Kerja CSRF
 
-1. Pengguna mengisi username dan password di `auth/login.php`.
-2. `proses_login.php` mengambil data pengguna dengan prepared statement.
-3. `password_verify()` mencocokkan password dengan hash di database.
-4. Bila cocok, `user_id`, `nama`, dan `role` disimpan di `$_SESSION`, lalu diarahkan ke Beranda.
-5. Bila tidak cocok, kembali ke login dengan pesan "Username atau password salah."
+1. Saat halaman dibuka, `csrf_field()` membuat token (bila belum ada), menyimpannya di `$_SESSION['csrf_token']`, dan menaruhnya di form.
+2. Saat form dikirim, `csrf_verify()` membandingkan `$_POST['csrf_token']` dengan token di session.
+3. Bila tidak cocok, proses dihentikan dengan HTTP 403 dan data tidak disentuh.
+4. Tombol **Hapus** berada di dalam form POST yang memuat `csrf_field()`. JavaScript hanya menampilkan konfirmasi sebelum form dikirim.
+
+Urutan di file proses: guard `auth.php` dulu, lalu `csrf_verify()`. Pengguna yang belum login langsung dialihkan ke Login.
 
 ## Struktur Folder
 
 ```
-jobsheet-10/
+jobsheet-11/
 ├── index.php
 ├── auth/          login, register, proses_login, proses_register, logout
 ├── barang/        list, tambah, edit, proses_tambah, proses_edit, proses_hapus
 ├── peminjam/      list, tambah, edit, proses_tambah, proses_edit, proses_hapus
-├── includes/      auth, header, footer, helpers, koneksi, judul_halaman
+├── includes/      auth, csrf, header, footer, helpers, koneksi, judul_halaman
 ├── assets/        css, js, fonts, img
 ├── sql/           01_barang_peminjam.sql, 02_users.sql
-├── docs/          wireframe.md
+├── docs/          wireframe.md, security-checklist.md
 └── dokumentasi/   tangkapan layar
 ```
 
@@ -82,30 +66,34 @@ jobsheet-10/
 
 Tambahkan tangkapan layar ke folder `dokumentasi/`, lalu tampilkan di sini.
 
-![Halaman Login](dokumentasi/login.png)
+![XSS tampil sebagai teks](dokumentasi/xss.png)
 
-![Halaman Registrasi](dokumentasi/register.png)
+![POST tanpa token mendapat 403](dokumentasi/csrf403.png)
 
-![Navbar setelah login](dokumentasi/setelahlogin.png)
+![Hapus barang tetap berfungsi](dokumentasi/hapus.png)
 
 ## Cara Menjalankan
 
-1. Jalankan `sql/02_users.sql` di database PostgreSQL (Supabase).
+1. Jalankan `sql/01_barang_peminjam.sql` dan `sql/02_users.sql` di database PostgreSQL (Supabase).
 2. Atur environment variable `DB_HOST`, `DB_PORT`, `DB_NAME`, `DB_USER`, `DB_PASSWORD`.
-3. Jalankan `php -S localhost:8000` dari folder induk, lalu buka `http://localhost:8000/jobsheet-10/`.
+3. Jalankan `php -S localhost:8000` dari folder induk, lalu buka `http://localhost:8000/jobsheet-11/`.
 
 ## Cara Menguji
 
-1. Tanpa login, buka `peminjam/list.php` atau `barang/tambah.php`. Harus dialihkan ke halaman Login.
-2. Daftar akun lewat Register, lalu login. Navbar menampilkan nama dan tombol Logout.
-3. Buka lagi halaman yang tadi terkunci. Sekarang bisa diakses.
-4. Klik Logout, lalu buka `barang/list.php`. Daftar barang tetap bisa dilihat tamu.
-5. Di tabel `users`, kolom `password` berisi hash, bukan password asli.
+1. **XSS**: login, tambah barang dengan nama `<script>alert(1)</script>`. Di Daftar Barang harus tampil sebagai teks, tanpa pop-up.
+2. **CSRF**: setelah login, kirim `curl -X POST http://localhost:8000/barang/proses_hapus.php -d "id=1"` (bawa cookie session). Harus mendapat HTTP 403.
+3. **CSRF di login**: `curl -X POST http://localhost:8000/auth/proses_login.php -d "username=x&password=y"` harus mendapat HTTP 403.
+4. **Urutan guard**: kirim POST ke `barang/proses_tambah.php` tanpa login. Harus dialihkan ke Login, bukan 403.
+5. **Session fixation**: bandingkan cookie `PHPSESSID` di DevTools sebelum dan sesudah login. Nilainya harus berbeda.
+6. **SQL Injection**: isi username `' OR '1'='1` di form Login. Login harus gagal.
+7. **Regresi**: tambah, edit, dan hapus barang serta peminjam lewat tombol di aplikasi. Semuanya harus tetap berfungsi.
 
 ## Catatan
 
-Pembatasan akses berdasarkan `role` (misalnya hanya admin yang boleh menghapus) belum diterapkan pada jobsheet ini.
+- Token CSRF berlaku selama session. Bila session habis lalu form lama dikirim, hasilnya 403. Muat ulang halaman form untuk mendapat token baru.
+- Logout masih berupa tautan GET. Itu hanya mengakhiri sesi sendiri sehingga risikonya rendah, dan tidak diubah pada jobsheet ini.
+- Pembatasan akses berdasarkan `role` belum diterapkan.
 
 ## Kesimpulan
 
-Halaman yang mengubah data dilindungi sehingga hanya petugas yang sudah login yang bisa mengaksesnya. Password tidak pernah disimpan sebagai teks biasa, melainkan sebagai hash.
+Escape output dengan `e()` mencegah XSS, token CSRF memastikan permintaan POST berasal dari form aplikasi sendiri, dan regenerasi ID session menutup celah session fixation. Prepared statement sejak Jobsheet 8 sudah melindungi dari SQL Injection. Semua perlindungan ini murah diterapkan tetapi menutup serangan yang paling umum.

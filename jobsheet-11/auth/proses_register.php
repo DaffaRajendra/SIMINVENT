@@ -1,10 +1,13 @@
 <?php
 require_once __DIR__ . '/../includes/helpers.php';
 require_once __DIR__ . '/../includes/koneksi.php';
+require_once __DIR__ . '/../includes/csrf.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('register.php');
 }
+
+csrf_verify();
 
 $nama = trim($_POST['nama'] ?? '');
 $username = trim($_POST['username'] ?? '');

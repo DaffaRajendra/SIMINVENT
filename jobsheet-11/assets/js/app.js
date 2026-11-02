@@ -13,31 +13,21 @@ function indeksKolomCari(table) {
 }
 
 function initHapusConfirm() {
-    document.addEventListener("click", function (e) {
-        const btn = e.target.closest(".btn-hapus");
-        if (!btn) return;
+    // Tombol Hapus ada di dalam <form class="form-hapus" method="post"> berisi
+    // id dan token CSRF. Konfirmasi di event "submit" agar bisa dibatalkan.
+    document.addEventListener("submit", function (e) {
+        const form = e.target;
+        if (!form.classList.contains("form-hapus")) return;
 
-        const row = btn.closest("tr");
+        const row = form.closest("tr");
         const table = ambilTabel();
         let nama = "data ini";
         if (row && table) {
             const sel = row.cells[indeksKolomCari(table)];
             if (sel) nama = sel.textContent.trim();
         }
-        const yakin = confirm("Yakin ingin menghapus \"" + nama + "\"?");
-        if (yakin && btn.dataset.id !== undefined) {
-            const form = document.createElement("form");
-            form.method = "post";
-            form.action = "proses_hapus.php";
-
-            const input = document.createElement("input");
-            input.type = "hidden";
-            input.name = "id";
-            input.value = btn.dataset.id;
-
-            form.appendChild(input);
-            document.body.appendChild(form);
-            form.submit();
+        if (!confirm("Yakin ingin menghapus \"" + nama + "\"?")) {
+            e.preventDefault();
         }
     });
 }

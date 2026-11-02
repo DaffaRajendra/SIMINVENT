@@ -16,6 +16,7 @@ include __DIR__ . '/../includes/judul_halaman.php';
     <div class="card">
         <div class="card-body p-4">
             <form id="form-tambah" method="post" action="proses_tambah.php" novalidate>
+                <?= csrf_field() ?>
                 <div class="row g-4">
                     <div class="col-md-6">
                         <label for="nim" class="form-label fw-semibold">NIM / NIP</label>

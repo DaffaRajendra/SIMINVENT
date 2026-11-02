@@ -1,10 +1,13 @@
 <?php
 require __DIR__ . '/../includes/auth.php';
 require __DIR__ . '/../includes/koneksi.php';
+require_once __DIR__ . '/../includes/csrf.php';
 
 if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
     redirect('tambah.php');
 }
+
+csrf_verify();
 
 $kodeBarang = trim($_POST['kode_barang'] ?? '');
 $namaBarang = trim($_POST['nama_barang'] ?? '');

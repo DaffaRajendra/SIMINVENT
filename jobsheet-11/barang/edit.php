@@ -34,6 +34,7 @@ include __DIR__ . '/../includes/judul_halaman.php';
     <div class="card">
         <div class="card-body p-4">
             <form id="form-tambah" method="post" action="proses_edit.php" novalidate>
+                <?= csrf_field() ?>
                 <input type="hidden" name="id" value="<?= (int) $id ?>">
                 <div class="row g-4">
                     <div class="col-md-6">

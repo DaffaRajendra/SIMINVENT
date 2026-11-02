@@ -83,7 +83,11 @@ include __DIR__ . '/../includes/judul_halaman.php';
                             <td><?= e(date('d-m-Y H:i', strtotime($barang['dibuat_pada']))) ?></td>
                             <td class="text-nowrap">
                                 <a href="edit.php?id=<?= (int) $barang['id'] ?>" class="btn btn-sm btn-outline-secondary"><i class="bi bi-pencil"></i> Edit</a>
-                                <button type="button" class="btn btn-sm btn-outline-danger btn-hapus" data-id="<?= (int) $barang['id'] ?>"><i class="bi bi-trash"></i> Hapus</button>
+                                <form class="form-hapus d-inline" method="post" action="proses_hapus.php">
+                                    <input type="hidden" name="id" value="<?= (int) $barang['id'] ?>">
+                                    <?= csrf_field() ?>
+                                    <button type="submit" class="btn btn-sm btn-outline-danger btn-hapus"><i class="bi bi-trash"></i> Hapus</button>
+                                </form>
                             </td>
                         </tr>
                             <?php endforeach; ?>
